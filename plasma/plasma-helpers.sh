@@ -14,13 +14,16 @@ download_and_unpack() {
   local method="$3"
   case "$method" in
   git)
+    mkdir -p "$(dirname "$DESTDIR")" || return
     git clone -q --depth 1 "$URL" "$DESTDIR"
     ;;
   tar)
-    curl "$URL" | tar -xf - -C "$DESTDIR"
+    mkdir -p "$DESTDIR"
+    curl -fsSL "$URL" | tar -xf - -C "$DESTDIR"
     ;;
   zip)
-    curl "$URL" | unzip -d "$DESTDIR" /proc/self/fd/0
+    mkdir -p "$DESTDIR"
+    curl -fsSL "$URL" | unzip -d "$DESTDIR" /proc/self/fd/0
     ;;
   *)
     echo "error: bad extract method passed to download_and_unpack"
