@@ -91,6 +91,7 @@ link plasma/plasmashellrc .config/plasmashellrc
 # normal plasmoids: just symlink
 link plasma/plasmoids .local/share/plasma/plasmoids
 link plasma/desktoptheme .local/share/plasma/desktoptheme
+link plasma/icons .local/share/icons
 # build&install special plasmoids
 # each command is plasmoid-specific
 "$DIR/plasma/plasma-panel-colorizer/install-immutable.sh"
