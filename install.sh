@@ -99,6 +99,9 @@ link aliases .aliases
 link zsh-autosuggestions .config/zsh/zsh-autosuggestions
 link zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
 
+#neovim
+link nvim .config/nvim
+
 # matugen
 link matugen .config/matugen
 
