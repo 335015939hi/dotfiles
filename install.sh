@@ -84,6 +84,10 @@ requirecmd ln
 requirecmd mv
 requirecmd echo
 
+# make cargo install to .local/bin
+mkdir -p "$HOME/.cargo"
+ln -s ../.local/bin "$HOME"/.cargo/bin
+
 # Zsh stuff
 link zshrc .zshrc
 link profile .profile
