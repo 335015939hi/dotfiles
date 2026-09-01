@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # die if we're homeless
 if [ -z "$HOME" ]; then
   echo "HOME is not set"
@@ -13,9 +15,9 @@ DIR="$PWD"
 # installs a file as a symlink
 # usage: link <file> <dest>; where <file> is relative to repo root and <dest> is relative to $HOME
 link() {
-  source="$DIR/$1"
-  target="$HOME/$2"
-  NEWDIR="$(dirname "$target")"
+  local source="$DIR/$1"
+  local target="$HOME/$2"
+  local NEWDIR="$(dirname "$target")"
   if ! mkdir -p "$NEWDIR"; then
     status="$?"
     echo "mkdir '$NEWDIR' failed ($status)"
