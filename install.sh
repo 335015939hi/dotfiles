@@ -98,14 +98,7 @@ link matugen .config/matugen
 
 # KDE Plasma stuff
 # Plasma configs
-link plasma/dolphinrc .config/dolphinrc
-link plasma/kdeglobals .config/kdeglobals
-link plasma/kglobalshortcutsrc .config/kglobalshortcutsrc
-link plasma/kwinrc .config/kwinrc
-link plasma/kwinrulesrc .config/kwinrulesrc
-link plasma/plasma-org.kde.plasma.desktop-appletsrc .config/plasma-org.kde.plasma.desktop-appletsrc
-link plasma/plasmashellrc .config/plasmashellrc
-link plasma/darklyrc .config/darklyrc
+link_contents_to plasma/config .config
 # normal plasmoids: just symlink
 link_contents_to plasma/plasmoids .local/share/plasma/plasmoids
 link_contents_to plasma/desktoptheme .local/share/plasma/desktoptheme
