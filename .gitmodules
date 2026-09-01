@@ -7,6 +7,7 @@
 [submodule "wallpapers"]
 	path = wallpapers
 	url = https://github.com/335015939hi/wallpapers.git
+
 [submodule "plasma/kde-theme-installer"]
 	path = plasma/kde-theme-installer
 	url = https://github.com/robinsiebler/kde-theme-installer.git
