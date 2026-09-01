@@ -94,6 +94,8 @@ link plasma/plasmashellrc .config/plasmashellrc
 link plasma/plasmoids .local/share/plasma/plasmoids
 link plasma/desktoptheme .local/share/plasma/desktoptheme
 link plasma/icons .local/share/icons
+link plasma/kwin-effects/kwin4_effect_geometry_change .local/share/kwin/effects/kwin4_effect_geometry_change
+link plasma/kwin-scripts/polonium .local/sharae/kwin/scripts/polonium
 # build&install special plasmoids
 source "$DIR/plasma/special-plasmoids.sh"
 # my scripts
