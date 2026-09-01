@@ -18,6 +18,33 @@ INDEX_FILE: Final = DATA_PATH + "last_index"
 LAST_DIR_FILE: Final = DATA_PATH + "last_dir"
 DIRLIST_FILE: Final = DATA_PATH + "list"
 
+def get_last_index():
+    with open(INDEX_FILE,"r") as indexfile:
+        return int(indexfile.read())
+
+def set_last_index(index):
+    with open(INDEX_FILE,"w") as indexfile:
+        indexfile.write(str(index))
+
+def get_last_dir():
+    with open(LAST_DIR_FILE,"r") as dirfile:
+        return dirfile.read()
+
+def set_last_dir(path):
+    with open(LAST_DIR_FILE,"w") as dirfile:
+        dirfile.write(path)
+
+def get_dirlist():
+    list=[]
+    with open(DIRLIST_FILE,"r") as listfile:
+        for line in listfile:
+           list.append(line.rstrip("\n"))
+        return list
+
+def set_dirlist(list):
+    with open(DIRLIST_FILE,"w") as listfile:
+        for file in list:
+            listfile.write(str(file)+"\n")
 
 def get_image(path_str, reset, jump, autoshuffle):
     path = Path(path_str)
@@ -34,26 +61,18 @@ def get_image(path_str, reset, jump, autoshuffle):
         and Path(INDEX_FILE).is_file()
         and Path(DIRLIST_FILE).is_file()
     ):
-        with open(LAST_DIR_FILE, "r") as last_dir:
-            if last_dir.read() == path_str:
-                print("reusing path")
-                with open(DIRLIST_FILE, "r") as dirlist:
-                    filelist = []
-                    for line in dirlist:
-                        filelist.append(line.rstrip("\n"))
-                    with open(INDEX_FILE, "r") as indexfile:
-                        index = int(indexfile.read())
-                        index = index + jump
-                        if index >= len(filelist) or index < 0:
-                            index = index % len(filelist)
-                            if autoshuffle:
-                                random.shuffle(filelist)
-                                with open(DIRLIST_FILE, "w") as dirlist:
-                                    for line in filelist:
-                                        dirlist.write(str(line) + "\n")
-                    with open(INDEX_FILE, "w") as indexfile:
-                        indexfile.write(str(index))
-                return filelist[index]
+        if get_last_dir() == path_str:
+            print("reusing path")
+            filelist = get_dirlist()
+            index = get_last_index()
+            index = index + jump
+            if index >= len(filelist) or index < 0:
+                index = index % len(filelist)
+                if autoshuffle:
+                    random.shuffle(filelist)
+                    set_dirlist(filelist)
+            set_last_index(index)
+            return filelist[index]
 
     filelist = []
     for p in path.iterdir():
