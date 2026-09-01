@@ -52,6 +52,9 @@ link zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
 # matugen
 link matugen .config/matugen
 
+#KDE Plasma stuff
+link plasma/plasma-matugen-wallpaper.py .local/bin/plasma-matugen-wallpaper.py
+
 checkcmd zsh
 checkcmd starship
 checkcmd command-not-found
