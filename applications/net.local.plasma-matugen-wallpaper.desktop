@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=bash -c "source ~/.profile;plasma-matugen-wallpaper.py --reset ~/Pictures/wallpapers/resized"
+Name=change wallpaper with matugen
+NoDisplay=true
+StartupNotify=false
+Type=Application
+X-KDE-GlobalAccel-CommandShortcut=true
