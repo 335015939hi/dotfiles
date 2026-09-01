@@ -9,9 +9,21 @@ cd "$(dirname "$0")" || exit 2
 DIR="$PWD"
 
 install() {
-  NEWDIR="$(dirname "$HOME/$2")"
+  source="$DIR/$1"
+  target="$HOME/$2"
+  NEWDIR="$(dirname "$HOME/$target")"
   mkdir -p "$NEWDIR" || echo "mkdir '$NEWDIR' failed ($?)"
-  ln -s -f "$DIR/$1" "$HOME/$2" || echo "install $1 to $2 failed ($?)"
+  # Already the correct symlink
+  if [[ -L "$target" && "$(readlink -f "$target")" == "$(readlink -f "$source")" ]]; then
+    return 0
+  fi
+  # Existing file/directory/symlink
+  if [[ -e "$target" || -L "$target" ]]; then
+    local backup="${target}.backup.$(date +%Y%m%d%H%M%S)"
+    mv -- "$target" "$backup"
+    printf 'Backed up %s -> %s\n' "$target" "$backup"
+  fi
+  (ln -s "$source" "$target" && echo "Installed $source to $target") || echo "install $source to $target failed ($?)"
 }
 
 checkcmd() {
