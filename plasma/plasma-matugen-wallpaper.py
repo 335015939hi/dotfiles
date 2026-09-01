@@ -18,33 +18,40 @@ INDEX_FILE: Final = DATA_PATH + "last_index"
 LAST_DIR_FILE: Final = DATA_PATH + "last_dir"
 DIRLIST_FILE: Final = DATA_PATH + "list"
 
+
 def get_last_index():
-    with open(INDEX_FILE,"r") as indexfile:
+    with open(INDEX_FILE, "r") as indexfile:
         return int(indexfile.read())
 
+
 def set_last_index(index):
-    with open(INDEX_FILE,"w") as indexfile:
+    with open(INDEX_FILE, "w") as indexfile:
         indexfile.write(str(index))
 
+
 def get_last_dir():
-    with open(LAST_DIR_FILE,"r") as dirfile:
+    with open(LAST_DIR_FILE, "r") as dirfile:
         return dirfile.read()
 
+
 def set_last_dir(path):
-    with open(LAST_DIR_FILE,"w") as dirfile:
+    with open(LAST_DIR_FILE, "w") as dirfile:
         dirfile.write(path)
 
+
 def get_dirlist():
-    list=[]
-    with open(DIRLIST_FILE,"r") as listfile:
+    list = []
+    with open(DIRLIST_FILE, "r") as listfile:
         for line in listfile:
-           list.append(line.rstrip("\n"))
+            list.append(line.rstrip("\n"))
         return list
 
+
 def set_dirlist(list):
-    with open(DIRLIST_FILE,"w") as listfile:
+    with open(DIRLIST_FILE, "w") as listfile:
         for file in list:
-            listfile.write(str(file)+"\n")
+            listfile.write(str(file) + "\n")
+
 
 def get_image(path_str, reset, jump, autoshuffle):
     path = Path(path_str)
@@ -104,7 +111,7 @@ def run_matugen(image, scheme, mode):
     colors = len(status.stdout.strip().splitlines())
     command = ["matugen", "--type", scheme, "--mode", mode]
     command.append("--source-color-index")
-    command.append(str(random.randint(0,colors-1)))
+    command.append(str(random.randint(0, colors - 1)))
     command.append("image")
     command.append(image)
     status = subprocess.run(command)
@@ -115,7 +122,9 @@ def main():
     parser = argparse.ArgumentParser(
         description="set KDE Plasma wallpaper and call matugen"
     )
-    parser.add_argument("file", type=str, nargs="?",default=None, help="Path to the image or directory")
+    parser.add_argument(
+        "file", type=str, nargs="?", default=None, help="Path to the image or directory"
+    )
     parser.add_argument("-m", "--mode", type=str, default="dark", help="matugen mode")
     parser.add_argument("-r", "--reset", action="store_true", help="resets cache")
     parser.add_argument(
@@ -136,7 +145,7 @@ def main():
         autoshuffle = True
     if args.file is None:
         try:
-            args.file=get_last_dir()
+            args.file = get_last_dir()
         except FileNotFoundError:
             print("No last directory found. you must specify an image or directory")
             return 2
