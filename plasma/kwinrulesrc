@@ -1,0 +1,13 @@
+[6ebabf48-f621-4f35-a230-e56ed89b8d9d]
+Description=no minimum size
+minsizerule=2
+wmclass=.*
+
+[General]
+count=2
+rules=6ebabf48-f621-4f35-a230-e56ed89b8d9d,d47c9f65-a27b-4562-84d7-2a628007ee0f
+
+[d47c9f65-a27b-4562-84d7-2a628007ee0f]
+Description=no title bar
+noborderrule=3
+wmclass=.*

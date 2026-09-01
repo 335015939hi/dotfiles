@@ -1,0 +1,35 @@
+[General]
+TerminalApplication=alacritty
+TerminalService=Alacritty.desktop
+UseSystemBell=true
+XftAntialias=true
+XftSubPixel=rgb
+fixed=Monaspace Xenon NF Light,10,-1,5,300,0,0,0,0,0,0,0,0,0,0,1,Regular
+font=Serif,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=Serif,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=Serif,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=Serif,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+
+[Icons]
+Theme=Papirus-Colors
+
+[KDE]
+widgetStyle=Darkly
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=true
+Breadcrumb Navigation=true
+Decoration position=2
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Sort by=Name
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=140
+View Style=DetailTree
+
+[Shortcuts]

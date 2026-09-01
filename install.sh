@@ -65,7 +65,16 @@ link zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
 # matugen
 link matugen .config/matugen
 
-#KDE Plasma stuff
+# KDE Plasma stuff
+# Plasma configs
+link plasma/dolphinrc .config/dolphinrc
+link plasma/kdeglobals .config/kdeglobals
+link plasma/kglobalshortcutsrc .config/kglobalshortcutsrc
+link plasma/kwinrc .config/kwinrc
+link plasma/kwinrulesrc .config/kwinrulesrc
+link plasma/plasma-org.kde.plasma.desktop-appletsrc .config/plasma-org.kde.plasma.desktop-appletsrc
+link plasma/plasmashellrc .config/plasmashellrc
+# my scripts
 linkcmd plasma/plasma-matugen-wallpaper.py
 
 checkcmd zsh
