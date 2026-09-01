@@ -117,6 +117,12 @@ link plasma/plasma-profile.sh .config/plasma-workspace/env/plasma-profile.sh
 # desktop entries
 link_contents_to applications .local/share/applications
 
+# wallpapers
+link wallpapers Pictures/wallpapers
+if ! [ -d "$DIR/wallpapers/resized" ]; then
+  (cd "$DIR/wallpapers" && ./scripts/resize.sh)
+fi
+
 checkcmd zsh
 checkcmd starship
 checkcmd command-not-found
