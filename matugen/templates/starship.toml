@@ -4,7 +4,7 @@ palette="matugen"
 
 "$schema" = "https://starship.rs/config-schema.json"
 format = """
-$username$directory$fill$shlvl$jobs$hostname
+$username$directory$git_branch$fill$shlvl$jobs$hostname
 [╰──](fg:primary2)$status$character
 """
 right_format = "$cmd_duration$time"
@@ -66,6 +66,10 @@ use_os_path_sep = true
 [fill]
 symbol = "─"
 style="fg:primary2 bg:primary2"
+
+[git_branch]
+symbol=''
+format='[ $symbol](bg:primary2 fg:primary)[$branch](bg:primary2 fg:contrast2)'
 
 [hostname]
 ssh_only = false
