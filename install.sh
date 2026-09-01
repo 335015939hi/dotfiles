@@ -111,6 +111,9 @@ source "$DIR/plasma/special-plasmoids.sh"
 linkcmd plasma/plasma-matugen-wallpaper.py
 link plasma/plasma-profile.sh .config/plasma-workspace/env/plasma-profile.sh
 
+# desktop entries
+link_contents_to applications .local/share/applications
+
 checkcmd zsh
 checkcmd starship
 checkcmd command-not-found
