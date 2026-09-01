@@ -14,6 +14,13 @@ install() {
   ln -s -f "$DIR/$1" "$HOME/$2" || echo "install $1 to $2 failed ($?)"
 }
 
+checkcmd() {
+  if ! which "$1" >/dev/null 2>&1; then
+    echo "Command '$1' not found"
+    return 2
+  fi
+}
+
 # Zsh stuff
 install zshrc .zshrc
 install profile .profile
@@ -24,3 +31,12 @@ install zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
 # matugen
 install matugen .config/matugen
 install plasma-matugen-wallpaper.py .local/bin/plasma-matugen-wallpaper.py
+
+checkcmd zsh
+checkcmd starship
+checkcmd command-not-found
+checkcmd tmux
+checkcmd e
+checkcmd vim
+checkcmd nvim
+checkcmd matugen
