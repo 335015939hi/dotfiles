@@ -10,3 +10,5 @@ plasma_panel_colorizer() {
 # TODO: darkly and klassy
 
 plasma_panel_colorizer
+
+echo 'Please install Darkly and Klassy manually, if you have not done so already'
