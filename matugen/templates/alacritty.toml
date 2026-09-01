@@ -1,21 +1,21 @@
 [font]
 size = 10.0
 
-# Set the primary font to Monaspace Neon NF
+# Set the primary font to Monaspace Xenon NF
 [font.normal]
-family = "Monaspace Neon NF"
+family = "Monaspace Xenon NF"
 style = "Regular"
 
 [font.bold]
-family = "Monaspace Neon NF"
+family = "Monaspace Xenon NF"
 style = "Bold"
 
 [font.italic]
-family = "Monaspace Neon NF"
+family = "Monaspace Xenon NF"
 style = "Italic"
 
 [font.bold_italic]
-family = "Monaspace Neon NF"
+family = "Monaspace Xenon NF"
 style = "Bold Italic"
 
 # Primary background and foreground colors
