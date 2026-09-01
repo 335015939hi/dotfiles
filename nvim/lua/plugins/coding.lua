@@ -8,8 +8,8 @@ return {
         preset = "default",
 
         ["<Tab>"] = { "accept", "fallback" },
-        ["<S-Tab>"] = { "select_next", "fallback" },
-        ["<C-Tab>"] = { "select_prev", "fallback" },
+        ["<C-Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
 
         ["<Up>"] = { "fallback" },
         ["<Down>"] = { "fallback" },
