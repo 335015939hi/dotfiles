@@ -57,6 +57,18 @@ checkcmd() {
   fi
 }
 
+# require the existance of a command, or exit
+requirecmd() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "Error: required command '$1' not found"
+    exit 22
+  fi
+}
+
+requirecmd ln
+requirecmd mv
+requirecmd echo
+
 # Zsh stuff
 link zshrc .zshrc
 link profile .profile
