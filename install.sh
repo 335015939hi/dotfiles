@@ -66,7 +66,7 @@ link zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
 link matugen .config/matugen
 
 #KDE Plasma stuff
-link plasma/plasma-matugen-wallpaper.py .local/bin/plasma-matugen-wallpaper.py
+linkcmd plasma/plasma-matugen-wallpaper.py
 
 checkcmd zsh
 checkcmd starship
