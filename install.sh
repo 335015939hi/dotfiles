@@ -11,8 +11,8 @@ fi
 # find repo root
 cd "$(dirname "$0")" || exit 2
 DIR="$PWD"
-#download all submodules
-git submodule update
+# download all submodules
+git submodule update --init --recursive
 
 # installs a file as a symlink
 # usage: link <file> <dest>; where <file> is relative to repo root and <dest> is relative to $HOME
@@ -48,8 +48,8 @@ link() {
 link_contents_to() {
   local sourcedir="$1"
   local destdir="$2"
-  mkdir -p "$destdir"
-  if [ ! -d "$destdir" ]; then
+  mkdir -p "$HOME/$destdir"
+  if [ ! -d "$HOME/$destdir" ]; then
     echo "$destdir is not a directory"
     return 20
   fi
@@ -64,7 +64,7 @@ link_contents_to() {
 # installs a command to ~/.local/bin
 # usage: linkcmd <file>; where file is relative to repo root
 linkcmd() {
-  link "$1" "$HOME/.local/bin/$(basename "$1")"
+  link "$1" ".local/bin/$(basename "$1")"
 }
 
 # check for the existance of a command
