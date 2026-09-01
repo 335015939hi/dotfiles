@@ -1,0 +1,102 @@
+[templates.starship]
+input_path = '~/.config/matugen/templates/starship.toml'
+output_path = '~/.config/starship.toml'
+
+# Runs before the template is exported. You can use keywords here.
+# If you want the command to be async, add an & symbol to the end of the command on unix.
+#pre_hook = 'echo "source color {{colors.source_color.default.hex}}, source image {{image}}, closest color {{closest_color}}"'
+# Runs after the template is exported. You can use keywords here.
+# If you want the command to be async, add an & symbol to the end of the command on unix.
+#post_hook = 'echo "after gen"'
+
+[templates.KDE]
+input_path = '~/.config/matugen/templates/kde_matugen.colors'
+output_path = '~/.local/share/color-schemes/matugen.colors'
+post_hook = 'cd ~/.local/share/color-schemes && if test -f matugen1.colors; then rm -f matugen1.colors && cp matugen.colors matugen2.colors && plasma-apply-colorscheme matugen2; else rm -f matugen2.colors && cp matugen.colors matugen1.colors && plasma-apply-colorscheme matugen1; fi'
+
+[templates.alacritty]
+input_path = '~/.config/matugen/templates/alacritty.toml'
+output_path = '~/.config/alacritty/alacritty.toml'
+
+[templates.tmux]
+input_path = '~/.config/matugen/templates/tmux.conf'
+output_path = '~/.config/tmux/tmux.conf'
+post_hook = 'tmux source-file ~/.config/tmux/tmux.conf || true'
+
+[templates.neovim]
+input_path = "~/.config/matugen/templates/nvim-colors.json"
+output_path = "~/.cache/matugen/nvim-colors.json"
+post_hook = "pkill -SIGUSR1 nvim || true"
+
+[templates.papirus-folders]
+input_path = '~/.config/matugen/templates/papirus-color'
+colors_to_compare = [
+    { name = "black",      color = "#4f4f4f" },
+    { name = "blue",       color = "#5294e2" },
+    { name = "bluegrey",   color = "#607d8b" },
+    { name = "brown",      color = "#ae8e6c" },
+    { name = "carmine",    color = "#a30002" },
+    { name = "cyan",       color = "#00bcd4" },
+    { name = "darkcyan",   color = "#45abb7" },
+    { name = "deeporange", color = "#eb6637" },
+    { name = "green",      color = "#87b158" },
+    { name = "grey",       color = "#8e8e8e" },
+    { name = "indigo",     color = "#5c6bc0" },
+    { name = "magenta",    color = "#ca71df" },
+    { name = "nordic",     color = "#81a1c1" },
+    { name = "orange",     color = "#ee923a" },
+    { name = "palebrown",  color = "#d1bfae" },
+    { name = "paleorange", color = "#eeca8f" },
+    { name = "pink",       color = "#f06292" },
+    { name = "red",        color = "#e25252" },
+    { name = "teal",       color = "#16a085" },
+    { name = "violet",     color = "#7e57c2" },
+    { name = "white",      color = "#e4e4e4" },
+    { name = "yaru",       color = "#676767" },
+    { name = "yellow",     color = "#f9bd30" },
+]
+compare_to = "{{ colors.primary.default.hex }}"
+post_hook = 'papirus-folders -C {{ closest_color }} -u > /dev/null 2>&1 &'
+index = 1
+
+[config]
+
+# Enables caching which will cache the colorscheme, custom colors, etc. into a cache folder located in
+# Windows: C:\Users\user\AppData\Roaming\InioX\matugen\cache\images\<file>
+# Linux: $XDG_CACHE_HOME/matugen/<file> or $HOME/.cache/matugen/images/<file>
+# MacOS: $HOME/Library/Caches/matugen/images/<file>
+# The file follows this naming: <image_name>.<image_extension>.<image_hash>.json
+# For example: testimage.png.0cfd2d624b3d09bf6246b7be9ca79e207e7aa1189d961d44949628b99811bb9d.json
+# You can modify the cache and it will then be loaded when using the same image.
+# The colors are defined using the #RRGGBBAA format.
+caching = true
+
+# Changing the syntax
+# Expr is for keywords like {{ <keyword> }}
+expr_prefix = "{{"
+expr_postfix = "}}"
+
+# Block is for stuff like for loops etc.
+block_prefix = "<*"
+block_postfix = "*>"
+
+# Defaults to the contrast from CLI if unspecified.
+# Value from -1 to 1.
+# -1 represents minimum contrast, 0 represents standard (i.e. the design as spec'd),
+# and 1 represents maximum contrast.
+contrast = 0.1
+
+# Will set the source color index just like the `--source-color-index` CLI flag (0 - 4).
+# 0 = most dominant, 1 = 2nd most dominant, etc.
+# IF the CLI flag is specified, it will override this value.
+source_color_index = 1
+
+import_json_files = [
+    "~/.config/matugen/alpha.json"
+]
+
+[config.wallpaper]
+# Whether to set the wallpaper or not
+set = false
+command = "plasma-apply-wallpaperimage {{image}}"
+

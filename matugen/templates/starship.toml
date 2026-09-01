@@ -1,0 +1,137 @@
+# Warning: This config does not include keys that have an unset value
+
+palette="matugen"
+
+"$schema" = "https://starship.rs/config-schema.json"
+format = """
+$username$directory$fill$shlvl$jobs$hostname
+[╰──](fg:primary2)$status$character
+"""
+right_format = "$cmd_duration$time"
+continuation_prompt = "$character"
+scan_timeout = 30
+command_timeout = 500
+add_newline = true
+follow_symlinks = true
+#       
+#
+[palettes.matugen]
+primary="{{colors.primary.light.hex}}"
+contrast="{{colors.on_primary.light.hex}}"
+contrastmuted="#300030"
+primary2="{{colors.primary_container.light.hex}}"
+contrast2="{{colors.on_primary_container.light.hex}}"
+primary3="{{colors.background.light.hex}}"
+contrast3="{{colors.on_background.light.hex}}"
+error="{{colors.error.light.hex}}"
+
+
+[profiles]
+
+[character]
+format = "$symbol"
+success_symbol = "[──](bold primary)"
+error_symbol = "[─](bold error)"
+vimcmd_symbol = "[──](bold green)"
+vimcmd_visual_symbol = "[──](bold yellow)"
+vimcmd_replace_symbol = "[──](bold purple)"
+vimcmd_replace_one_symbol = "[──](bold purple)"
+disabled = false
+
+[cmd_duration]
+min_time = 0
+format = "[$duration](fg:primary2) "
+show_milliseconds = true
+disabled = false
+show_notifications = true
+#longer than 50 secs
+min_time_to_notify = 50000
+
+[directory]
+truncation_length = 5
+truncate_to_repo = true
+fish_style_pwd_dir_length = 0
+use_logical_path = false
+format = "[ $path ](bg:primary fg:contrast bold)[$read_only](fg:error bg:primary)[](fg:primary bg:primary2)"
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+disabled = false
+read_only = "🔒"
+read_only_style = "red"
+truncation_symbol = "#/"
+home_symbol = "~"
+use_os_path_sep = true
+
+[directory.substitutions]
+
+[fill]
+symbol = "─"
+style="fg:primary2 bg:primary2"
+
+[hostname]
+ssh_only = false
+trim_at = "."
+format = "[](fg:primary bg:primary2)[$ssh_symbol$hostname](fg:contrast bold bg:primary)[ ](fg:primary)"
+ssh_symbol = "[ssh:](fg:contrastmuted bg:primary)"
+disabled = false
+
+[hostname.aliases]
+
+[jobs]
+threshold = 1
+symbol_threshold = 1
+number_threshold = 2
+format = "[j](#3030af)[$number](bold #7f7fff) "
+disabled = false
+
+[line_break]
+disabled = false
+
+[shell]
+format = "[$indicator]($style) "
+bash_indicator = "bsh"
+fish_indicator = "fsh"
+zsh_indicator = "zsh"
+powershell_indicator = "psh"
+ion_indicator = "ion"
+elvish_indicator = "esh"
+tcsh_indicator = "tsh"
+nu_indicator = "nu"
+xonsh_indicator = "xsh"
+cmd_indicator = "cmd"
+unknown_indicator = ""
+style = "white bold"
+disabled = true
+
+[shlvl]
+threshold = 2
+format = "[+](#af5f00)[$shlvl](#ffff00) "
+repeat = false
+repeat_offset = 0
+disabled = true
+
+[status]
+format = "[](fg:error)[ $status ](fg:contrast bg:error)[](fg:error)"
+map_symbol = false
+recognize_signal_code = true
+pipestatus = false
+pipestatus_separator = "|"
+pipestatus_format = '\[$pipestatus\] => [$symbol$common_meaning$signal_name$maybe_int]($style) '
+disabled = false
+
+[time]
+format = "[$time](fg:contrast)"
+use_12hr = false
+disabled = false
+utc_time_offset = "local"
+time_range = "-"
+
+[username]
+detect_env_vars = []
+format = "[╭─](fg:primary2)[ $user ](bg:primary2 fg:contrast2)[](fg:primary2 bg:primary)"
+show_always = true
+disabled = false
+
+[username.aliases]
+
+[custom]
+
