@@ -1,13 +1,17 @@
 #!/bin/bash
 
+# die if we're homeless
 if [ -z "$HOME" ]; then
   echo "HOME is not set"
   exit 2
 fi
 
+# find repo root
 cd "$(dirname "$0")" || exit 2
 DIR="$PWD"
 
+# installs a file as a symlink
+# usage: link <file> <dest>; where <file> is relative to repo root and <dest> is relative to $HOME
 link() {
   source="$DIR/$1"
   target="$HOME/$2"
@@ -35,6 +39,15 @@ link() {
   echo "Installed $source to $target"
 }
 
+# installs a command to ~/.local/bin
+# usage: linkcmd <file>; where file is relative to repo root
+linkcmd() {
+  link "$1" "$HOME/.local/bin/$(basename "$1")"
+}
+
+# check for the existance of a command
+# in future (maybe) prompt to install command based on detected distribution and/or install directly from this repo
+# usage: checkcmd <command>
 checkcmd() {
   if ! command -v "$1" >/dev/null 2>&1; then
     echo "Command '$1' not found"
