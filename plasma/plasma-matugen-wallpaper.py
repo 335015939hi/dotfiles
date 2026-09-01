@@ -86,18 +86,10 @@ def get_image(path_str, reset, jump, autoshuffle):
             filelist.append(str(p))
     if len(filelist) == 0:
         raise FileNotFoundError("No images found in '" + path_str + "'")
-
-    with open(LAST_DIR_FILE, "w") as last_dir:
-        last_dir.write(path_str)
-
+    set_last_dir(path_str)
     random.shuffle(filelist)
-
-    with open(DIRLIST_FILE, "w") as dirlist:
-        for line in filelist:
-            dirlist.write(str(line) + "\n")
-    with open(INDEX_FILE, "w") as indexfile:
-        indexfile.write("0")
-
+    set_dirlist(filelist)
+    set_last_index(0)
     return filelist[0]
 
 
