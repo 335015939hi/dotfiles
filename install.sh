@@ -93,11 +93,7 @@ link plasma/plasmoids .local/share/plasma/plasmoids
 link plasma/desktoptheme .local/share/plasma/desktoptheme
 link plasma/icons .local/share/icons
 # build&install special plasmoids
-# each command is plasmoid-specific
-# build&install panel colorizer
-requirecmd cmake
-(cd "$DIR/plasma/plasma-panel-colorizer && $DIR/plasma/plasma-panel-colorizer/install-immutable.sh")
-# TODO: darkly and klassy
+source "$DIR/plasma/special-plasmoids.sh"
 # my scripts
 linkcmd plasma/plasma-matugen-wallpaper.py
 
