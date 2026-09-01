@@ -115,7 +115,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="set KDE Plasma wallpaper and call matugen"
     )
-    parser.add_argument("file", type=str, help="Path to the image or directory")
+    parser.add_argument("file", type=str, nargs="?",default=None, help="Path to the image or directory")
     parser.add_argument("-m", "--mode", type=str, default="dark", help="matugen mode")
     parser.add_argument("-r", "--reset", action="store_true", help="resets cache")
     parser.add_argument(
@@ -134,6 +134,12 @@ def main():
     if args.jump is None:
         args.jump = 1
         autoshuffle = True
+    if args.file is None:
+        try:
+            args.file=get_last_dir()
+        except FileNotFoundError:
+            print("No last directory found. you must specify an image or directory")
+            return 2
 
     Path(DATA_PATH).mkdir(parents=True, exist_ok=True)
 
