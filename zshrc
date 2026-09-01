@@ -90,7 +90,7 @@ ZSH_HIGHLIGHT_STYLES[string]='fg=green'``
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,underline'
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bold'
 source "$HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 if which carapace >/dev/null 2>&1;then
   source <(carapace _carapace zsh)

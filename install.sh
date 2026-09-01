@@ -19,3 +19,4 @@ install zshrc .zshrc
 install profile .profile
 install aliases .aliases
 install zsh-autosuggestions .config/zsh/zsh-autosuggestions
+install zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
