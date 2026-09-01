@@ -51,7 +51,6 @@ link zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
 
 # matugen
 link matugen .config/matugen
-link plasma-matugen-wallpaper.py .local/bin/plasma-matugen-wallpaper.py
 
 checkcmd zsh
 checkcmd starship
