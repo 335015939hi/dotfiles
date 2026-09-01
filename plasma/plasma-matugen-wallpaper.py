@@ -53,6 +53,25 @@ def set_dirlist(list):
             listfile.write(str(file) + "\n")
 
 
+def find_images_in_path(path_str):
+    path = Path(path_str)
+    if not path.is_dir():
+        raise NotADirectoryError(path)
+    filelist = []
+    for p in path.iterdir():
+        if p.is_file() and p.suffix.lower() in {
+            ".jpg",
+            ".jpeg",
+            ".png",
+            ".webp",
+            ".jxl",
+        }:
+            filelist.append(str(p))
+        elif p.is_dir():
+            filelist += find_images_in_path(str(p))
+    return filelist
+
+
 def get_image(path_str, reset, jump, autoshuffle):
     path = Path(path_str)
 
@@ -81,16 +100,7 @@ def get_image(path_str, reset, jump, autoshuffle):
             set_last_index(index)
             return filelist[index]
 
-    filelist = []
-    for p in path.iterdir():
-        if p.is_file() and p.suffix.lower() in {
-            ".jpg",
-            ".jpeg",
-            ".png",
-            ".webp",
-            ".jxl",
-        }:
-            filelist.append(str(p))
+    filelist = find_images_in_path(path_str)
     if len(filelist) == 0:
         raise FileNotFoundError("No images found in '" + path_str + "'")
     set_last_dir(path_str)
