@@ -79,3 +79,13 @@ post_hook = 'papirus-folders -C {{ closest_color }} -u > /dev/null 2>&1 &'
 index = 1
 
 
+# KDE stuff
+
+[templates.KDE]
+input_path = '~/.config/matugen/templates/kde_matugen.colors'
+output_path = '~/.local/share/color-schemes/matugen.colors'
+post_hook = 'cd ~/.local/share/color-schemes && if test -f matugen1.colors; then rm -f matugen1.colors && cp matugen.colors matugen2.colors && plasma-apply-colorscheme matugen2; else rm -f matugen2.colors && cp matugen.colors matugen1.colors && plasma-apply-colorscheme matugen1; fi'
+
+[templates.KDE_Darkly]
+input_path = '~/.config/matugen/templates/darklyrc'
+output_path = '~/.config/darklyrc'
