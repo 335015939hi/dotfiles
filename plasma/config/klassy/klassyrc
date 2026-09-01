@@ -38,8 +38,12 @@ IntegratedRoundedRectangleBottomPadding=2
 LockFullHeightButtonSpacingLeftRight=true
 SpacerButtonWidthRelative=100
 
+[Exceptions]
+ExceptionWindowPropertyPattern=.*
+HideTitleBar=Always
+
 [Global]
-LookAndFeelSet=tony-2026-08-24
+LookAndFeelSet=org.debian.desktop
 
 [ShadowStyle]
 ShadowSizeInactive=ShadowNone
