@@ -8,11 +8,15 @@ fi
 cd "$(dirname "$0")" || exit 2
 DIR="$PWD"
 
-install() {
+link() {
   source="$DIR/$1"
   target="$HOME/$2"
-  NEWDIR="$(dirname "$HOME/$target")"
-  mkdir -p "$NEWDIR" || echo "mkdir '$NEWDIR' failed ($?)"
+  NEWDIR="$(dirname "$target")"
+  if ! mkdir -p "$NEWDIR"; then
+    status="$?"
+    echo "mkdir '$NEWDIR' failed ($status)"
+    return "$status"
+  fi
   # Already the correct symlink
   if [[ -L "$target" && "$(readlink -f "$target")" == "$(readlink -f "$source")" ]]; then
     return 0
@@ -23,26 +27,31 @@ install() {
     mv -- "$target" "$backup"
     printf 'Backed up %s -> %s\n' "$target" "$backup"
   fi
-  (ln -s "$source" "$target" && echo "Installed $source to $target") || echo "install $source to $target failed ($?)"
+  if ! ln -s "$source" "$target"; then
+    status="$?"
+    echo "Install $source to $target failed ($status)"
+    return "$status"
+  fi
+  echo "Installed $source to $target"
 }
 
 checkcmd() {
-  if ! which "$1" >/dev/null 2>&1; then
+  if ! command -v "$1" >/dev/null 2>&1; then
     echo "Command '$1' not found"
     return 2
   fi
 }
 
 # Zsh stuff
-install zshrc .zshrc
-install profile .profile
-install aliases .aliases
-install zsh-autosuggestions .config/zsh/zsh-autosuggestions
-install zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
+link zshrc .zshrc
+link profile .profile
+link aliases .aliases
+link zsh-autosuggestions .config/zsh/zsh-autosuggestions
+link zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
 
 # matugen
-install matugen .config/matugen
-install plasma-matugen-wallpaper.py .local/bin/plasma-matugen-wallpaper.py
+link matugen .config/matugen
+link plasma-matugen-wallpaper.py .local/bin/plasma-matugen-wallpaper.py
 
 checkcmd zsh
 checkcmd starship
