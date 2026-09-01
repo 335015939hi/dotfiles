@@ -11,7 +11,7 @@ DIR="$PWD"
 install() {
   NEWDIR="$(dirname "$HOME/$2")"
   mkdir -p "$NEWDIR" || echo "mkdir '$NEWDIR' failed ($?)"
-  ln -s "$DIR/$1" "$HOME/$2" || echo "install $1 to $2 failed ($?)"
+  ln -s -f "$DIR/$1" "$HOME/$2" || echo "install $1 to $2 failed ($?)"
 }
 
 # Zsh stuff
