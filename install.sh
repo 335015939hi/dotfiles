@@ -43,6 +43,21 @@ link() {
   echo "Installed $source to $target"
 }
 
+# link contents of dir into another dir, basically mkdir -p $dest && cp $source/* $dest except with symlinks
+# usage: link_contents_to <source> <dest>; where <source> is relative to repo root and <dest> is relative to $HOME and must be a directory
+link_contents_to() {
+  local sourcedir="$1"
+  local destdir="$2"
+  mkdir -p "$destdir"
+  if [ ! -d "$destdir" ]; then
+    echo "$destdir is not a directory"
+    return 20
+  fi
+  for file in "$DIR/$sourcedir"/*; do
+    link "$sourcedir/$(basename "$file")" "$destdir/$(basename "$file")" || return 1
+  done
+}
+
 # installs a command to ~/.local/bin
 # usage: linkcmd <file>; where file is relative to repo root
 linkcmd() {
