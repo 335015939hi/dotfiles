@@ -1,0 +1,4 @@
+alias ls=eza
+alias grep="grep --color=auto"
+alias cp="cp --reflink=auto"
+alias cat=lolcat
