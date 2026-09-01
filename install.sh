@@ -51,6 +51,9 @@ link_contents_to() {
     echo "$destdir is not a directory"
     return 20
   fi
+  if [ -z "$(ls "$DIR/$sourcedir/")" ]; then
+    return 0
+  fi
   for file in "$DIR/$sourcedir"/*; do
     link "$sourcedir/$(basename "$file")" "$destdir/$(basename "$file")" || return 1
   done
