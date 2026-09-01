@@ -101,6 +101,9 @@ link zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
 # matugen
 link matugen .config/matugen
 
+# desktop entries
+link_contents_to applications .local/share/applications
+
 checkcmd zsh
 checkcmd starship
 checkcmd command-not-found
