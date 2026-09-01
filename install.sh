@@ -106,11 +106,11 @@ link plasma/kwinrulesrc .config/kwinrulesrc
 link plasma/plasma-org.kde.plasma.desktop-appletsrc .config/plasma-org.kde.plasma.desktop-appletsrc
 link plasma/plasmashellrc .config/plasmashellrc
 # normal plasmoids: just symlink
-link plasma/plasmoids .local/share/plasma/plasmoids
-link plasma/desktoptheme .local/share/plasma/desktoptheme
-link plasma/icons .local/share/icons
-link plasma/kwin-effects/kwin4_effect_geometry_change .local/share/kwin/effects/kwin4_effect_geometry_change
-link plasma/kwin-scripts/polonium .local/share/kwin/scripts/polonium
+link_contents_to plasma/plasmoids .local/share/plasma/plasmoids
+link_contents_to plasma/desktoptheme .local/share/plasma/desktoptheme
+link_contents_to plasma/icons .local/share/icons
+link_contents_to plasma/kwin-effects .local/share/kwin/effects
+link_contents_to plasma/kwin-scripts .local/share/kwin/scripts
 # build&install special plasmoids
 source "$DIR/plasma/special-plasmoids.sh"
 # my scripts
