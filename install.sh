@@ -126,6 +126,11 @@ if ! [ -d "$DIR/wallpapers/resized" ]; then
   (cd "$DIR/wallpapers" && ./scripts/resize.sh)
 fi
 
+# fonts
+requirecmd fc-cache
+link fonts .local/share/fonts
+fc-cache -f
+
 checkcmd zsh
 checkcmd starship
 checkcmd command-not-found
