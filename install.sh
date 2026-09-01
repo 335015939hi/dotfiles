@@ -11,6 +11,8 @@ fi
 # find repo root
 cd "$(dirname "$0")" || exit 2
 DIR="$PWD"
+#download all submodules
+git submodule update
 
 # installs a file as a symlink
 # usage: link <file> <dest>; where <file> is relative to repo root and <dest> is relative to $HOME
