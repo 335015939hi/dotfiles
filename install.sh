@@ -14,6 +14,8 @@ install() {
   ln -s "$DIR/$1" "$HOME/$2" || echo "install $1 to $2 failed ($?)"
 }
 
+# Zsh stuff
 install zshrc .zshrc
 install profile .profile
 install aliases .aliases
+install zsh-autosuggestions .config/zsh/zsh-autosuggestions
