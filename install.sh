@@ -21,9 +21,8 @@ link() {
   local target="$HOME/$2"
   local NEWDIR="$(dirname "$target")"
   if ! mkdir -p "$NEWDIR"; then
-    status="$?"
     echo "mkdir '$NEWDIR' failed ($status)"
-    return "$status"
+    return 1
   fi
   # Already the correct symlink
   if [[ -L "$target" && "$(readlink -f "$target")" == "$(readlink -f "$source")" ]]; then
@@ -36,9 +35,8 @@ link() {
     printf 'Backed up %s -> %s\n' "$target" "$backup"
   fi
   if ! ln -s "$source" "$target"; then
-    status="$?"
     echo "Install $source to $target failed ($status)"
-    return "$status"
+    return 1
   fi
   echo "Installed $source to $target"
 }
@@ -90,8 +88,9 @@ requirecmd mv
 requirecmd echo
 
 # make cargo install to .local/bin
+# not too important if it fails
 mkdir -p "$HOME/.cargo"
-ln -s ../.local/bin "$HOME"/.cargo/bin
+ls $HOME/.cargo/bin >/dev/null 2>&1 || ln -s ../.local/bin "$HOME"/.cargo/bin
 
 # Zsh stuff
 link zshrc .zshrc
