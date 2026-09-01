@@ -88,6 +88,13 @@ link plasma/kwinrc .config/kwinrc
 link plasma/kwinrulesrc .config/kwinrulesrc
 link plasma/plasma-org.kde.plasma.desktop-appletsrc .config/plasma-org.kde.plasma.desktop-appletsrc
 link plasma/plasmashellrc .config/plasmashellrc
+# normal plasmoids: just symlink
+link plasma/plasmoids .local/share/plasma/plasmoids
+link plasma/desktoptheme .local/share/plasma/desktoptheme
+# build&install special plasmoids
+# each command is plasmoid-specific
+"$DIR/plasma/plasma-panel-colorizer/install-immutable.sh"
+# TODO: darkly and klassy
 # my scripts
 linkcmd plasma/plasma-matugen-wallpaper.py
 

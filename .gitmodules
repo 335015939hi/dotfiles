@@ -7,3 +7,6 @@
 [submodule "plasma/kde-theme-installer"]
 	path = plasma/kde-theme-installer
 	url = https://github.com/robinsiebler/kde-theme-installer.git
+[submodule "plasma/plasma-panel-colorizer"]
+	path = plasma/plasma-panel-colorizer
+	url = https://github.com/luisbocanegra/plasma-panel-colorizer
