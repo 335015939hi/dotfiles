@@ -4,3 +4,6 @@
 [submodule "zsh-syntax-highlighting"]
 	path = zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "wallpapers"]
+	path = wallpapers
+	url = https://github.com/335015939hi/wallpapers.git
