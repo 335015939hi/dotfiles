@@ -12,7 +12,7 @@ from typing import Final
 
 DATA_PATH: Final = (
     os.environ.get("XDG_CACHE_HOME", os.environ.get("HOME", "") + "/.cache")
-    + "/plasma-mutagen-wallpaper-py/"
+    + "/plasma-matugen-wallpaper-py/"
 )
 INDEX_FILE: Final = DATA_PATH + "last_index"
 LAST_DIR_FILE: Final = DATA_PATH + "last_dir"
