@@ -5,10 +5,10 @@ UseSystemBell=true
 XftAntialias=true
 XftSubPixel=rgb
 fixed=Monaspace Xenon NF Light,10,-1,5,300,0,0,0,0,0,0,0,0,0,0,1,Regular
-font=Serif,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-menuFont=Serif,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-smallestReadableFont=Serif,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-toolBarFont=Serif,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+font=Cormorant Garamond Medium,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=Cormorant Garamond Medium,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=Cormorant Garamond Medium,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=Cormorant Garamond Medium,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
 [Icons]
 Theme=Papirus-Colors
