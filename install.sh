@@ -109,6 +109,7 @@ link_contents_to plasma/kwin-scripts .local/share/kwin/scripts
 source "$DIR/plasma/special-plasmoids.sh"
 # my scripts
 linkcmd plasma/plasma-matugen-wallpaper.py
+link plasma/plasma-profile.sh .config/plasma-workspace/env/plasma-profile.sh
 
 checkcmd zsh
 checkcmd starship
