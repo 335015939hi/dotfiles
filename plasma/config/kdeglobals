@@ -3,12 +3,12 @@ TerminalApplication=alacritty
 TerminalService=Alacritty.desktop
 UseSystemBell=true
 XftAntialias=true
-XftSubPixel=rgb
+XftHintStyle=hintnone
+XftSubPixel=none
 fixed=Monaspace Xenon NF Light,10,-1,5,300,0,0,0,0,0,0,0,0,0,0,1,Regular
-font=Cormorant Garamond Medium,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-menuFont=Cormorant Garamond Medium,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-smallestReadableFont=Cormorant Garamond Medium,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-toolBarFont=Cormorant Garamond Medium,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+font=Cormorant Garamond,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
+menuFont=Cormorant Garamond,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
+smallestReadableFont=Cormorant Garamond,8,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
 
 [Icons]
 Theme=Papirus-Colors
