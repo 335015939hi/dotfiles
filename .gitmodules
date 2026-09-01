@@ -4,3 +4,6 @@
 [submodule "zsh-syntax-highlighting"]
 	path = zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "plasma/kde-theme-installer"]
+	path = plasma/kde-theme-installer
+	url = https://github.com/robinsiebler/kde-theme-installer.git

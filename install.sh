@@ -80,7 +80,6 @@ link zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
 link matugen .config/matugen
 
 # KDE Plasma stuff
-source plasma/plasma-helpers.sh
 # Plasma configs
 link plasma/dolphinrc .config/dolphinrc
 link plasma/kdeglobals .config/kdeglobals
