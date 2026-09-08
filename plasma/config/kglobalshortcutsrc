@@ -1,6 +1,10 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
 
+[ksmserver]
+Lock Session=Screensaver\tMeta+L\tMeta+Esc,Screensaver\tMeta+L,Lock Session
+Log Out=Ctrl+Alt+Del\tMeta+Shift+Esc,Ctrl+Alt+Del,Show Logout Screen
+
 [kwin]
 Cube=Meta+C,Meta+C,Toggle Cube
 Cycle Overview=none,none,Cycle through Overview and Grid View
