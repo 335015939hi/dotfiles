@@ -47,6 +47,22 @@ BTreeSwapInsertSide=true
 IgnoreWindowClasses=krunner, yakuake, kded, polkit, plasmashell, xwaylandvideobridge, org\\.kde\\.spectacle
 TileResizeAmount=30
 
+[Tiling][1efc81e9-cb7d-431c-bb97-73a8f1de6639][e6c18235-9bc6-441c-9d76-fc785771af9c]
+padding=10
+tiles={"layoutDirection":"horizontal","tiles":[]}
+
+[Tiling][a2c14b3b-0325-4674-a6fa-235916a501f0][e6c18235-9bc6-441c-9d76-fc785771af9c]
+padding=10
+tiles={"layoutDirection":"horizontal","tiles":[]}
+
+[Tiling][a9e353f2-b0e2-4a62-af2a-5644e0be53fe][e6c18235-9bc6-441c-9d76-fc785771af9c]
+padding=10
+tiles={"layoutDirection":"horizontal","tiles":[]}
+
+[Tiling][fa560970-3ead-464c-aafe-db8305cb9f4b][e6c18235-9bc6-441c-9d76-fc785771af9c]
+padding=10
+tiles={"layoutDirection":"horizontal","tiles":[]}
+
 [Wayland]
 InputMethod[$e]=/usr/share/applications/fcitx5-wayland-launcher.desktop
 VirtualKeyboardMode=1
