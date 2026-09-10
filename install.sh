@@ -117,6 +117,8 @@ link_contents_to plasma/desktoptheme .local/share/plasma/desktoptheme
 link_contents_to plasma/icons .local/share/icons
 link_contents_to plasma/kwin-effects .local/share/kwin/effects
 link_contents_to plasma/kwin-scripts .local/share/kwin/scripts
+# cursor sets
+link_contents_to cursors .icons
 # build&install special plasmoids
 source "$DIR/plasma/special-plasmoids.sh"
 # my scripts
