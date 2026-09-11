@@ -98,6 +98,10 @@ link profile .profile
 link aliases .aliases
 link zsh-autosuggestions .config/zsh/zsh-autosuggestions
 link zsh-syntax-highlighting .config/zsh/zsh-syntax-highlighting
+# deja (zsh autosuggestions but better)
+requirecmd make
+requirecmd go
+make -C "$DIR/deja" -j "$(nproc)" build && linkcmd "$DIR/bin/deja"
 
 # htop
 link htoprc .config/htop/htoprc
