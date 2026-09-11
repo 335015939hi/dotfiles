@@ -7,3 +7,6 @@
 [submodule "wallpapers"]
 	path = wallpapers
 	url = https://github.com/335015939hi/wallpapers.git
+[submodule "deja"]
+	path = deja
+	url = https://github.com/Giammarco-Ferranti/deja.git
