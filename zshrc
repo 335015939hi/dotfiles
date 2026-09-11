@@ -48,6 +48,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+typeset -g DEJA_HIGHLIGHT_STYLE='fg=5'
 typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold,underline'
@@ -89,7 +90,12 @@ ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
 ZSH_HIGHLIGHT_STYLES[string]='fg=green'``
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,underline'
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bold'
-source "$HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# source "$HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+if [[ -r "$HOME/.local/share/deja/init.zsh" ]]; then
+  source "$HOME/.local/share/deja/init.zsh"
+else
+  eval "$(deja init zsh)"
+fi
 source "$HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 if which carapace >/dev/null 2>&1;then
