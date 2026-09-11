@@ -104,7 +104,7 @@ if which carapace >/dev/null 2>&1;then
 fi
 
 command_not_found_handler() {
-  command-not-found "$@"
+  command-not-found "$1"
 }
 
 
