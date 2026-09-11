@@ -49,6 +49,7 @@ compinit
 # End of lines added by compinstall
 
 typeset -g DEJA_HIGHLIGHT_STYLE='fg=5'
+typeset -g DEJA_CYCLE_KEY='Ctrl+Tab'
 typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold,underline'
