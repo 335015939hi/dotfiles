@@ -43,8 +43,8 @@ output_path = '~/.config/tmux/tmux.conf'
 post_hook = 'tmux source-file ~/.config/tmux/tmux.conf || true'
 
 [templates.neovim]
-input_path = "~/.config/matugen/templates/nvim-colors.json"
-output_path = "~/.cache/matugen/nvim-colors.json"
+input_path = "~/.config/matugen/templates/matugen.vim"
+output_path = "~/.config/nvim/colors/matugen.vim"
 post_hook = "pkill -SIGUSR1 nvim || true"
 
 [templates.papirus-folders]
