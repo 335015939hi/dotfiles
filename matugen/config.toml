@@ -42,10 +42,14 @@ input_path = '~/.config/matugen/templates/tmux.conf'
 output_path = '~/.config/tmux/tmux.conf'
 post_hook = 'tmux source-file ~/.config/tmux/tmux.conf || true'
 
+[templates.neovim-lualine]
+input_path = "~/.config/matugen/templates/lualine-matugen.lua"
+output_path = "~/.config/nvim/lua/lualine-matugen.lua"
+
 [templates.neovim]
 input_path = "~/.config/matugen/templates/matugen.vim"
 output_path = "~/.config/nvim/colors/matugen.vim"
-post_hook = "pkill -SIGUSR1 nvim || true"
+post_hook = "sleep 0.1 && pkill -SIGUSR1 nvim || true"
 
 [templates.papirus-folders]
 input_path = '~/.config/matugen/templates/papirus-color'

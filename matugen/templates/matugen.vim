@@ -51,9 +51,9 @@ let g:colors_name = "matugen"
 "
 
 <* for name, value in colors *>
-  let s:{{ name }} = "{{ value.default.hex }}"
-  let s:{{ name }}_dark = "{{ value.dark.hex }}"
-  let s:{{ name }}_light = "{{ value.light.hex }}"
+let s:{{ name }} = "{{ value.default.hex }}"
+let s:{{ name }}_dark = "{{ value.dark.hex }}"
+let s:{{ name }}_light = "{{ value.light.hex }}"
 <* endfor *>
 
 " --- Backgrounds -------------------------------------------------------------
@@ -169,12 +169,6 @@ call s:hi("Directory", s:primary, s:bg, "")
 " STATUSLINE / TABLINE
 " =============================================================================
 
-" Normal statusline.
-call s:hi("StatusLine", s:on_primary,s:primary, "bold")
-
-" Inactive window statusline.
-call s:hi("StatusLineNC", s:fg_muted, s:bg_dark, "")
-
 " Tabline background.
 call s:hi("TabLine", s:fg_dim, s:bg_dark, "")
 
@@ -227,17 +221,17 @@ call s:hi("WarningMsg", s:on_tertiary_container, s:tertiary_container, "bold")
 " Added lines.
 call s:hi("DiffAdd", s:on_primary_container, s:primary_container, "")
 " Added file.
-call s:hi("GitSignsAdd", s:primary, "", "")
+call s:hi("GitSignsAdd", s:on_primary_container, s:primary_container, "")
 
 " Changed lines.
 call s:hi("DiffChange", s:on_tertiary_container,s:tertiary_container, "")
 " Modified file.
-call s:hi("GitSignsChange", s:on_tertiary, s:tertiary, "")
+call s:hi("GitSignsChange", s:on_tertiary_container, s:tertiary_container, "")
 
 " Deleted lines.
 call s:hi("DiffDelete", s:on_error_container, s:error_container, "")
 " Deleted file.
-call s:hi("GitSignsDelete", s:error, "", "")
+call s:hi("GitSignsDelete", s:on_error_container, s:error_container, "")
 
 " Diff text inside a changed line.
 call s:hi("DiffText", s:on_tertiary_container, s:tertiary_container, "bold")
