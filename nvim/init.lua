@@ -13,7 +13,11 @@ vim.api.nvim_create_autocmd("Signal", {
   pattern = "SIGUSR1",
   callback = function()
     vim.cmd("colorscheme matugen")
-    require("lualine").setup()
+    package.loaded["lualine-matugen"] = nil
+    require("lualine").setup({
+      options = { theme = require("lualine-matugen") },
+    })
+    require("lualine").refresh()
   end,
 })
 
