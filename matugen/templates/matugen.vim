@@ -52,8 +52,9 @@ let g:colors_name = "matugen"
 
 <* for name, value in colors *>
 let s:{{ name }} = "{{ value.default.hex }}"
-let s:{{ name }}_dark = "{{ value.dark.hex }}"
-let s:{{ name }}_light = "{{ value.light.hex }}"
+let s:{{ name }}_hue_plus_90 = "{{ value.default.hex | set_hue: {{value.default.hue}} + 90 }}"
+let s:{{ name }}_hue_plus_180 = "{{ value.default.hex | set_hue: {{value.default.hue}} + 180 }}"
+let s:{{ name }}_hue_plus_270 = "{{ value.default.hex | set_hue: {{value.default.hue}} + 270 }}"
 <* endfor *>
 
 " --- Backgrounds -------------------------------------------------------------
@@ -291,25 +292,22 @@ call s:hi("Number", s:secondary, "", "")
 call s:hi("Boolean", s:secondary, "", "bold")
 
 " Identifiers and variable names.
-call s:hi("Identifier", s:tertiary, "", "")
-call s:hi("@variable", s:tertiary, "", "")
+call s:hi("Identifier", s:primary_hue_plus_90, "", "")
+call s:hi("@variable", s:primary_hue_plus_90, "", "")
+call s:hi("@variable.builtin", s:primary_hue_plus_90, "", "")
 
 " Function names.
 call s:hi("Function", s:tertiary, "", "bold")
 " Rust macros.
 call s:hi("rustMacro", s:tertiary, "", "")
 
-" Statements such as if, else, return, break.
-call s:hi("Statement", s:primary, "", "")
+" Function paramters
+call s:hi("@variable.parameter",s:primary_hue_plus_180,"","")
+
 
 " Keywords.
 call s:hi("Keyword", s:primary, "", "bold")
-
-" Preprocessor directives such as #include and #define.
-call s:hi("PreProc", s:primary, "", "")
-" C preprocessor directives.
-call s:hi("cPreProc", s:primary, "", "")
-
+call s:hi("@keyword", s:primary, "", "bold")
 " Types such as int, char, struct, class.
 call s:hi("Type", s:primary, "", "bold")
 " C types.
@@ -318,9 +316,20 @@ call s:hi("cType", s:primary, "", "bold")
 call s:hi("rustType", s:primary, "", "bold")
 " C storage classes such as static / extern.
 call s:hi("cStorageClass", s:primary, "", "bold")
+" Statements such as if, else, return, break.
+call s:hi("Statement", s:primary, "", "bold")
+" Operators
+call s:hi("@operator",s:primary,"","")
+
+
+" Preprocessor directives such as #include and #define.
+call s:hi("PreProc", s:primary_hue_plus_90, "", "")
+" C preprocessor directives.
+call s:hi("cPreProc", s:primary_hue_plus_90, "", "")
 
 " Special language constructs.
 call s:hi("Special", s:primary, "", "")
+call s:hi("@punctuation.special", s:primary, "", "")
 " Rust lifetimes.
 call s:hi("rustLifetime", s:primary, "", "")
 
