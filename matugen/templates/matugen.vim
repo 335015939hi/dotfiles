@@ -295,31 +295,34 @@ call s:hi("Boolean", s:secondary, "", "bold")
 call s:hi("Identifier", s:primary_hue_plus_90, "", "")
 call s:hi("@variable", s:primary_hue_plus_90, "", "")
 call s:hi("@variable.builtin", s:primary_hue_plus_90, "", "")
+" Function paramters
+call s:hi("@variable.parameter",s:primary_hue_plus_90,"","")
 
 " Function names.
-call s:hi("Function", s:tertiary, "", "bold")
+call s:hi("Function", s:primary_hue_plus_270, "", "underline")
 " Rust macros.
-call s:hi("rustMacro", s:tertiary, "", "")
+call s:hi("rustMacro", s:primary_hue_plus_270, "", "underline")
 
-" Function paramters
-call s:hi("@variable.parameter",s:primary_hue_plus_180,"","")
 
 
 " Keywords.
 call s:hi("Keyword", s:primary, "", "bold")
 call s:hi("@keyword", s:primary, "", "bold")
-" Types such as int, char, struct, class.
-call s:hi("Type", s:primary, "", "bold")
-" C types.
-call s:hi("cType", s:primary, "", "bold")
-" Rust types.
-call s:hi("rustType", s:primary, "", "bold")
-" C storage classes such as static / extern.
-call s:hi("cStorageClass", s:primary, "", "bold")
 " Statements such as if, else, return, break.
 call s:hi("Statement", s:primary, "", "bold")
 " Operators
 call s:hi("@operator",s:primary,"","")
+
+" Types such as int, char, struct, class.
+call s:hi("Type", s:tertiary_hue_plus_180, "", "italic")
+call s:hi("@lsp.typemod.type.defaultLibrary", s:tertiary_hue_plus_180, "", "italic")
+call s:hi("@type.builtin", s:tertiary_hue_plus_180, "", "italic")
+" C types.
+call s:hi("cType", s:tertiary_hue_plus_180, "", "italic")
+" Rust types.
+call s:hi("rustType", s:tertiary_hue_plus_180, "", "italic")
+" C storage classes such as static / extern.
+call s:hi("cStorageClass", s:tertiary_hue_plus_180, "", "italic")
 
 
 " Preprocessor directives such as #include and #define.
