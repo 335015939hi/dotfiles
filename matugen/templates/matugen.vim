@@ -317,6 +317,7 @@ call s:hi("@operator",s:primary,"","")
 call s:hi("Type", s:tertiary_hue_plus_180, "", "italic")
 call s:hi("@lsp.typemod.type.defaultLibrary", s:tertiary_hue_plus_180, "", "italic")
 call s:hi("@type.builtin", s:tertiary_hue_plus_180, "", "italic")
+call s:hi("@keyword.modifier.c", s:tertiary_hue_plus_180, "", "italic")
 " C types.
 call s:hi("cType", s:tertiary_hue_plus_180, "", "italic")
 " Rust types.
