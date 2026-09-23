@@ -300,6 +300,7 @@ call s:hi("@variable.parameter",s:primary_hue_plus_90,"","")
 
 " Function names.
 call s:hi("Function", s:primary_hue_plus_270, "", "underline")
+call s:hi("@lsp.typemod.function.defaultLibrary.c", s:primary_hue_plus_270, "", "underline")
 " Rust macros.
 call s:hi("rustMacro", s:primary_hue_plus_270, "", "underline")
 
@@ -314,16 +315,17 @@ call s:hi("Statement", s:primary, "", "bold")
 call s:hi("@operator",s:primary,"","")
 
 " Types such as int, char, struct, class.
-call s:hi("Type", s:tertiary_hue_plus_180, "", "italic")
-call s:hi("@lsp.typemod.type.defaultLibrary", s:tertiary_hue_plus_180, "", "italic")
-call s:hi("@type.builtin", s:tertiary_hue_plus_180, "", "italic")
-call s:hi("@keyword.modifier.c", s:tertiary_hue_plus_180, "", "italic")
+call s:hi("Type", s:primary, "", "italic")
+call s:hi("@lsp.typemod.type.defaultLibrary", s:primary, "", "italic")
+call s:hi("@type.builtin", s:primary, "", "italic")
+call s:hi("@keyword.modifier.c", s:primary, "", "italic")
+call s:hi("@keyword.type.c", s:primary, "", "italic")
 " C types.
-call s:hi("cType", s:tertiary_hue_plus_180, "", "italic")
+call s:hi("cType", s:primary, "", "italic")
 " Rust types.
-call s:hi("rustType", s:tertiary_hue_plus_180, "", "italic")
+call s:hi("rustType", s:primary, "", "italic")
 " C storage classes such as static / extern.
-call s:hi("cStorageClass", s:tertiary_hue_plus_180, "", "italic")
+call s:hi("cStorageClass", s:primary, "", "italic")
 
 
 " Preprocessor directives such as #include and #define.
