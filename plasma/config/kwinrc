@@ -68,8 +68,8 @@ InputMethod[$e]=/usr/share/applications/fcitx5-wayland-launcher.desktop
 VirtualKeyboardMode=1
 
 [Windows]
-AutoRaiseInterval=10
-DelayFocusInterval=0
+AutoRaiseInterval=200
+DelayFocusInterval=200
 ElectricBorderDelay=170
 ElectricBorderMaximize=false
 ElectricBorderTiling=false
