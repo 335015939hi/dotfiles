@@ -10,3 +10,6 @@
 [submodule "deja"]
 	path = deja
 	url = https://github.com/Giammarco-Ferranti/deja.git
+[submodule "hyprmod"]
+	path = hyprmod
+	url = https://github.com/BlueManCZ/hyprmod.git

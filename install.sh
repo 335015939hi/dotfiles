@@ -121,6 +121,9 @@ if ! [ -d "$DIR/wallpapers/resized" ]; then
   (cd "$DIR/wallpapers" && ./scripts/resize.sh)
 fi
 
+# Hyprland
+. "$DIR/hyprland.sh"
+
 # fonts
 requirecmd fc-cache
 link fonts .local/share/fonts
