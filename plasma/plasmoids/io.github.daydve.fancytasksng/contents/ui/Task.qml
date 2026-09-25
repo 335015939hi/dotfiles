@@ -5,7 +5,7 @@
     SPDX-FileCopyrightText: 2025 SushiTrash <strash137@gmail.com>
     SPDX-FileCopyrightText: 2023-2024 Fushan Wen <qydwhotmail@gmail.com>
     SPDX-FileCopyrightText: 2023-2024 Marco Martin <notmart@gmail.com>
-    SPDX-FileCopyrightText: 2023-2024 Nate Graham <nate@kde.org>
+    SPDX-FileCopyrightText: 2023-2024 Nate Graham <nate@nate.org>
     SPDX-FileCopyrightText: 2024 Bharadwaj Raju <bharadwaj.raju777@protonmail.com>
     SPDX-FileCopyrightText: 2024 Niccolò Venerandi <niccolo@venerandi.com>
     SPDX-FileCopyrightText: 2024 Yifan Zhu <fanzhuyifan@gmail.com>
@@ -31,7 +31,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.plasma.plasmoid
 import QtQuick.Effects
 
-
 import "code/layoutmetrics.js" as LayoutMetrics
 import "code/tools.js" as TaskTools
 import "code/singletones"
@@ -41,48 +40,39 @@ Item {
     readonly property alias frame: backgroundFrame
     z: highlighted ? 10 : (badgeVisible || playingAudio || muted) ? 1 : 0
 
+    // Cached properties for optimization
+    readonly property var config: Plasmoid.configuration
+    readonly property int location: Plasmoid.location
+    readonly property int smallSpacing: Kirigami.Units.smallSpacing
+    readonly property int shortDuration: Kirigami.Units.shortDuration
+    readonly property int longDuration: Kirigami.Units.longDuration
+    readonly property color themeBgColor: Kirigami.Theme.backgroundColor
+
     activeFocusOnTab: true
     opacity: tasksRoot.dragSource === task ? (task.inPopup ? 1.0 : 0.5) : 1.0
     Behavior on opacity {
-        NumberAnimation { duration: Kirigami.Units.shortDuration }
+        NumberAnimation { duration: task.shortDuration }
     }
 
-    Behavior on x {
-        enabled: !task.tasksRoot.dragSource
-        NumberAnimation {
-            duration: 500
-            easing.type: Easing.OutCubic
-        }
-    }
-    Behavior on y {
-        enabled: !task.tasksRoot.dragSource
-        NumberAnimation {
-            duration: 500
-            easing.type: Easing.OutCubic
-        }
-    }
-
-
-
-    readonly property int _cfgIconSize: Plasmoid.configuration.iconSizeOverride ? Plasmoid.configuration.iconSizePx : (Math.min(tasksRoot.width, tasksRoot.height) * Plasmoid.configuration.iconScale / 100)
-    readonly property int _cfgZoom: (tasksRoot.iconsOnly && Plasmoid.configuration.taskHoverEffect) ? Plasmoid.configuration.iconZoomFactor : 0
+    readonly property int _cfgIconSize: task.config.iconSizeOverride ? task.config.iconSizePx : (Math.min(tasksRoot.width, tasksRoot.height) * task.config.iconScale / 100)
+    readonly property int _cfgZoom: (tasksRoot.iconsOnly && task.config.taskHoverEffect) ? task.config.iconZoomFactor : 0
     readonly property int _maxIconSize: _cfgIconSize + _cfgZoom
     property alias taskIcon: taskIconBox.icon
     readonly property bool iconOverflows: tasksRoot.vertical ? 
-        (taskIconBox.icon.width > tasksRoot.width) : (taskIconBox.icon.height > tasksRoot.height)
+        (taskIcon.width > tasksRoot.width) : (taskIcon.height > tasksRoot.height)
 
     Item {
         id: tooltipAnchor
         anchors.centerIn: parent
-        width: task.tasksRoot.vertical ? (Math.max(task.tasksRoot.width, task._maxIconSize) + Kirigami.Units.smallSpacing * 2) : parent.width
-        height: !task.tasksRoot.vertical ? (Math.max(task.tasksRoot.height, task._maxIconSize) + Kirigami.Units.smallSpacing * 2) : parent.height
+        width: task.tasksRoot.vertical ? (Math.max(task.tasksRoot.width, task._maxIconSize) + task.smallSpacing * 2) : parent.width
+        height: !task.tasksRoot.vertical ? (Math.max(task.tasksRoot.height, task._maxIconSize) + task.smallSpacing * 2) : parent.height
         visible: false
     }
     property alias tooltipAnchor: tooltipAnchor
-    property string tintColor: Kirigami.ColorUtils.brightnessForColor(Kirigami.Theme.backgroundColor) === Kirigami.ColorUtils.Dark ?
+    property string tintColor: Kirigami.ColorUtils.brightnessForColor(task.themeBgColor) === Kirigami.ColorUtils.Dark ?
         "#ffffff" : "#000000"
 
-    rotation: (tasksRoot && Plasmoid.configuration.reverseMode && tasksRoot.vertical) ?
+    rotation: (tasksRoot && task.config.reverseMode && tasksRoot.vertical) ?
         180 : 0
 
     implicitHeight: {
@@ -90,12 +80,12 @@ Item {
         if (task.inPopup) return LayoutMetrics.preferredHeightInPopup();
         if (tasksRoot.vertical) {
             if (task.isIcon) {
-                let cols = (tasksRoot.taskList && tasksRoot.taskList.columns > 0) ? tasksRoot.taskList.columns : (Plasmoid.configuration.maxStripes || 1);
+                let cols = (tasksRoot.taskList && tasksRoot.taskList.columns > 0) ? tasksRoot.taskList.columns : (task.config.maxStripes || 1);
                 return (tasksRoot.width / cols) + LayoutMetrics.verticalMargins();
             }
             return LayoutMetrics.preferredMaxHeight();
         } else {
-            let stripes = Plasmoid.configuration.maxStripes || 1;
+            let stripes = task.config.maxStripes || 1;
             if (task.isIcon) {
                 let rws = (tasksRoot.taskList && tasksRoot.taskList.rows > 0) ? tasksRoot.taskList.rows : stripes;
                 return (tasksRoot.height / rws) + LayoutMetrics.verticalMargins();
@@ -106,7 +96,7 @@ Item {
     implicitWidth: {
         if (!tasksRoot) return LayoutMetrics.preferredMinWidth();
         if (tasksRoot.vertical) {
-            let stripes = Plasmoid.configuration.maxStripes || 1;
+            let stripes = task.config.maxStripes || 1;
             if (task.isIcon) {
                 let cols = (tasksRoot.taskList && tasksRoot.taskList.columns > 0) ? tasksRoot.taskList.columns : stripes;
                 return (tasksRoot.width / cols) + LayoutMetrics.horizontalMargins();
@@ -114,7 +104,7 @@ Item {
             return Math.max(LayoutMetrics.preferredMinWidth(), Math.min(LayoutMetrics.preferredMaxWidth(), tasksRoot.width / stripes));
         } else {
             if (task.isIcon) {
-                let rws = (tasksRoot.taskList && tasksRoot.taskList.rows > 0) ? tasksRoot.taskList.rows : (Plasmoid.configuration.maxStripes || 1);
+                let rws = (tasksRoot.taskList && tasksRoot.taskList.rows > 0) ? tasksRoot.taskList.rows : (task.config.maxStripes || 1);
                 return (tasksRoot.height / rws) + LayoutMetrics.horizontalMargins();
             }
             return LayoutMetrics.preferredMaxWidth();
@@ -140,7 +130,7 @@ Item {
     property bool inPopup: false
 
     property bool isWindow: !!(task.model && task.model.IsWindow)
-    readonly property bool isHovered: (tasksRoot && tasksRoot.mouseHandler) ? (tasksRoot.mouseHandler.hoveredItem === task) : false
+    readonly property bool isHovered: tasksRoot.mouseHandler.hoveredItem === task
     
     // Modern taskState property for internal and Indicators.qml usage
     readonly property string taskState: {
@@ -201,7 +191,7 @@ Item {
     }
     readonly property bool badgeVisible: {
         if (badgeCount <= 0) return false;
-        if (!Plasmoid.configuration.showBadgesOnLaunchers && task.winIdList.length === 0) {
+        if (!task.config.showBadgesOnLaunchers && task.winIdList.length === 0) {
             return false;
         }
         return true;
@@ -235,7 +225,7 @@ Item {
 
 
     property bool completed: false
-    readonly property bool audioIndicatorsEnabled: Plasmoid.configuration.indicateAudioStreams
+    readonly property bool audioIndicatorsEnabled: task.config.indicateAudioStreams
     readonly property var winIdList: {
         if (!task.model || !task.model.WinIdList) return [];
         // Deep copy without slice() just in case
@@ -260,7 +250,7 @@ Item {
         (!task.inPopup && (containsMouse || isHovered)) || (tasksRoot.currentHoveredTask === task) || 
         (task.contextMenu && task.contextMenu.status === PlasmaExtras.Menu.Open)
 
-    property int itemIndex: index
+
 
     property bool isAudioHovered: false
     readonly property bool containsMouse: hoverHandler.hovered || isAudioHovered
@@ -269,7 +259,15 @@ Item {
         id: hoverHandler
         onPointChanged: {
             if (hovered && task.tasksRoot.instantHoveredTask === task) {
-                const fraction = task.tasksRoot.vertical ? (point.position.y / task.height) : (point.position.x / task.width);
+                let fraction;
+                if (task.tasksRoot.vertical) {
+                    const rawFraction = point.position.y / task.height;
+                    fraction = task.config.reverseMode ? (1.0 - rawFraction) : rawFraction;
+                } else {
+                    const rawFraction = point.position.x / task.width;
+                    const mirrored = task.tasksRoot.shouldBeMirrored(task.config.reverseMode, Qt.locale().textDirection, task.tasksRoot.vertical);
+                    fraction = mirrored ? (1.0 - rawFraction) : rawFraction;
+                }
                 task.tasksRoot.instantHoveredFraction = Math.max(0.0, Math.min(1.0, fraction));
             }
         }
@@ -382,7 +380,7 @@ Item {
             }
         }
         PauseAnimation {
-            duration: Plasmoid.configuration.smokeExplosionOnClose ? 250 : 0
+            duration: task.config.smokeExplosionOnClose ? 250 : 0
         }
         ParallelAnimation {
             NumberAnimation {
@@ -390,14 +388,14 @@ Item {
                 properties: "x"
                 to: 0
                 easing.type: Easing.OutQuad
-                duration: Kirigami.Units.longDuration
+                duration: task.longDuration
             }
             NumberAnimation {
                 target: translateTransform
                 properties: "y"
                 to: 0
                 easing.type: Easing.OutQuad
-                duration: Kirigami.Units.longDuration
+                duration: task.longDuration
             }
         }
     }
@@ -421,12 +419,12 @@ Item {
         }
 
         if (task.model.IsGroupParent) {
-            switch (Plasmoid.configuration.groupedTaskVisualization) {
+            switch (task.config.groupedTaskVisualization) {
             case 0:
                 break;
             case 1:
                 {
-                    if (Plasmoid.configuration.showToolTips) {
+                    if (task.config.showToolTips) {
                         return `${Wrappers.i18nc("@info:usagetip %1 task name", "Show Task tooltip for %1", task.model.display)};
                                 ${smartLauncherDescription}`;
                     }
@@ -523,15 +521,11 @@ Item {
         return undefined;
     }
 
-    function modelRow(): int {
-        if (tasksRoot && tasksRoot.filteredTasksModel) {
-            const proxyIdx = tasksRoot.filteredTasksModel.index(task.index, 0);
-            return tasksRoot.filteredTasksModel.mapToSource(proxyIdx).row;
-        }
-        return task.index;
-    }
+
 
     function openTooltip(): void {
+        if (!task.config.enableToolTips)
+            return;
         task.tasksRoot.currentHoveredTask = task;
         task.toolTipOpen = true;
         task.tasksRoot.toolTipAreaItem = task;
@@ -557,11 +551,13 @@ Item {
         contextMenu.show();
     }
 
+    // qmllint disable unqualified
     function toggleMuted(): void {
         if (mediaController) {
             mediaController.toggleMuted();
         }
     }
+    // qmllint enable unqualified
 
 
 
@@ -574,14 +570,13 @@ Item {
         frameSvgItem: backgroundFrame
         tasksRoot: task.tasksRoot
         visible: {
-            if (!Plasmoid.configuration.indicatorsEnabled || !task.model) return false;
+            if (!task.config.indicatorsEnabled || !task.model) return false;
             // Indicators should only be visible for running tasks, not pure launchers
             if (task.taskState === "launcher") return false;
-            if (task.model.IsDemandingAttention || task.model.IsActive) return true;
-            return !Plasmoid.configuration.disableInactiveIndicators;
+            return true;
         }
         flow: Flow.LeftToRight
-        spacing: Kirigami.Units.smallSpacing
+        spacing: task.smallSpacing
         clip: false
     }
 
@@ -636,7 +631,7 @@ Item {
             const tModel = task.tasksRoot.tasksModel;
             const mIndex = task.modelIndex();
 
-            switch (Plasmoid.configuration.middleClickAction) {
+            switch (task.config.middleClickAction) {
                 case 1: // Close
                     task.wasMiddleClicked = true;
                     tModel.requestClose(mIndex);
@@ -682,13 +677,13 @@ Item {
 
     KSvg.FrameSvgItem {
         id: backgroundFrame
-        onIsHoveredChanged: {
-        }
 
+        // qmllint disable unqualified
         Kirigami.ImageColors {
             id: imageColors
             source: task.model.decoration
         }
+        // qmllint enable unqualified
         property color dominantColor: imageColors.dominant
         property color indicatorColor: Kirigami.ColorUtils.tintWithAlpha(dominantColor, task.tintColor, .38)
 
@@ -703,10 +698,9 @@ Item {
             rightMargin: _hMargin
         }
 
-        imagePath: Plasmoid.configuration.disableButtonSvg ? "" : "widgets/tasks"
-        enabledBorders: Plasmoid.configuration.useBorders ? 1 | 2 | 4 |
-            8 : 0
-        property bool isHovered: task.highlighted && Plasmoid.configuration.taskHoverEffect
+        imagePath: task.config.disableButtonSvg ? "" : "widgets/tasks"
+        enabledBorders: task.config.useBorders ? 1 | 2 | 4 | 8 : 0
+        property bool isHovered: task.highlighted && task.config.taskHoverEffect
         
         property string basePrefix: !task.model ? "normal" :
                                     task.model.IsLauncher ? "" :
@@ -715,21 +709,24 @@ Item {
                                     task.model.IsActive ? "focus" : "normal"
         
         prefix: isHovered ?
-            TaskTools.taskPrefixHovered(basePrefix, Plasmoid.location) : TaskTools.taskPrefix(basePrefix, Plasmoid.location)
+            TaskTools.taskPrefixHovered(basePrefix, task.location) : TaskTools.taskPrefix(basePrefix, task.location)
 
         visible: (!task.model || task.model.IsLauncher || task.model.IsDemandingAttention || task.model.IsActive || backgroundFrame.isHovered) ?
-            true : !Plasmoid.configuration.disableButtonInactiveSvg
+            true : !task.config.disableButtonInactiveSvg
 
-        layer.enabled: (!task.model || task.model.IsLauncher || !Plasmoid.configuration.buttonColorize) ? false :
+        layer.enabled: (!task.model || task.model.IsLauncher) ? false :
+                       (task.model.IsDemandingAttention && task.config.attentionCustomColorEnabled) ? true :
+                       (!task.config.buttonColorize) ? false :
                        (task.model.IsDemandingAttention && !backgroundFrame.isHovered) ? false :
                        (task.model.IsActive || backgroundFrame.isHovered) ? true :
-                       (!Plasmoid.configuration.disableButtonInactiveSvg && Plasmoid.configuration.buttonColorizeInactive)
+                       (!task.config.disableButtonInactiveSvg && task.config.buttonColorizeInactive)
 
         layer.effect: MultiEffect {
             brightness: 1.0
             colorization: 1.0
-            colorizationColor: Plasmoid.configuration.buttonColorizeDominant ?
-                backgroundFrame.indicatorColor : Plasmoid.configuration.buttonColorizeCustom
+            colorizationColor: (task.model.IsDemandingAttention && task.config.attentionCustomColorEnabled) ?
+                task.config.attentionCustomColor :
+                (task.config.buttonColorizeDominant ? backgroundFrame.indicatorColor : task.config.buttonColorizeCustom)
         }
 
         // Avoid repositioning delegate item after dragFinished
@@ -752,13 +749,13 @@ Item {
 
             onActiveChanged: {
                 if (active) {
-                        const grabWidth = Math.floor(taskIconBox.icon.width);
-                        const grabHeight = Math.floor(taskIconBox.icon.height);
+                        const grabWidth = Math.floor(task.taskIcon.width);
+                        const grabHeight = Math.floor(task.taskIcon.height);
                         if (!isFinite(grabWidth) || !isFinite(grabHeight) || grabWidth <= 0 || grabHeight <= 0) {
                             return;
                         }
 
-                        taskIconBox.icon.grabToImage(result => {
+                        task.taskIcon.grabToImage(result => {
                             if (!dragHandler || !dragHandler.active || !task || !task.tasksRoot || !task.tasksRoot.dragHelper) {
                                 return;
                             }
@@ -767,11 +764,14 @@ Item {
                             task.tasksRoot.dragHelper.Drag.imageSource = ""; // Reset to prevent engine warnings
                             task.tasksRoot.dragHelper.Drag.imageSource = result.url;
                             
-                            task.tasksRoot.dragHelper.Drag.mimeData = {
+                            let mime = {
                                 "text/x-orgkdeplasmataskmanager_taskurl": (task.model.LauncherUrlWithoutIcon || "").toString(),
-                                [task.model.MimeType]: task.model.MimeData,
                                 "application/x-orgkdeplasmataskmanager_taskbuttonitem": task.model.MimeData || "true",
                             };
+                            if (task.model.MimeType && task.model.MimeData) {
+                                mime[task.model.MimeType] = task.model.MimeData;
+                            }
+                            task.tasksRoot.dragHelper.Drag.mimeData = mime;
 
                             task.tasksRoot.dragHelper.Drag.active = dragHandler.active;
                         }, Qt.size(grabWidth, grabHeight));
@@ -781,9 +781,9 @@ Item {
                     // because some Plasma components may accept the drag (returning non-IgnoreAction)
                     // even when the user clearly dropped outside the panel area.
                     const isPureLauncher = task.model.IsLauncher && task.winIdList.length === 0;
-                    if (Plasmoid.configuration.unpinByDrag && isPureLauncher) {
-                        const localPos = task.tasksRoot.mapFromScene(dragHandler.centroid.scenePosition);
-                        task.tasksRoot.dragEndedOutsidePanel = !task.tasksRoot.contains(localPos);
+                    if (task.config.unpinByDrag && isPureLauncher) {
+                        const localPos = task.tasksRoot.taskList.mapFromItem(null, dragHandler.centroid.scenePosition);
+                        task.tasksRoot.dragEndedOutsidePanel = localPos.x < 0 || localPos.y < 0 || localPos.x > task.tasksRoot.taskList.width || localPos.y > task.tasksRoot.taskList.height;
                     }
 
                     setRequestedInhibitDnd(false);
@@ -799,29 +799,31 @@ Item {
 
         anchors.fill: backgroundFrame
         asynchronous: true
-        active: !!(task.model && task.model.IsWindow) && task.taskProgress >= 0 && Plasmoid.configuration.indicatorProgressStyle > 0
+        active: !!(task.model && task.model.IsWindow) && task.taskProgress >= 0 && task.config.indicatorProgressStyle > 0
 
         source: "TaskProgressOverlay.qml"
         onLoaded: {
-            item.pStyle = Qt.binding(() => Plasmoid.configuration.indicatorProgressStyle);
-            item.pColor = Qt.binding(() => Plasmoid.configuration.indicatorProgressColor);
-            item.pOpacity = Qt.binding(() => Plasmoid.configuration.indicatorProgressOpacity / 100.0);
-            item.pThick = Qt.binding(() => Plasmoid.configuration.indicatorProgressThickness);
+            item.pStyle = Qt.binding(() => task.config.indicatorProgressStyle);
+            item.pColor = Qt.binding(() => task.config.indicatorProgressColor);
+            item.pOpacity = Qt.binding(() => task.config.indicatorProgressOpacity / 100.0);
+            item.pThick = Qt.binding(() => task.config.indicatorProgressThickness);
             item.pPosition = Qt.binding(() => task.taskProgress);
-            item.panelLocation = Qt.binding(() => Plasmoid.location);
+            item.panelLocation = Qt.binding(() => task.location);
         }
     }
 
     Loader {
         id: taskVolumeOverlayLoader
         anchors.fill: backgroundFrame
-        active: !Plasmoid.configuration.showMediaControls || !Plasmoid.configuration.showToolTips
+        asynchronous: true
+        active: task.hasAudioStream
         source: "TaskVolumeOverlay.qml"
     }
 
     Loader {
         id: groupExpanderLoader
-        active: Plasmoid.configuration.groupIconEnabled && !task.inPopup && !!task.model && task.model.IsWindow && task.model.IsGroupParent
+        asynchronous: true
+        active: task.config.groupIconEnabled && !task.inPopup && !!task.model && task.model.IsWindow && task.model.IsGroupParent
         sourceComponent: Component {
             GroupExpanderOverlay {
                 iconBox: taskIconBox
@@ -832,8 +834,6 @@ Item {
         }
     }
 
-
-
     TaskIconBox {
         id: taskIconBox
         taskItem: task
@@ -843,6 +843,7 @@ Item {
 
     Loader {
         id: mediaControllerLoader
+        asynchronous: true
         active: !!task.model && task.model.IsWindow
         source: "TaskMediaController.qml"
         onLoaded: {
@@ -853,8 +854,10 @@ Item {
     Loader {
         id: badgeLoader
         parent: task.tasksRoot.iconsOnly ? taskIconBox : task
-        anchors.fill: parent
-        active: Plasmoid.configuration.showBadges || task.audioIndicatorsEnabled
+        width: parent ? parent.width : 0
+        height: parent ? parent.height : 0
+        asynchronous: true
+        active: (task.config.showBadges && task.badgeVisible) || (task.audioIndicatorsEnabled && (task.playingAudio || task.muted))
         source: "TaskBadgeOverlay.qml"
         onLoaded: {
             item.parentTask = task;
@@ -865,7 +868,7 @@ Item {
     PlasmaComponents3.Label {
         id: label
 
-        visible: (task.inPopup || !task.tasksRoot.iconsOnly && !task.model.IsLauncher && (parent.width - taskIconBox.height - Kirigami.Units.smallSpacing) >= LayoutMetrics.spaceRequiredToShowText())
+        visible: (task.inPopup || !task.tasksRoot.iconsOnly && !task.model.IsLauncher && (parent.width - taskIconBox.height - task.smallSpacing) >= LayoutMetrics.spaceRequiredToShowText())
 
         anchors {
             fill: parent
@@ -880,7 +883,7 @@ Item {
         elide: Text.ElideRight
         textFormat: Text.PlainText
         verticalAlignment: Text.AlignVCenter
-        maximumLineCount: Plasmoid.configuration.maxTextLines ||
+        maximumLineCount: task.config.maxTextLines ||
             undefined
 
         Accessible.ignored: true
@@ -896,7 +899,6 @@ Item {
         }
     }
 
-
     Component.onCompleted: {
         task.lastSeenCount = task.badgeCount;
 
@@ -906,7 +908,11 @@ Item {
         task.completed = true;
 
         if (task.model && task.model.LauncherUrlWithoutIcon) {
-            DesktopActionsManager.prefetch(task.model.LauncherUrlWithoutIcon);
+            // Same parameters ContextMenu.query() will use, so the prefetched cache entry actually hits
+            DesktopActionsManager.prefetch(task.model.LauncherUrlWithoutIcon,
+                task.model.AppPid,
+                DesktopActionsManager.shouldShowHistory(task.model.AppPid, task.config.showBrowserHistory),
+                task.config.browserHistoryLimit);
         }
     }
     Component.onDestruction: {

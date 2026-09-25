@@ -23,6 +23,10 @@
             >Whether to show only tasks that are on the current activity.</label>
       <default>true</default>
     </entry>
+    <entry name="reverseFilters" type="Bool">
+      <label>Whether to invert desktop, screen and activity filters (hide instead of show).</label>
+      <default>false</default>
+    </entry>
     <entry name="minimizedFilter" type="Enum">
       <label>Filter tasks by minimized state: 0 = All, 1 = Only Minimized, 2 = Only Not Minimized</label>
       <default>0</default>
@@ -34,6 +38,14 @@
     <entry name="animateAttentionStatus" type="Bool">
       <label>Animate jumping icon when requesting attention</label>
       <default>true</default>
+    </entry>
+    <entry name="attentionCustomColorEnabled" type="Bool">
+      <label>Whether to use a custom color for the "needs attention" highlight instead of the Plasma theme's own color.</label>
+      <default>false</default>
+    </entry>
+    <entry name="attentionCustomColor" type="Color">
+      <label>Custom color for the "needs attention" highlight.</label>
+      <default>#ff9800</default>
     </entry>
     <entry name="groupingStrategy" type="Enum">
       <label
@@ -245,10 +257,6 @@
       <label>Opacity of the progress indicator line (%)</label>
       <default>100</default>
     </entry>
-    <entry name="disableInactiveIndicators" type="Bool">
-      <label>Disables the indicator for inactive windows</label>
-      <default>false</default>
-    </entry>
     <entry name="indicatorsAnimated" type="Bool">
       <label>Enable animating indicators</label>
       <default>true</default>
@@ -264,10 +272,6 @@
     </entry>
     <entry name="indicatorStyle" type="Int">
       <label>Indicator style. 0 = Line, 1 = Dashes</label>
-      <default>0</default>
-    </entry>
-    <entry name="indicatorMinLimit" type="Int">
-      <label>Set the minimum number of running indicators to display.</label>
       <default>0</default>
     </entry>
     <entry name="indicatorMaxLimit" type="Int">
@@ -319,14 +323,6 @@
       <label>Enable resizing of indicators on activation and hover</label>
       <default>true</default>
     </entry>
-    <entry name="indicatorResizeLength" type="Bool">
-      <label>Resize length of active and hovered indicators</label>
-      <default>true</default>
-    </entry>
-    <entry name="indicatorResizeThickness" type="Bool">
-      <label>Resize thickness of active and hovered indicators</label>
-      <default>true</default>
-    </entry>
     <entry name="indicatorHoverSeparate" type="Bool">
       <label>Use separate settings for hovered indicators</label>
       <default>false</default>
@@ -350,6 +346,14 @@
     <entry name="indicatorHighlightActive" type="Bool">
       <label>Highlight active window indicator in groups</label>
       <default>true</default>
+    </entry>
+    <entry name="indicatorDimInactive" type="Bool">
+      <label>Dim inactive window indicators</label>
+      <default>false</default>
+    </entry>
+    <entry name="indicatorInactiveOpacity" type="Int">
+      <label>Opacity of inactive window indicators (%)</label>
+      <default>40</default>
     </entry>
     <entry name="indicatorAlignment" type="Int">
       <label>Cross-axis alignment of indicator segments (0=edge, 1=center, 2=inner)</label>
@@ -433,10 +437,6 @@
             >Direction of the plasma button SVG: 0 = North, 1 = West, 2 = South, 3 = East</label>
       <default>0</default>
     </entry>
-    <entry name="indicatorReverse" type="Bool">
-      <label>Reerse the side the indicator is shown on.</label>
-      <default>false</default>
-    </entry>
     <entry name="indicatorOverride" type="Bool">
       <label>Enable override the indicator's shown side.</label>
       <default>false</default>
@@ -470,6 +470,14 @@
     <entry name="showBadgesOnLaunchers" type="Bool">
       <label>Show notification badges on pinned application icons.</label>
       <default>true</default>
+    </entry>
+    <entry name="badgeColorMode" type="Enum">
+      <label>Notification badge background color mode: 0 = Theme background, 1 = Fixed red, 2 = System accent color, 3 = Custom color</label>
+      <default>0</default>
+    </entry>
+    <entry name="badgeCustomColor" type="Color">
+      <label>Custom background color for notification badges.</label>
+      <default>#ff3b30</default>
     </entry>
     <entry name="showBrowserHistory" type="Bool">
       <label>Show browsing history in the context menu of web browsers.</label>

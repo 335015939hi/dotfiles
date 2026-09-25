@@ -18,22 +18,24 @@ GridLayout {
     required property var tasks
     required property var tasksModel
 
+    readonly property var config: tasks.plasmoid.configuration
+
     property bool animating: false
 
-    rowSpacing: tasks.plasmoid.configuration.taskSpacingSize
-    columnSpacing: tasks.plasmoid.configuration.taskSpacingSize
+    rowSpacing: config.taskSpacingSize
+    columnSpacing: config.taskSpacingSize
 
     property int animationsRunning: 0
     onAnimationsRunningChanged: {
         animating = animationsRunning > 0;
     }
 
-    readonly property real minimumWidth: children
+    readonly property real minimumWidth: tasks.iconsOnly ? LayoutMetrics.preferredMaxWidth() : children
         .filter(item => item.visible && item.width > 0)
         .reduce((minimumWidth, item) => Math.min(minimumWidth, item.width), Infinity)
 
     readonly property int stripeCount: {
-        const configMaxStripes = (tasks && tasks.plasmoid && tasks.plasmoid.configuration) ? tasks.plasmoid.configuration.maxStripes : 1;
+        const configMaxStripes = config ? config.maxStripes : 1;
         if (configMaxStripes === 1) {
             return 1;
         }
@@ -54,7 +56,7 @@ GridLayout {
             : Math.floor(effectiveHeight / LayoutMetrics.preferredMinHeight())
         const maxStripes = Math.min(configMaxStripes, Math.max(1, stripeSizeLimit))
 
-        if (tasks.plasmoid.configuration.forceStripes) {
+        if (config && config.forceStripes) {
             return maxStripes;
         }
 

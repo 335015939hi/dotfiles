@@ -34,9 +34,9 @@ ConfigPage {
     // ---------------------------------------
     QtObject {
         id: appListStyle
-        property int iconSize: Kirigami.Units.iconSizes.smallMedium
-        property int spacing: Kirigami.Units.smallSpacing
-        property int padding: Kirigami.Units.smallSpacing
+        property int iconSize: cfg_page.iconSizeSmallMedium
+        property int spacing: cfg_page.smallSpacing
+        property int padding: cfg_page.smallSpacing
     }
 
     // ---------------------------------------
@@ -479,7 +479,7 @@ ConfigPage {
             
             ColumnLayout {
                 anchors.fill: parent
-                spacing: Kirigami.Units.largeSpacing
+                spacing: cfg_page.largeSpacing
 
                 Kirigami.InlineMessage {
                     Layout.fillWidth: true
@@ -489,6 +489,7 @@ ConfigPage {
                 }
 
                 ConfigScrollView {
+                    cfg_page: cfg_page
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
@@ -498,59 +499,6 @@ ConfigPage {
                         
                         // Disable animations during drag
                         interactive: !cfg_page.isDragging
-
-                    // Drop indicator visual component
-                    Component {
-                        id: dropIndicatorComponent
-                        Item {
-                            height: 2
-                            // Left arrow
-                            Canvas {
-                                anchors.left: parent.left
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: 8
-                                height: 10
-                                onPaint: {
-                                    var ctx = getContext("2d");
-                                    ctx.clearRect(0, 0, width, height);
-                                    ctx.fillStyle = Kirigami.Theme.highlightColor;
-                                    ctx.beginPath();
-                                    ctx.moveTo(0, 0);
-                                    ctx.lineTo(width, height / 2);
-                                    ctx.lineTo(0, height);
-                                    ctx.closePath();
-                                    ctx.fill();
-                                }
-                            }
-                            // Right arrow
-                            Canvas {
-                                anchors.right: parent.right
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: 8
-                                height: 10
-                                onPaint: {
-                                    var ctx = getContext("2d");
-                                    ctx.clearRect(0, 0, width, height);
-                                    ctx.fillStyle = Kirigami.Theme.highlightColor;
-                                    ctx.beginPath();
-                                    ctx.moveTo(width, 0);
-                                    ctx.lineTo(0, height / 2);
-                                    ctx.lineTo(width, height);
-                                    ctx.closePath();
-                                    ctx.fill();
-                                }
-                            }
-                            Rectangle {
-                                anchors.left: parent.left
-                                anchors.right: parent.right
-                                anchors.verticalCenter: parent.verticalCenter
-                                anchors.leftMargin: 8
-                                anchors.rightMargin: 8
-                                height: 2
-                                color: Kirigami.Theme.highlightColor
-                            }
-                        }
-                    }
 
                     // Add drop area to handle autoscroll
                     DropArea {
@@ -616,194 +564,17 @@ ConfigPage {
                         }
                     }
 
-                    delegate: Item {
-                        id: pinnedAppDelegate
-                        required property var model
-                        required property int index
-
-                        width: ListView.view.width
-                        height: beingDragged ? 0 : dragContent.implicitHeight
-                        clip: true
-
-                        property bool beingDragged: index === cfg_page.dragItemIndex
-
-                        // Top insertion indicator
-                        Loader {
-                            active: cfg_page.isDragging && cfg_page.dropItemIndex === pinnedAppDelegate.index && !pinnedAppDelegate.beingDragged
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            y: -1
-                            z: 20
-                            sourceComponent: dropIndicatorComponent
-                        }
-
-                        // Bottom insertion indicator (insert at end of list)
-                        Loader {
-                            active: {
-                                if (!cfg_page.isDragging || pinnedAppDelegate.beingDragged) return false;
-                                if (cfg_page.dropItemIndex !== pinnedAppsModel.count) return false;
-                                var lastIdx = cfg_page.dragItemIndex === pinnedAppsModel.count - 1
-                                    ? pinnedAppsModel.count - 2
-                                    : pinnedAppsModel.count - 1;
-                                return pinnedAppDelegate.index === lastIdx;
-                            }
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.bottom: parent.bottom
-                            z: 20
-                            sourceComponent: dropIndicatorComponent
-                        }
-
-                        Item {
-                            id: dragContent
-                            width: pinnedAppDelegate.width
-                            implicitHeight: contentRow.implicitHeight + appListStyle.padding * 2
-
-                            Drag.active: dragMouseArea.drag.active
-                            Drag.source: pinnedAppDelegate
-                            Drag.hotSpot.x: width / 2
-                            Drag.hotSpot.y: height / 2
-
-                            states: [
-                                State {
-                                    when: pinnedAppDelegate.beingDragged
-                                    ParentChange {
-                                        target: dragContent
-                                        parent: cfg_page
-                                    }
-                                    PropertyChanges {
-                                        dragContent.z: 100
-                                        dragContent.opacity: 0.8
-                                    }
-                                }
-                            ]
-
-                            HoverHandler {
-                                id: rowHoverHandler
-                            }
-
-                            ToolTip.text: pinnedAppDelegate.model.comment || pinnedAppDelegate.model.name || ""
-                            ToolTip.visible: rowHoverHandler.hovered && !removeMouseArea.containsMouse && !cfg_page.isDragging && ToolTip.text !== ""
-                            ToolTip.delay: 1000
-
-                            Rectangle {
-                                anchors.fill: parent
-                                color: rowHoverHandler.hovered ? Kirigami.Theme.hoverColor : "transparent"
-                                opacity: 0.3
-                                radius: 3
-                                visible: !cfg_page.isDragging
-                            }
-
-                            MouseArea {
-                                id: dragMouseArea
-                                anchors.fill: parent
-                                z: -1
-                                cursorShape: pressed ? Qt.ClosedHandCursor : Qt.ArrowCursor
-
-                                drag.target: dragContent
-                                drag.axis: Drag.YAxis
-
-                                onPressed: {
-                                    cfg_page.dragItemIndex = pinnedAppDelegate.index;
-                                    cfg_page.isDragging = true;
-                                }
-
-                                onReleased: {
-                                    cfg_page.isDragging = false;
-
-                                    var dropIdx = cfg_page.dropItemIndex;
-                                    var dragIdx = cfg_page.dragItemIndex;
-
-                                    cfg_page.dragItemIndex = -1;
-                                    cfg_page.dropItemIndex = -1;
-
-                                    var targetIndex = dropIdx <= dragIdx ? dropIdx : dropIdx - 1;
-                                    if (targetIndex < 0) targetIndex = 0;
-                                    if (targetIndex >= pinnedAppsModel.count) targetIndex = pinnedAppsModel.count - 1;
-
-                                    if (dragIdx !== -1 && targetIndex !== dragIdx) {
-                                        cfg_page.moveItem(dragIdx, targetIndex);
-                                    } else {
-                                        cfg_page.refreshPinnedAppsModel();
-                                    }
-                                }
-                            }
-
-                            RowLayout {
-                                id: contentRow
-                                anchors.fill: parent
-                                anchors.margins: appListStyle.padding
-                                spacing: appListStyle.spacing
-
-                                Kirigami.Icon {
-                                    source: pinnedAppDelegate.model.icon
-                                    Layout.preferredWidth: appListStyle.iconSize
-                                    Layout.preferredHeight: appListStyle.iconSize
-                                }
-
-                                ColumnLayout {
-                                    Layout.fillWidth: true
-                                    Layout.alignment: Qt.AlignVCenter
-                                    spacing: 0
-
-                                    Label {
-                                        Layout.fillWidth: true
-                                        text: pinnedAppDelegate.model.name
-                                        elide: Text.ElideRight
-                                    }
-
-                                    Label {
-                                        Layout.fillWidth: true
-                                        visible: text !== ""
-                                        text: pinnedAppDelegate.model.genericName || ""
-                                        elide: Text.ElideRight
-                                        font.pointSize: Kirigami.Theme.smallFont.pointSize
-                                        opacity: 0.7
-                                    }
-                                }
-
-                                Item {
-                                    id: removeButtonContainer
-                                    Layout.preferredWidth: appListStyle.iconSize
-                                    Layout.preferredHeight: appListStyle.iconSize
-                                    visible: !pinnedAppDelegate.beingDragged
-
-                                    Kirigami.Icon {
-                                        anchors.centerIn: parent
-                                        width: Kirigami.Units.iconSizes.small
-                                        height: Kirigami.Units.iconSizes.small
-                                        source: "user-trash"
-                                        isMask: true
-                                        color: removeMouseArea.containsMouse ? Kirigami.Theme.negativeTextColor : Kirigami.Theme.textColor
-                                    }
-
-                                    MouseArea {
-                                        id: removeMouseArea
-                                        anchors.fill: parent
-                                        hoverEnabled: true
-                                        cursorShape: Qt.PointingHandCursor
-
-                                        onClicked: {
-                                            let currentLaunchers = Array.from(cfg_page.pinnedLaunchers);
-                                            currentLaunchers.splice(pinnedAppDelegate.index, 1);
-                                            cfg_page.cfg_launchers = currentLaunchers;
-                                            cfg_page.refreshPinnedAppsModel();
-                                        }
-                                    }
-
-                                    ToolTip.text: Wrappers.i18n("Remove")
-                                    ToolTip.visible: removeMouseArea.containsMouse
-                                    ToolTip.delay: 1000
-                                }
-                            }
-                        }
+                    delegate: PinnedAppCard {
+                        pageRoot: cfg_page
+                        cardStyle: appListStyle
+                        pinnedModel: pinnedAppsModel
                     }
                 }
                 }
                 
                 ColumnLayout {
                     Layout.fillWidth: true
-                    spacing: Kirigami.Units.smallSpacing
+                    spacing: cfg_page.smallSpacing
 
                     CheckBox {
                         id: cfg_unpinByDrag
@@ -814,7 +585,7 @@ ConfigPage {
 
                     RowLayout {
                         visible: cfg_unpinByDrag.checked && cfg_page.cfg_iconOnly === 1
-                        Item { implicitWidth: Kirigami.Units.gridUnit }
+                        Item { implicitWidth: cfg_page.gridUnit }
                         CheckBox {
                             id: cfg_unpinByDragExplosion
                             text: Wrappers.i18n("Play removal animation")
@@ -898,7 +669,7 @@ ConfigPage {
                 // Header
                 RowLayout {
                     Layout.fillWidth: true
-                    Layout.margins: Kirigami.Units.smallSpacing
+                    Layout.margins: cfg_page.smallSpacing
 
                     Button {
                         icon.name: "go-previous"
@@ -909,9 +680,9 @@ ConfigPage {
                     Label {
                         text: Wrappers.i18n("Add Application")
                         font.bold: true
-                        font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.2
+                        font.pointSize: cfg_page.themeDefaultFont.pointSize * 1.2
                         Layout.alignment: Qt.AlignVCenter
-                        color: Kirigami.Theme.textColor
+                        color: cfg_page.themeTextColor
                     }
 
                     Item { Layout.fillWidth: true }
@@ -921,24 +692,24 @@ ConfigPage {
                 TextField {
                     id: searchField
                     Layout.fillWidth: true
-                    Layout.margins: Kirigami.Units.smallSpacing
+                    Layout.margins: cfg_page.smallSpacing
                     placeholderText: Wrappers.i18n("Search applications...")
                     text: cfg_page.currentSearchText
                     onTextChanged: {
                         cfg_page.currentSearchText = text
                         searchTimer.restart()
                     }
-                    leftPadding: searchIcon.width + Kirigami.Units.smallSpacing * 2
+                    leftPadding: searchIcon.width + cfg_page.smallSpacing * 2
                     
                     Kirigami.Icon {
                         id: searchIcon
                         source: "search"
-                        width: Kirigami.Units.iconSizes.smallMedium
+                        width: cfg_page.iconSizeSmallMedium
                         height: width
                         anchors.left: parent.left
-                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                        anchors.leftMargin: cfg_page.smallSpacing
                         anchors.verticalCenter: parent.verticalCenter
-                        color: Kirigami.Theme.textColor
+                        color: cfg_page.themeTextColor
                         opacity: 0.7
                     }
                 }
@@ -989,7 +760,7 @@ ConfigPage {
                             ToolTip.delay: 1000
 
                             contentItem: RowLayout {
-                                spacing: Kirigami.Units.smallSpacing
+                                spacing: cfg_page.smallSpacing
 
                                 Kirigami.Icon {
                                     source: appsDelegate.model.icon || "application-x-executable"
@@ -1006,7 +777,7 @@ ConfigPage {
                                         Layout.fillWidth: true
                                         text: appsDelegate.model.name || appsDelegate.model.url
                                         wrapMode: Text.Wrap
-                                        color: Kirigami.Theme.textColor
+                                        color: cfg_page.themeTextColor
                                     }
 
                                     Label {
@@ -1014,9 +785,9 @@ ConfigPage {
                                         visible: text !== ""
                                         text: appsDelegate.model.genericName || ""
                                         elide: Text.ElideRight
-                                        font.pointSize: Kirigami.Theme.smallFont.pointSize
+                                        font.pointSize: cfg_page.themeSmallFont.pointSize
                                         opacity: 0.7
-                                        color: Kirigami.Theme.textColor
+                                        color: cfg_page.themeTextColor
                                     }
                                 }
                             }

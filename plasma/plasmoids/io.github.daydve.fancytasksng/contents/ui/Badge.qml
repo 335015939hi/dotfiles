@@ -9,7 +9,7 @@
 
 import QtQuick
 import org.kde.kirigami as Kirigami
-import QtQuick.Effects
+import org.kde.plasma.plasmoid
 import "code/singletones"
 
 Rectangle {
@@ -21,7 +21,6 @@ Rectangle {
     property int number: appId !== "" ? ((BadgeManager.countVersion >= 0) ? BadgeManager.getUnreadCount(appId) : 0) : 0
     property bool isRound: true
     property real fontPointSize: 8 // Reduced for better fit in small circles
-    property string iconSource: ""
     property bool hovered: false
     property bool isUrgent: false
     property bool showBackground: true
@@ -32,18 +31,27 @@ Rectangle {
     property string overlaySource: ""
     property bool shadowEnabled: false
     property bool mirrorText: false
-    property bool isCrossed: false
     property bool showNumber: true
 
-    readonly property string defaultNotificationIcon: "notifications-symbolic"
 
-    // Visual state coloring - Bound to theme palette
-    property color highlightColor: Kirigami.Theme.highlightColor
-    property color themeTextColor: showBackground ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
-    property color themeBgColor: Kirigami.Theme.backgroundColor
-    
+
+    // Cached theme colors to optimize lookups in child bindings
+    readonly property color _highlightColor: Kirigami.Theme.highlightColor
+    readonly property color _highlightedTextColor: Kirigami.Theme.highlightedTextColor
+    readonly property color _textColor: Kirigami.Theme.textColor
+    readonly property color _backgroundColor: Kirigami.Theme.backgroundColor
+    readonly property color _negativeTextColor: Kirigami.Theme.negativeTextColor
+
+    // Configurable color mode: 0 = Theme background, 1 = Fixed red, 2 = System accent, 3 = Custom color
+    readonly property int badgeColorMode: (Plasmoid.configuration && Plasmoid.configuration.badgeColorMode !== undefined) ? Plasmoid.configuration.badgeColorMode : 0
+    readonly property color badgeCustomColor: (Plasmoid.configuration && Plasmoid.configuration.badgeCustomColor) ? Plasmoid.configuration.badgeCustomColor : "#ff3b30"
+
+    // badgeColorMode is a 0-3 Enum (0 = theme default); non-zero means a fixed/custom color is in play
+    readonly property bool _nonDefaultColorMode: badgeColorMode !== 0
+    readonly property bool _highlightMode: _nonDefaultColorMode || isUrgent
+
     // Configurable color for the text-based icon, defaulting to theme logic
-    property color textIconColor: isUrgent ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+    property color textIconColor: _highlightMode ? badgeRect._highlightedTextColor : badgeRect._textColor
 
     // Height should be set from outside, width is adaptive
     width: {
@@ -54,42 +62,32 @@ Rectangle {
 
     radius: height / 2
     antialiasing: true
-    // Theme-aware background: uses system background color, but stays red for urgent items
-    // When showNumber is false (dot mode), we use highlight color directly for better saturation
-    color: showBackground ? (isUrgent ? Kirigami.Theme.negativeTextColor : (badgeRect.showNumber ? Kirigami.Theme.backgroundColor : Kirigami.Theme.highlightColor)) : "transparent"
+    // Mode 0: Theme background, red for urgent, highlightColor for dot mode
+    // Mode 1: Fixed red (negativeTextColor)
+    // Mode 2: System accent color (highlightColor)
+    // Mode 3: Custom color
+    color: {
+        if (!showBackground) return "transparent";
+        if (isUrgent) return badgeRect._negativeTextColor;
+        if (badgeColorMode === 1) return badgeRect._negativeTextColor;
+        if (badgeColorMode === 2) return badgeRect._highlightColor;
+        if (badgeColorMode === 3) return badgeRect.badgeCustomColor;
+        return badgeRect.showNumber ? badgeRect._backgroundColor : badgeRect._highlightColor;
+    }
 
-    // Bright border using highlight color, but subtle when not urgent
-    border.color: showBackground ? ((isUrgent || !badgeRect.showNumber) ? "transparent" : Kirigami.Theme.highlightColor) : "transparent"
+    // Bright border using highlight color, subtle when not urgent in Theme mode, transparent in Fixed modes
+    border.color: {
+        if (!showBackground || _nonDefaultColorMode) return "transparent";
+        return (isUrgent || !badgeRect.showNumber) ? "transparent" : badgeRect._highlightColor;
+    }
     border.width: 1 // Keep it thin and elegant
-    opacity: isUrgent ? 1 : 0.85
+    opacity: _highlightMode ? 1.0 : 0.85
     
-    visible: (number > 0) || (iconSource !== "") || (textSource !== "")
+    visible: (number > 0) || (textSource !== "")
 
     Behavior on color { ColorAnimation { duration: Kirigami.Units.shortDuration } }
     Behavior on width { NumberAnimation { duration: Kirigami.Units.shortDuration; easing.type: Easing.OutCubic } }
 
-    // Icon Layer: Using Kirigami.Icon
-    Kirigami.Icon {
-        id: icon
-        anchors.centerIn: parent
-        // Scale up the icon if there is no background to keep it visible
-        width: Math.round(parent.height * (badgeRect.showBackground ? 0.65 : 0.85))
-        height: width
-        
-        source: badgeRect.iconSource
-        visible: (badgeRect.iconSource !== "") && (badgeRect.number <= 0) && (badgeRect.textSource === "")
-        opacity: badgeRect.shadowEnabled ? 0 : 1 // Keep visible for MultiEffect source, but hide from view
-        
-        smooth: true // Enable smooth for best quality
-        roundToIconSize: false
-
-        // Adaptive icon color: white on red background, theme-aware otherwise
-        color: badgeRect.isUrgent ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
-        
-        // Visual feedback for interaction and mirroring support
-        scale: (badgeRect.mirrorText ? -1 : 1) * (badgeRect.hovered ? 1.2 : 1.0)
-        Behavior on scale { NumberAnimation { duration: Kirigami.Units.shortDuration; easing.type: Easing.OutCubic } }
-    }
 
     // Shadow Layer for the textIcon (reliable "double-text" shadow)
     Text {
@@ -125,7 +123,7 @@ Rectangle {
         
         font.pixelSize: Math.round(parent.height * 1.1) // Slightly larger than parent but not overwhelming
         font.bold: true
-        color: Kirigami.Theme.negativeTextColor
+        color: badgeRect._negativeTextColor
         
         // Scale with the base icon
         scale: badgeRect.hovered ? 1.2 : 1.0
@@ -183,44 +181,6 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
     }
 
-    // Diagonal cross line for "muted" or "disabled" states
-    Rectangle {
-        id: crossLine
-        // Anchor to textIcon to stay synchronized with the font-based symbol
-        anchors.centerIn: textIcon
-        width: Math.round(parent.height * 1.05)
-        height: Math.max(2, Math.round(parent.height * 0.15)) // Even thicker
-        color: Kirigami.Theme.negativeTextColor
-        rotation: 45 
-        visible: badgeRect.isCrossed
-        antialiasing: true
-        z: 10 // Ensure it's above the text
-        
-        // Stronger shadow/border for the line to make it pop
-        layer.enabled: badgeRect.shadowEnabled
-        layer.effect: MultiEffect {
-            shadowEnabled: true
-            shadowBlur: 1.0
-            shadowColor: "black"
-            shadowVerticalOffset: 1
-            shadowHorizontalOffset: 0
-        }
-    }
-
-    // Shadow effect for the icon when requested (e.g. for visibility on light backgrounds)
-    MultiEffect {
-        anchors.fill: icon
-        source: icon
-        visible: (badgeRect.iconSource !== "") && (badgeRect.number <= 0) && (badgeRect.textSource === "") && badgeRect.shadowEnabled
-        shadowEnabled: true
-        shadowBlur: 1.0
-        shadowHorizontalOffset: 1
-        shadowVerticalOffset: 1.5 
-        shadowColor: "black" // Solid black for maximum contrast
-        
-        scale: icon.scale
-    }
-
     // Text Layer
     Text {
         id: label
@@ -237,7 +197,7 @@ Rectangle {
         
         renderType: Text.QtRendering
         antialiasing: true
-        color: badgeRect.isUrgent ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+        color: badgeRect.textIconColor
         visible: badgeRect.number > 0 && badgeRect.showNumber
         
         text: {
