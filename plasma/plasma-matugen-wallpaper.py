@@ -111,6 +111,21 @@ def get_image(path_str, reset, jump, autoshuffle):
 
 
 def run_matugen(image, scheme, mode):
+    try:
+        with open(str(image) + ".matugenoverride") as override:
+            print("found matugenoverride color file")
+            color = override.read().strip()
+            status = subprocess.run(
+                ["matugen", "--type", scheme, "--mode", mode, "color", "hex", color]
+            )
+            if status.returncode != 0:
+                print("matugen set coverride color failed")
+                raise RuntimeError
+            return 0
+    except FileNotFoundError:
+        pass
+    except RuntimeError:
+        pass
     status = subprocess.run(
         ["matugen", "--show-source-colors", "image", image],
         capture_output=True,
