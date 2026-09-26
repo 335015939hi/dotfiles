@@ -12,7 +12,7 @@ hl.config({
     },
     general = {
         col = {
-            active_border = "0xff1a5fb4",
+            active_border = "0xfffff9f5",
         },
     },
 })
@@ -94,6 +94,7 @@ hl.unbind("XF86AudioPrev")
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
     locked = true,
 })
+hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("walker"))
 
 -- Layer rules
 hl.layer_rule({
@@ -101,7 +102,7 @@ hl.layer_rule({
     match = {
         namespace = ".*",
     },
-    ignore_alpha = 0.0,
+    ignore_alpha = 0,
 })
 
 -- Autostart
@@ -110,4 +111,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("/usr/share/libpam-kwallet-common/pam_kwallet_init")
     hl.exec_cmd("busctl --user call org.kde.kwalletd6 /modules/kwalletd6 org.kde.KWallet open sxs kdewallet 0 ''")
+    hl.exec_cmd("exec noctalia")
+    hl.exec_cmd("exec elephant")
+    hl.exec_cmd("exec walker --gapplication-service")
 end)
