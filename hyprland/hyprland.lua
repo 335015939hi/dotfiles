@@ -14,6 +14,7 @@ hl.bind("SUPER + Z", function()
 		hl.dispatch(hl.dsp.window.move({ workspace = "special", follow = false }))
 	end
 end)
+hl.bind("SUPER + Q", hl.dsp.layout("togglesplit"))
 
 require("hyprland-gui")
 

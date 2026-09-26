@@ -113,6 +113,10 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
     locked = true,
 })
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("walker"))
+hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
+hl.bind("SUPER + J", hl.dsp.focus({ direction = "down" }))
+hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }))
+hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
 
 -- Layer rules
 hl.layer_rule({
