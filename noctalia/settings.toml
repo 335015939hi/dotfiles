@@ -21,16 +21,17 @@ order = [ "default", "clock" ]
     capsule_opacity = 0.4999999888241291
     center = []
     enabled = true
-    end = [ "workspaces", "group:g1", "control-center" ]
+    end = [ "workspaces", "group:g1" ]
     margin_ends = 0
     radius = 0
     reserve_space = false
     shadow = false
     smart_auto_hide = true
-    start = [ "cpu", "temp", "ram", "network_rx", "network_tx" ]
+    start = [ "group:g3", "group:g2" ]
     thickness = 30
 
         [bar.default.dead_zone.actions]
+        left = "exec PATH=\"$HOME/.local/bin:$PATH\" exec walker"
         scroll_down = "wallpaper-previous"
         scroll_up = "wallpaper-next"
 
@@ -42,6 +43,28 @@ order = [ "default", "clock" ]
         foreground = "on_primary"
         id = "g1"
         members = [ "media", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery" ]
+        opacity = 0.5
+        padding = 6.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "primary"
+        foreground = "on_primary"
+        id = "g2"
+        members = [ "network_rx", "network_tx" ]
+        opacity = 0.5
+        padding = 6.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "primary"
+        foreground = "on_primary"
+        id = "g3"
+        members = [ "cpu", "temp", "ram" ]
         opacity = 0.5
         padding = 6.0
 
@@ -197,13 +220,13 @@ transition_on_startup = true
     interval_seconds = 180
 
     [wallpaper.default]
-    path = "/home/tony/Pictures/wallpapers/resized/IMG_1661-lonely-tree.jpg"
+    path = "/home/tony/Pictures/wallpapers/resized/IMG_1028-starship-flower.jpg"
 
     [wallpaper.last]
-    path = "/home/tony/Pictures/wallpapers/resized/IMG_1661-lonely-tree.jpg"
+    path = "/home/tony/Pictures/wallpapers/resized/IMG_1028-starship-flower.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/tony/Pictures/wallpapers/resized/IMG_1661-lonely-tree.jpg"
+    path = "/home/tony/Pictures/wallpapers/resized/IMG_1028-starship-flower.jpg"
 
 [widget.brightness]
 show_label = false
