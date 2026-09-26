@@ -39,6 +39,12 @@ hl.monitor({
     cm = "srgb",
 })
 
+-- Workspaces
+hl.workspace_rule({
+    workspace = "1",
+    persistent = true,
+})
+
 -- Keybinds
 hl.unbind("SUPER + space")
 hl.bind("SUPER + space", hl.dsp.exec_cmd("alacritty"))
