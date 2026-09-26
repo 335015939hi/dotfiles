@@ -2,7 +2,7 @@
 link hyprland .config/hypr
 
 # hyprmod, a hyprland configuration GUI
-(cd "$DIR/hyprmod" && ./install.sh)
+checkcmd hyprmod >/dev/null || (cd "$DIR/hyprmod" && ./install.sh)
 
 # elephant, a walker dependency
 function elephant_install() {
