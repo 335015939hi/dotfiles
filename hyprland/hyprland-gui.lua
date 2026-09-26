@@ -6,14 +6,26 @@ hl.config({
         blur = {
             contrast = 1.0,
             noise = 0.0,
+            passes = 4,
+            size = 2,
+            special = true,
             vibrancy = 0.0,
         },
         rounding = 12,
+        shadow = {
+            enabled = false,
+        },
+    },
+    dwindle = {
+        preserve_split = true,
     },
     general = {
+        border_size = 2,
         col = {
             active_border = "0xfffff9f5",
         },
+        gaps_in = 4,
+        gaps_out = 8,
     },
 })
 
