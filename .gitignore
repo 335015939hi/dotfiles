@@ -1,3 +1,5 @@
 /nvim/lua/lualine-matugen.lua
 /nvim/colors/matugen.vim
 /nvim/lazy-lock.json
+
+/hyprland/noctalia.lua
