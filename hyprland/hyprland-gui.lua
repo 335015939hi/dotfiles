@@ -95,6 +95,15 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
     locked = true,
 })
 
+-- Layer rules
+hl.layer_rule({
+    name = "ignore alpha",
+    match = {
+        namespace = ".*",
+    },
+    ignore_alpha = 0.0,
+})
+
 -- Autostart
 hl.on("hyprland.start", function()
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland")

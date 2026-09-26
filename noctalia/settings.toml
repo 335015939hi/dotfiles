@@ -1,0 +1,216 @@
+config_version = 14
+
+[bar]
+order = [ "default", "clock" ]
+
+    [bar.clock]
+    background_opacity = 0.4999999888241291
+    enabled = true
+    end = []
+    margin_ends = 925
+    reserve_space = false
+    shadow = false
+    start = []
+    thickness = 20
+
+    [bar.default]
+    background_opacity = 0.0
+    capsule = true
+    capsule_fill = "primary"
+    capsule_foreground = "on_primary"
+    capsule_opacity = 0.4999999888241291
+    center = []
+    enabled = true
+    end = [ "workspaces", "group:g1", "control-center" ]
+    margin_ends = 0
+    radius = 0
+    reserve_space = false
+    shadow = false
+    smart_auto_hide = true
+    start = [ "cpu", "temp", "ram", "network_rx", "network_tx" ]
+    thickness = 30
+
+        [bar.default.dead_zone.actions]
+        scroll_down = "wallpaper-previous"
+        scroll_up = "wallpaper-next"
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "primary"
+        foreground = "on_primary"
+        id = "g1"
+        members = [ "media", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery" ]
+        opacity = 0.5
+        padding = 6.0
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[dock]
+active_monitor_only = true
+background_opacity = 0.4999999888241291
+enabled = true
+icon_size = 96
+item_spacing = 12
+pinned = [ "chromium", "Alacritty" ]
+reserve_space = false
+shadow = false
+show_dots = true
+show_instance_count = false
+smart_auto_hide = true
+
+[hooks]
+wallpaper_changed = "\"$HOME/.local/bin/matugen\" image \"$NOCTALIA_WALLPAPER_PATH\""
+
+[hot_corners.top_left]
+action = "launcher"
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
+[lockscreen]
+blur_intensity = 0.0
+fingerprint = false
+tint_intensity = 0.0
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 128.0
+    box_width = 768.0
+    cx = 960.0
+    cy = 920.0
+    output = "eDP-1"
+    placement_height = 1200.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "primary"
+        background_opacity = 0.5
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 0.5
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = false
+        show_session_buttons = true
+        show_unlock_hint = false
+        show_weather = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 304.0
+    box_width = 384.0
+    cx = 960.0
+    cy = 224.0
+    output = "eDP-1"
+    placement_height = 1200.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background_color = "primary"
+        background_opacity = 0.0
+        background_padding = 0
+        center_text = true
+        clock_style = "digital"
+        color = "on_primary"
+
+[shell]
+font_family = "Cormorant Garamond"
+password_style = "random"
+polkit_agent = true
+popup_shadows = false
+telemetry_enabled = true
+
+    [shell.launcher]
+    app_grid = true
+
+    [shell.panel]
+    launcher_placement = "attached"
+    launcher_position = "auto"
+    open_near_click_control_center = true
+    open_near_click_launcher = true
+    open_near_click_session = true
+    shadow = false
+
+    [shell.shadow]
+    alpha = 0.0
+    direction = "center"
+
+[system.monitor]
+cpu_poll_seconds = 3
+disk_poll_seconds = 30
+memory_poll_seconds = 3
+
+[theme]
+source = "wallpaper"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "hyprland", "qt" ]
+
+[wallpaper]
+directory = "/home/tony/Pictures/wallpapers/resized"
+transition_duration = 700
+transition_on_startup = true
+
+    [wallpaper.automation]
+    enabled = true
+    interval_seconds = 180
+
+    [wallpaper.default]
+    path = "/home/tony/Pictures/wallpapers/resized/IMG_1661-lonely-tree.jpg"
+
+    [wallpaper.last]
+    path = "/home/tony/Pictures/wallpapers/resized/IMG_1661-lonely-tree.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/tony/Pictures/wallpapers/resized/IMG_1661-lonely-tree.jpg"
+
+[widget.brightness]
+show_label = false
+
+[widget.media]
+album_art_only = true
+hide_when_no_media = true
+
+[widget.volume]
+show_label = false
