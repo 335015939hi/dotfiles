@@ -13,3 +13,9 @@
 [submodule "hyprmod"]
 	path = hyprmod
 	url = https://github.com/BlueManCZ/hyprmod.git
+[submodule "walker"]
+	path = walker
+	url = https://github.com/abenz1267/walker.git
+[submodule "elephant"]
+	path = elephant
+	url = https://github.com/abenz1267/elephant
