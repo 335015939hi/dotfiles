@@ -118,6 +118,14 @@ hl.bind("SUPER + J", hl.dsp.focus({ direction = "down" }))
 hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }))
 hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
 
+-- Window rules
+hl.window_rule({
+    match = {
+        class = "^(dev\\.benz\\.walker)$",
+    },
+    stay_focused = true,
+})
+
 -- Layer rules
 hl.layer_rule({
     name = "ignore alpha",
