@@ -3,9 +3,17 @@ Description=no minimum size
 minsizerule=2
 wmclass=.*
 
+[94514d5a-e473-40be-b7ac-41f2c745bb40]
+Description=start tiny at mouse
+placement=7
+placementrule=2
+size=1,1
+sizerule=3
+types=1
+
 [General]
-count=2
-rules=6ebabf48-f621-4f35-a230-e56ed89b8d9d,d47c9f65-a27b-4562-84d7-2a628007ee0f
+count=3
+rules=6ebabf48-f621-4f35-a230-e56ed89b8d9d,d47c9f65-a27b-4562-84d7-2a628007ee0f,94514d5a-e473-40be-b7ac-41f2c745bb40
 
 [d47c9f65-a27b-4562-84d7-2a628007ee0f]
 Description=no title bar
