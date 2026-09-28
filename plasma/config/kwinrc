@@ -16,11 +16,6 @@ NoiseStrength=0
 Saturation=100
 WindowClasses=
 
-[Effect-cube]
-BackgroundColor=0,0,0
-CubeFaceDisplacement=214
-SkyBox=/home/tony/Downloads/blue-sea-landscape.jpg
-
 [Effect-shakecursor]
 Magnification=10
 
@@ -32,7 +27,7 @@ VerticalGap=0
 better_blur_dxEnabled=true
 blendeffectEnabled=true
 blurEnabled=false
-cubeEnabled=true
+cubeEnabled=false
 diminactiveEnabled=true
 kinetic_maximizeEnabled=false
 krohnkiteEnabled=false
