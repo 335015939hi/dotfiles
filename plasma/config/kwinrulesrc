@@ -5,11 +5,13 @@ wmclass=.*
 
 [94514d5a-e473-40be-b7ac-41f2c745bb40]
 Description=start tiny at mouse
-placement=7
+placement=6
 placementrule=2
 size=1,1
 sizerule=3
 types=1
+wmclass=^(?!org\\.kde\\.plasmashell$|org\\.kde\\.polkit-kde-authentication-agent-1$).*
+wmclassmatch=3
 
 [General]
 count=3
