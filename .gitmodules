@@ -17,3 +17,6 @@
 [submodule "plasma/plasma-panel-colorizer"]
 	path = plasma/plasma-panel-colorizer
 	url = https://github.com/luisbocanegra/plasma-panel-colorizer
+[submodule "plasma/plasmoids/deskdash"]
+	path = plasma/plasmoids/deskdash
+	url = https://github.com/335015939hi/deskdash.git
