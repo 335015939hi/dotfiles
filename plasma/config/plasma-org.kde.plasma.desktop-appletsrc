@@ -401,7 +401,7 @@ formfactor=0
 immutability=1
 lastScreen=0
 location=0
-plugin=org.kde.plasma.folder
+plugin=com.tony.deskdash
 wallpaperplugin=org.kde.image
 
 [Containments][81]
