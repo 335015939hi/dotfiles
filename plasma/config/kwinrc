@@ -7,6 +7,7 @@ Number=4
 Rows=1
 
 [Effect-better-blur-dx]
+BlurCacheIgnore=true
 BlurCacheRateLimit=50
 BlurMatching=false
 BlurNonMatching=true
