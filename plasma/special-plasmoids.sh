@@ -11,4 +11,4 @@ plasma_panel_colorizer() {
 
 plasma_panel_colorizer
 
-echo 'Please install Darkly and Klassy manually, if you have not done so already'
+echo 'Please install Better Blur Dx, Darkly and Klassy manually, if you have not done so already'
