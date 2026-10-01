@@ -526,7 +526,7 @@ memory/physical/used=255,95,95
 memory/swap/used=111,0,143
 
 [Containments][81][Applets][86][Configuration][Sensors]
-highPrioritySensorIds=["memory/physical/used","memory/swap/used"]
+highPrioritySensorIds=["memory/physical/used"]
 lowPrioritySensorIds=["memory/physical/total"]
 totalSensors=["memory/physical/usedPercent"]
 
