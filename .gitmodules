@@ -20,3 +20,9 @@
 [submodule "plasma/plasmoids/deskdash"]
 	path = plasma/plasmoids/deskdash
 	url = https://github.com/335015939hi/deskdash.git
+[submodule "plasma/plasmoids/DeskDash"]
+	path = plasma/plasmoids/DeskDash
+	url = https://github.com/335015939hi/DeskDash.git
+[submodule "plasma/plasmoids/com.tony.deskdash"]
+	path = plasma/plasmoids/com.tony.deskdash
+	url = https://github.com/335015939hi/DeskDash.git
