@@ -394,8 +394,8 @@ pluginFound=true
 AppletOrder=187;188
 
 [Containments][190]
-ItemGeometries-1920x1200=
-ItemGeometriesHorizontal=
+ItemGeometries-1920x1200=Applet-191:1328,0,512,432,0;Applet-193:432.116,768.347,176,96,0;Applet-192:1552,768,96,96,0;
+ItemGeometriesHorizontal=Applet-191:1328,0,512,432,0;Applet-193:432.116,768.347,176,96,0;Applet-192:1552,768,96,96,0;
 activityId=5a5d922d-eeaa-4dea-99f8-8498ca086c02
 formfactor=0
 immutability=1
@@ -403,6 +403,35 @@ lastScreen=0
 location=0
 plugin=com.tony.deskdash
 wallpaperplugin=org.kde.image
+
+[Containments][190][Applets][191]
+immutability=1
+plugin=org.kde.plasma.digitalclock
+
+[Containments][190][Applets][191][Configuration]
+popupHeight=375
+popupWidth=525
+
+[Containments][190][Applets][192]
+immutability=1
+plugin=com.github.aurus28
+
+[Containments][190][Applets][192][Configuration]
+popupHeight=375
+popupWidth=525
+
+[Containments][190][Applets][193]
+immutability=1
+plugin=org.kde.plasma.lock_logout
+
+[Containments][190][Applets][193][Configuration][General]
+actionsOrder=lockScreen,switchUser,requestShutDown,requestReboot,requestLogout,requestLogoutScreen,suspendToRam,suspendToDisk
+
+[Containments][190][General]
+changedPositions={"desktop:/Alacritty.desktop":["1920x1200","4","5"],"desktop:/ai.lmstudio.lm-studio.desktop":["1920x1200","2","2"],"desktop:/chromium.desktop":["1920x1200","4","7"],"desktop:/com.obsproject.Studio.desktop":["1920x1200","1","3"],"desktop:/google-chrome.desktop":["1920x1200","3","3"],"desktop:/org.kde.dolphin.desktop":["1920x1200","2","6"],"desktop:/org.kde.kinfocenter.desktop":["1920x1200","3","4"],"desktop:/org.kde.plasma-systemmonitor.desktop":["1920x1200","3","5"],"desktop:/org.kde.plasma.emojier.desktop":["1920x1200","2","4"],"desktop:/org.kde.spectacle.desktop":["1920x1200","5","6"],"desktop:/synaptic.desktop":["1920x1200","4","3"],"desktop:/systemsettings.desktop":["1920x1200","4","6"]}
+lastResolution=1920x1200
+positions={"1920x1200":["6","17","desktop:/Alacritty.desktop","4","5","desktop:/systemsettings.desktop","4","6","desktop:/ai.lmstudio.lm-studio.desktop","2","2","desktop:/chromium.desktop","4","7","desktop:/org.kde.dolphin.desktop","2","6","desktop:/google-chrome.desktop","3","3","desktop:/org.kde.plasma.emojier.desktop","2","4","desktop:/org.kde.spectacle.desktop","5","6","desktop:/org.kde.plasma-systemmonitor.desktop","3","5","desktop:/synaptic.desktop","4","3","desktop:/org.kde.kinfocenter.desktop","3","4","desktop:/com.obsproject.Studio.desktop","1","3"]}
+sortMode=-1
 
 [Containments][81]
 activityId=
@@ -602,3 +631,4 @@ AppletOrder=88;136;86;85;84;94
 
 [ScreenMapping]
 itemsOnDisabledScreens=
+screenMapping=desktop:/chromium.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/Alacritty.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/org.kde.dolphin.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/org.kde.kinfocenter.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/synaptic.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/com.obsproject.Studio.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/org.kde.spectacle.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/ai.lmstudio.lm-studio.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/org.kde.plasma.emojier.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/org.kde.plasma-systemmonitor.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/google-chrome.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/systemsettings.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02
