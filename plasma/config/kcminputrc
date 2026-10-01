@@ -1,3 +1,6 @@
+[Libinput][10248][257][FTCS1000:00 2808:0101 Touchpad]
+NaturalScroll=true
+
 [Mouse]
 X11LibInputXAccelProfileFlat=true
 cursorSize=32
