@@ -112,6 +112,9 @@ link nvim .config/nvim
 # matugen
 link matugen .config/matugen
 
+#google chrome
+linkcmd chrome-wallpaper.sh
+
 # desktop entries
 link_contents_to applications .local/share/applications
 
