@@ -21,9 +21,5 @@ vim.api.nvim_create_autocmd("Signal", {
   end,
 })
 
---vim.cmd([[
---    highlight Normal guibg=none ctermbg=none
---  highlight NormalNC guibg=none ctermbg=none
---  highlight LineNr guibg=none ctermbg=none
---  highlight SignColumn guibg=none ctermbg=none
---]])
+vim.cmd("cnoreabbrev <expr> p getcmdtype() ==# ':' && getcmdline() ==# 'p' ? 'previous' : 'p'")
+vim.cmd("cnoreabbrev <expr> wp getcmdtype() ==# ':' && getcmdline() ==# 'wp' ? 'write <Bar> previous' : 'wp'")
