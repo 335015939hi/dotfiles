@@ -20,11 +20,11 @@ style = "Bold Italic"
 
 # Primary background and foreground colors
 [colors.primary]
-background = "{{colors.background.dark.hex}}"
-foreground = "{{colors.on_background.dark.hex}}"
+background = "{{colors.surface.dark.hex}}"
+foreground = "{{colors.on_surface.dark.hex}}"
 
 [colors.cursor]
-cursor = "{{colors.tertiary.dark.hex}}"
+cursor = "{{colors.primary.dark.hex}}"
 
 # Normal color palette (used by terminal applications)
 [colors.normal]

@@ -279,6 +279,7 @@ activate widget 121=none,none,Activate Fancy Tasks NG Widget
 activate widget 129=none,none,Activate Pager Widget
 activate widget 135=none,none,Activate Application Launcher Widget
 activate widget 167=none,none,Activate Pager Widget
+activate widget 196=none,none,Activate Application Dashboard Widget
 activate widget 208=none,none,Activate Application Launcher Widget
 activate widget 31=none,none,Activate System Tray Widget
 activate widget 57=none,none,Activate System Monitor Widget

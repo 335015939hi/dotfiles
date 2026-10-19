@@ -1,4 +1,141 @@
+[ColorEffects:Disabled]
+ChangeSelectionColor=
+Color=#14140c
+ColorAmount=0
+ColorEffect=0
+ContrastAmount=0.65
+ContrastEffect=1
+Enable=
+IntensityAmount=0.1
+IntensityEffect=2
+
+[ColorEffects:Inactive]
+ChangeSelectionColor=true
+Color=#48473a
+ColorAmount=0.025
+ColorEffect=2
+ContrastAmount=0.1
+ContrastEffect=2
+Enable=false
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=#545337
+BackgroundNormal=#555409
+DecorationFocus=#cdcb75
+DecorationHover=#cdcb75
+ForegroundActive=#cdcb75
+ForegroundInactive=#cac7b6
+ForegroundLink=#cbc8a4
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#a4d0bc
+ForegroundNormal=#ffffff
+ForegroundPositive=#c0ecd8
+ForegroundVisited=#ffffff
+
+[Colors:Complementary]
+BackgroundAlternate=#7f1d1c14
+BackgroundNormal=#7f14140c
+DecorationFocus=#cdcb75
+DecorationHover=#cdcb75
+ForegroundActive=#cdcb75
+ForegroundInactive=#cac7b6
+ForegroundLink=#cbc8a4
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#a4d0bc
+ForegroundNormal=#ffffff
+ForegroundPositive=#c0ecd8
+ForegroundVisited=#ffffff
+
+[Colors:Header]
+BackgroundAlternate=#7f14140c
+BackgroundNormal=#7f222219
+DecorationFocus=#cdcb75
+DecorationHover=#cdcb75
+ForegroundActive=#cdcb75
+ForegroundInactive=#cac7b6
+ForegroundLink=#cbc8a4
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#a4d0bc
+ForegroundNormal=#e6e2d5
+ForegroundPositive=#c0ecd8
+ForegroundVisited=#ffffff
+
+[Colors:Header][Inactive]
+BackgroundAlternate=#7f555409
+BackgroundNormal=#7f14140c
+DecorationFocus=#cdcb75
+DecorationHover=#cdcb75
+ForegroundActive=#cdcb75
+ForegroundInactive=#cac7b6
+ForegroundLink=#cbc8a4
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#a4d0bc
+ForegroundNormal=#e6e2d5
+ForegroundPositive=#c0ecd8
+ForegroundVisited=#ffffff
+
+[Colors:Selection]
+BackgroundAlternate=#1d1c14
+BackgroundNormal=#cdcb75
+DecorationFocus=#cdcb75
+DecorationHover=#cdcb75
+ForegroundActive=#313000
+ForegroundInactive=#cac7b6
+ForegroundLink=#e7e4bf
+ForegroundNegative=#a7060f
+ForegroundNeutral=#a4d0bc
+ForegroundNormal=#313000
+ForegroundPositive=#315a4a
+ForegroundVisited=#ffffff
+
+[Colors:Tooltip]
+BackgroundAlternate=#7f14140c
+BackgroundNormal=#7f222219
+DecorationFocus=#cdcb75
+DecorationHover=#cdcb75
+ForegroundActive=#cdcb75
+ForegroundInactive=#cac7b6
+ForegroundLink=#cbc8a4
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#a4d0bc
+ForegroundNormal=#e6e2d5
+ForegroundPositive=#c0ecd8
+ForegroundVisited=#ffffff
+
+[Colors:View]
+BackgroundAlternate=#14ffffff
+BackgroundNormal=#7f14140c
+DecorationFocus=#555409
+DecorationHover=#313000
+ForegroundActive=#cdcb75
+ForegroundInactive=#cac7b6
+ForegroundLink=#cbc8a4
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#a4d0bc
+ForegroundNormal=#e6e2d5
+ForegroundPositive=#c0ecd8
+ForegroundVisited=#ffffff
+
+[Colors:Window]
+BackgroundAlternate=#7f555409
+BackgroundNormal=#7f14140c
+DecorationFocus=#cdcb75
+DecorationHover=#cdcb75
+ForegroundActive=#cdcb75
+ForegroundInactive=#cac7b6
+ForegroundLink=#cbc8a4
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#a4d0bc
+ForegroundNormal=#e6e2d5
+ForegroundPositive=#c0ecd8
+ForegroundVisited=#ffffff
+
 [General]
+BrowserApplication=google-chrome.desktop
+ColorScheme=matugen2
+ColorSchemeHash=fad4dc454569b966c72744f22a9266d4c96c61f8
 TerminalApplication=alacritty
 TerminalService=Alacritty.desktop
 UseSystemBell=true
@@ -14,17 +151,20 @@ smallestReadableFont=Cormorant Garamond,8,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
 Theme=Papirus-Colors
 
 [KDE]
+contrast=4
+frameContrast=0.2
 widgetStyle=Darkly
 
 [KFileDialog Settings]
 Allow Expansion=false
 Automatically select filename extension=true
-Breadcrumb Navigation=true
+Breadcrumb Navigation=false
 Decoration position=2
 Show Full Path=false
 Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
+Show hidden files=true
 Sort by=Name
 Sort directories first=true
 Sort hidden files last=false
@@ -32,5 +172,15 @@ Sort reversed=false
 Speedbar Width=140
 View Style=DetailTree
 
+[PreviewSettings]
+EnableRemoteFolderThumbnail=false
+MaximumRemoteSize=0
+
 [WM]
+activeBackground=85,84,9,127
+activeBlend=255,255,255
 activeFont=Cormorant Garamond Medium,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Regular
+activeForeground=255,255,255
+inactiveBackground=20,20,12,127
+inactiveBlend=202,199,182
+inactiveForeground=202,199,182
