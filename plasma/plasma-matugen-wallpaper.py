@@ -249,6 +249,11 @@ def main() -> int:
         autoshuffle=autoshuffle,
     )
 
+    gchromewall = subprocess.run(["chrome-wallpaper.sh", "update", str(image)])
+    if gchromewall.returncode != 0:
+        print("failed to apply google chrome wallpaper", gchromewall.returncode)
+        return gchromewall.returncode
+
     matugen = run_matugen(image=image, scheme=args.type, mode=args.mode)
     if matugen != 0:
         print("matugen failed:", matugen)

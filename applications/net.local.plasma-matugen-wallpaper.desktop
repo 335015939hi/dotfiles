@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=bash -c "source ~/.profile;plasma-matugen-wallpaper.py --reset ~/Pictures/wallpapers/resized"
+Exec=PATH="$HOME/.local/bin:$PATH" plasma-matugen-wallpaper.py --reset ~/Pictures/wallpapers/resized
 Name=change wallpaper with matugen
 NoDisplay=true
 StartupNotify=false
