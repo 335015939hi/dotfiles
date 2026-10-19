@@ -111,22 +111,22 @@ endfunction
 " =============================================================================
 
 " Normal text and the main editor background.
-call s:hi("Normal", s:fg, s:bg, "")
+call s:hi("Normal", s:fg,"none", "")
 
 " Text in the sign column.
-call s:hi("SignColumn", s:fg_dim, s:bg, "")
+call s:hi("SignColumn", s:fg_dim, "none", "")
 
 " Line numbers.
-call s:hi("LineNr", s:on_surface_variant, s:bg, "")
+call s:hi("LineNr", s:on_surface_variant, "none", "")
 
 " Current line number.
-call s:hi("CursorLineNr", s:primary, s:bg, "bold")
+call s:hi("CursorLineNr", s:on_primary_container, s:primary_container, "bold")
 
 " Current cursor line.
-call s:hi("CursorLine", "", s:surface_container, "NONE")
+call s:hi("CursorLine", "", "none", "NONE")
 
 " Current cursor column.
-call s:hi("CursorColumn", "", s:surface_container, "NONE")
+call s:hi("CursorColumn", "", "none", "NONE")
 
 " Cursors
 call s:hi("Cursor", s:on_primary, s:primary, "")
