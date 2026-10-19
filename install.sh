@@ -112,6 +112,9 @@ link nvim .config/nvim
 # matugen
 link matugen .config/matugen
 
+#google chrome
+linkcmd chrome-wallpaper.sh
+
 # KDE Plasma stuff
 # Plasma configs
 link_contents_to plasma/config .config
