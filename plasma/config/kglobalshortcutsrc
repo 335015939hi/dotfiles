@@ -303,7 +303,7 @@ switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
 [services][Alacritty.desktop]
-New=Ctrl+Alt+T\tMeta+Space
+New=none
 
 [services][net.local.alacritty.desktop]
 _launch=Ctrl+Alt+T
@@ -312,7 +312,7 @@ _launch=Ctrl+Alt+T
 _launch=Meta+W
 
 [services][net.local.x-terminal-emulator.desktop]
-_launch=Meta+Space
+_launch=Ctrl+Alt+T\tMeta+Space
 
 [services][org.kde.konsole.desktop]
 _launch=none
@@ -331,7 +331,6 @@ _launch=none
 _launch=Meta+Ctrl+Alt+Shift+Space
 
 [services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=none
 OpenWithoutScreenshot=Ctrl+$\tCtrl+%
 RecordRegion=none
 RecordScreen=none
