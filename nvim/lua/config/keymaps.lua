@@ -3,3 +3,10 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "s", "cl", { desc = "Substitute character" })
+-- Bash-style line navigation in Insert mode
+vim.keymap.set("n", "<C-a>", "<Home>", { desc = "Beginning of line" })
+vim.keymap.set("n", "<C-e>", "<End>", { desc = "End of line" })
+vim.keymap.set("i", "<C-a>", "<Home>", { desc = "Beginning of line" })
+vim.keymap.set("i", "<C-a>", "<Home>", { desc = "Beginning of line" })
+vim.keymap.set("v", "<C-a>", "<Home>", { desc = "Beginning of line" })
+vim.keymap.set("v", "<C-e>", "<End>", { desc = "End of line" })

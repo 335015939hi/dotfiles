@@ -21,5 +21,6 @@ vim.api.nvim_create_autocmd("Signal", {
   end,
 })
 
+-- p -> previous
 vim.cmd("cnoreabbrev <expr> p getcmdtype() ==# ':' && getcmdline() ==# 'p' ? 'previous' : 'p'")
 vim.cmd("cnoreabbrev <expr> wp getcmdtype() ==# ':' && getcmdline() ==# 'wp' ? 'write <Bar> previous' : 'wp'")
