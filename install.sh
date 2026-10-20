@@ -103,6 +103,9 @@ requirecmd make
 requirecmd go
 checkcmd deja || make -C "$DIR/deja" -j "$(nproc)" build && linkcmd "deja/bin/deja"
 
+#kitty
+link kitty .config/kitty
+
 # htop
 link htoprc .config/htop/htoprc
 
