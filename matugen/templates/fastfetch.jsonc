@@ -35,7 +35,10 @@
     "color": {
       "keys": "{{colors.primary.default.hex}}",
       "title": "{{colors.secondary.default.hex}}"
-    }
+    },
+    "key": {
+      "type": "both",
+    },
   }
 
 }
