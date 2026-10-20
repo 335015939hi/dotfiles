@@ -113,6 +113,12 @@ endfunction
 " Normal text and the main editor background.
 call s:hi("Normal", s:fg,"none", "")
 
+" Bold
+call s:hi("Bold", s:primary,"none", "")
+
+" Title
+call s:hi("Title", s:primary,"none", "")
+
 " Text in the sign column.
 call s:hi("SignColumn", s:fg_dim, "none", "")
 
@@ -368,6 +374,11 @@ call s:hi("markdownLinkText", s:tertiary, "", "underline")
 
 " Markdown code.
 call s:hi("markdownCode", s:on_surface_variant, s:surface_variant, "")
+
+" =============================================================================
+" Lazyvim snacks
+" =============================================================================
+call s:hi("SnacksDashboardDesc",s:primary,"none","")
 
 
 " =============================================================================
