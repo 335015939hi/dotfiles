@@ -9,7 +9,10 @@ Rows=1
 [Effect-better-blur-dx]
 BlurCacheIgnore=true
 BlurCacheRateLimit=50
+BlurDecorations=true
+BlurDocks=true
 BlurMatching=false
+BlurMenus=true
 BlurNonMatching=true
 BlurStrength=7
 NoiseStrength=0
@@ -22,6 +25,9 @@ Magnification=10
 [Effect-slide]
 HorizontalGap=0
 VerticalGap=0
+
+[Effect-translucency]
+MoveResize=63
 
 [Plugins]
 better_blur_dxEnabled=true
@@ -37,6 +43,7 @@ org.kde.kwin.direktorEnabled=false
 poloniumEnabled=true
 squashEnabled=false
 tesseraEnabled=false
+wobblywindowsEnabled=true
 
 [Script-polonium]
 BTreeInsertInActive=true
