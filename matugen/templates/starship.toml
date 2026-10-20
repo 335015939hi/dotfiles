@@ -43,9 +43,7 @@ min_time = 0
 format = "[$duration](fg:primary2) "
 show_milliseconds = true
 disabled = false
-show_notifications = true
-#longer than 50 secs
-min_time_to_notify = 50000
+show_notifications = false
 
 [directory]
 truncation_length = 5
