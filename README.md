@@ -14,7 +14,8 @@ cd dotfiles
 ./install.sh
 ```
 
-The installer creates symlinks from the repository into the appropriate locations in `$HOME`.
+The installer creates symlinks from the repository into the appropriate locations in `$HOME`.\
+Certain components may install directly or copy instead. 
 
 Existing files are backed up
 
