@@ -27,3 +27,10 @@ The common configuration and base installation.
 ### `plasma`
 
 A KDE Plasma-specific configuration built on top of `main`. 
+
+## Screenshots (of KDE Plasma, the plasma branch)
+
+![screenshot](Screenshots/Screenshot_20261020_124219.png)
+![screenshot](Screenshots/Screenshot_20261020_124257.png)
+![screenshot](Screenshots/Screenshot_20261020_125432.png)
+
