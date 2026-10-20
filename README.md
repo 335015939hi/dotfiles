@@ -14,7 +14,8 @@ cd dotfiles
 ./install.sh
 ```
 
-The installer creates symlinks from the repository into the appropriate locations in `$HOME`.
+The installer creates symlinks from the repository into the appropriate locations in `$HOME`.\
+Certain components may install directly or copy instead. 
 
 Existing files are backed up
 
@@ -27,3 +28,10 @@ The common configuration and base installation.
 ### `plasma`
 
 A KDE Plasma-specific configuration built on top of `main`. 
+
+## Screenshots (of KDE Plasma, the plasma branch)
+
+![screenshot](Screenshots/Screenshot_20261020_124219.png)
+![screenshot](Screenshots/Screenshot_20261020_124257.png)
+![screenshot](Screenshots/Screenshot_20261020_125432.png)
+
