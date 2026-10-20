@@ -55,6 +55,11 @@ input_path = "~/.config/matugen/templates/matugen.vim"
 output_path = "~/.config/nvim/colors/matugen.vim"
 post_hook = "sleep 0.1 && pkill -SIGUSR1 nvim || true"
 
+[templates.kitty]
+input_path = "~/.config/matugen/templates/kitty.conf"
+output_path = "~/.config/kitty/matugen.conf"
+
+
 [templates.papirus-folders]
 input_path = '~/.config/matugen/templates/papirus-color'
 colors_to_compare = [
