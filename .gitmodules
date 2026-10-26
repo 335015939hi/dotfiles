@@ -26,3 +26,6 @@
 [submodule "plasma/plasmoids/com.tony.deskdash"]
 	path = plasma/plasmoids/com.tony.deskdash
 	url = https://github.com/335015939hi/DeskDash.git
+[submodule "plasma/kwin-effects-better-blur-dx"]
+	path = plasma/kwin-effects-better-blur-dx
+	url = https://github.com/335015939hi/kwin-effects-better-blur-dx.git
