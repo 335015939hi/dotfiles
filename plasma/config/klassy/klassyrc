@@ -67,7 +67,7 @@ DrawTitleBarSeparator=false
 MatchTitleBarToApplicationColor=true
 SystemIconSize=SystemIcon8
 UseTitleBarColorForAllBorders=false
-WindowCornerRadius=8
+WindowCornerRadius=16
 
 [Windeco Exception 0]
 BorderSize=0
@@ -83,8 +83,10 @@ OpaqueTitleBar=false
 PreventApplyOpacityToHeader=false
 
 [WindowOutlineStyle]
-WindowOutlineAccentColorOpacityActive=50
+WindowOutlineAccentColorOpacityActive=100
+WindowOutlineContrastFromColorSchemeInactive=false
 WindowOutlineContrastOpacityActive=45
+WindowOutlineContrastOpacityInactive=0
 WindowOutlineOverlap=false
 WindowOutlineShadowColorOpacity=0
 WindowOutlineSnapToWholePixel=false

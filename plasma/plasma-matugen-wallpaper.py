@@ -222,7 +222,7 @@ def main() -> int:
         help="jump a specified amount (for reusing directory)",
     )
     parser.add_argument(
-        "-t", "--type", type=str, default="scheme-smart", help="matugen color scheme"
+        "-t", "--type", type=str, default="scheme-rainbow", help="matugen color scheme"
     )
 
     args = parser.parse_args()

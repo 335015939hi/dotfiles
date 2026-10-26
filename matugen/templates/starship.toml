@@ -3,12 +3,12 @@ palette="matugen"
 "$schema" = "https://starship.rs/config-schema.json"
 format="""
 [╭─](fg:primary)[ $username ](fg:on_primary bg:primary)[](fg:primary bg:primary_fixed)\
-[ $directory ](fg:on_primary_fixed bg:primary_fixed)[$git_branch](fg:primary bg:primary_fixed)[](fg:primary_fixed bg:primary_container)\
+[ $directory ](fg:on_primary_fixed bg:primary_fixed)[$git_branch](fg:inverse_primary bg:primary_fixed)[](fg:primary_fixed bg:primary_container)\
 [ $jobs](bg:primary_container fg:primary)\
 $fill\
-[](bg:primary_container fg:base00)[$status](bg:base00 fg:primary bold)\
-[ $cmd_duration ](bg:base00 fg:base03)\
-[](bg:base00 fg:primary)[ $hostname ](fg:on_primary bg:primary)[](fg:primary)\
+[](bg:primary_container fg:base01)[$status](bg:base01 fg:primary bold)\
+[ $cmd_duration ](bg:base01 fg:base05)\
+[](bg:base01 fg:primary)[ $hostname ](fg:on_primary bg:primary)[](fg:primary)\
 $line_break\
 [╰───](fg:primary)$character
 """
@@ -33,9 +33,9 @@ follow_symlinks = true
 
 [character]
 format = "$symbol"
-success_symbol = "[ 󱐋 ]( primary)"
-error_symbol = "[ 󱐋 ]( tertiary)"
-vimcmd_symbol = "[ 󱐋 ]( green)"
+success_symbol = "[ 󱐋 ](fg:primary)"
+error_symbol = "[ 󱐋 ](fg:tertiary)"
+vimcmd_symbol = "[ 󱐋 ](fg:green)"
 vimcmd_visual_symbol = "[󱐋](bold yellow)"
 vimcmd_replace_symbol = "[󱐋](bold purple)"
 vimcmd_replace_one_symbol = "[󱐋](bold purple)"
@@ -54,7 +54,6 @@ truncate_to_repo = true
 fish_style_pwd_dir_length = 0
 use_logical_path = false
 format = "󰉋 $read_only$path"
-repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 disabled = false
 read_only = "󰌾 "
 read_only_style = "red"
@@ -75,7 +74,7 @@ format='$symbol$branch'
 [hostname]
 ssh_only = false
 trim_at = "."
-format = "󰌢 $ssh_symbol$hostname"
+format = "󰒋 $ssh_symbol$hostname"
 ssh_symbol = "[ssh:](italic bg:primary fg:primary_container)"
 disabled = false
 
@@ -102,7 +101,7 @@ repeat_offset = 0
 disabled = true
 
 [status]
-format = " $status"
+format = " $status:$common_meaning$signal_name"
 map_symbol = false
 recognize_signal_code = true
 pipestatus = false

@@ -2,12 +2,13 @@
 ShowCopyMoveMenu=true
 
 [DetailsMode]
+LeftPadding=0
 PreviewSize=22
+RightPadding=0
 
 [General]
 AutoExpandFolders=true
 BrowseThroughArchives=true
-DynamicView=true
 EditableUrl=true
 HideXTrashFile=true
 RememberOpenedTabs=false

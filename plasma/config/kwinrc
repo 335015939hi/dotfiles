@@ -7,7 +7,6 @@ Number=4
 Rows=1
 
 [Effect-better-blur-dx]
-BlurCacheIgnore=true
 BlurCacheRateLimit=50
 BlurDecorations=true
 BlurDocks=true
@@ -34,16 +33,15 @@ better_blur_dxEnabled=true
 blendeffectEnabled=true
 blurEnabled=false
 cubeEnabled=false
-diminactiveEnabled=true
 kinetic_maximizeEnabled=false
 kinetic_squashEnabled=true
 krohnkiteEnabled=false
 kwin4_effect_geometry_changeEnabled=true
 org.kde.kwin.direktorEnabled=false
 poloniumEnabled=true
+restore-minimized-to-current-desktopEnabled=true
 squashEnabled=false
 tesseraEnabled=false
-wobblywindowsEnabled=true
 
 [Script-polonium]
 BTreeInsertInActive=true
@@ -85,9 +83,10 @@ tiles={"layoutDirection":"horizontal","tiles":[]}
 
 [Wayland]
 InputMethod[$e]=/usr/share/applications/fcitx5-wayland-launcher.desktop
-VirtualKeyboardMode=1
+VirtualKeyboardMode=0
 
 [Windows]
+ActivationDesktopPolicy=BringToCurrentDesktop
 AutoRaiseInterval=200
 DelayFocusInterval=200
 ElectricBorderDelay=170
@@ -95,6 +94,7 @@ ElectricBorderMaximize=false
 ElectricBorderTiling=false
 FocusPolicy=FocusFollowsMouse
 NextFocusPrefersMouse=true
+Placement=UnderMouse
 RollOverDesktops=true
 
 [Xwayland]

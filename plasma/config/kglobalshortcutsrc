@@ -9,7 +9,7 @@ Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,Switch to Next Keyboard Lay
 _k_friendly_name=Keyboard Layout Switcher
 
 [kaccess]
-Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Toggle Screen Reader On and Off
+Toggle Screen Reader On and Off=none,Meta+Alt+S,Toggle Screen Reader On and Off
 _k_friendly_name=Accessibility
 
 [kmix]
@@ -132,8 +132,8 @@ Switch to Screen to the Left=none,none,Switch to Screen to the Left
 Switch to Screen to the Right=none,none,Switch to Screen to the Right
 Toggle Night Color=none,none,Suspend/Resume Night Light
 Toggle Window Raise/Lower=none,none,Toggle Window Raise/Lower
-Walk Through Windows=Alt+Tab,Alt+Tab\tMeta+Tab,Walk Through Windows
-Walk Through Windows (Reverse)=Alt+Shift+Tab,Alt+Shift+Tab\tMeta+Shift+Tab,Walk Through Windows (Reverse)
+Walk Through Windows=none,Alt+Tab\tMeta+Tab,Walk Through Windows
+Walk Through Windows (Reverse)=none,Alt+Shift+Tab\tMeta+Shift+Tab,Walk Through Windows (Reverse)
 Walk Through Windows Alternative=none,none,Walk Through Windows Alternative
 Walk Through Windows Alternative (Reverse)=none,none,Walk Through Windows Alternative (Reverse)
 Walk Through Windows of Current Application=none,Alt+`\tMeta+`,Walk Through Windows of Current Application
@@ -142,7 +142,7 @@ Walk Through Windows of Current Application Alternative=none,none,Walk Through W
 Walk Through Windows of Current Application Alternative (Reverse)=none,none,Walk Through Windows of Current Application Alternative (Reverse)
 Window Above Other Windows=none,none,Keep Window Above Others
 Window Below Other Windows=none,none,Keep Window Below Others
-Window Close=Alt+F4\tMeta+X,Alt+F4,Close Window
+Window Close=Meta+X,Alt+F4,Close Window
 Window Custom Quick Tile Bottom=none,none,Custom Quick Tile Window to the Bottom
 Window Custom Quick Tile Left=none,none,Custom Quick Tile Window to the Left
 Window Custom Quick Tile Right=none,none,Custom Quick Tile Window to the Right
@@ -167,7 +167,7 @@ Window One Screen Down=none,none,Move Window One Screen Down
 Window One Screen Up=none,none,Move Window One Screen Up
 Window One Screen to the Left=none,none,Move Window One Screen to the Left
 Window One Screen to the Right=none,none,Move Window One Screen to the Right
-Window Operations Menu=Alt+F3\tMeta+S,Alt+F3,Window Menu
+Window Operations Menu=Meta+W,Alt+F3,Window Menu
 Window Pack Down=none,none,Move Window Down
 Window Pack Left=none,none,Move Window Left
 Window Pack Right=none,none,Move Window Right
@@ -182,7 +182,7 @@ Window Quick Tile Top Left=none,none,Quick Tile Window to the Top Left
 Window Quick Tile Top Right=none,none,Quick Tile Window to the Top Right
 Window Raise=none,none,Raise Window
 Window Resize=none,none,Resize Window
-Window Restore=Meta+Backspace,Meta+Backspace,Restore Window
+Window Restore=none,Meta+Backspace,Restore Window
 Window Shade=none,none,Shade Window
 Window Shrink Horizontal=none,none,Shrink Window Horizontally
 Window Shrink Vertical=none,none,Shrink Window Vertically
@@ -258,7 +258,7 @@ Sleep=Sleep,Sleep,Suspend
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
 Turn Off Screen=none,none,Turn Off Screen
 _k_friendly_name=Power Management
-powerProfile=Battery\tMeta+B,Battery\tMeta+B,Switch Power Profile
+powerProfile=Battery,Battery\tMeta+B,Switch Power Profile
 
 [plasmashell]
 Slideshow Wallpaper Next Image=none,none,Next Wallpaper Image
@@ -293,7 +293,7 @@ cyclePrevAction=none,none,Previous History Item
 edit_clipboard=none,none,Edit Contents…
 manage activities=none,Meta+Q,Show Activity Switcher
 next activity=Meta+A,none,Walk through activities
-previous activity=Meta+Shift+A,none,Walk through activities (Reverse)
+previous activity=none,none,Walk through activities (Reverse)
 repeat_action=none,none,Manually Invoke Action on Current Clipboard
 show dashboard=none,Ctrl+F12,Show Desktop
 show-barcode=none,none,Show Barcode…
@@ -309,7 +309,7 @@ New=none
 _launch=Ctrl+Alt+T
 
 [services][net.local.plasma-matugen-wallpaper.desktop]
-_launch=Meta+W
+_launch=none
 
 [services][net.local.x-terminal-emulator.desktop]
 _launch=Ctrl+Alt+T\tMeta+Space
@@ -331,9 +331,15 @@ _launch=none
 _launch=Meta+Ctrl+Alt+Shift+Space
 
 [services][org.kde.spectacle.desktop]
-OpenWithoutScreenshot=Ctrl+$\tCtrl+%
-RecordRegion=none
-RecordScreen=none
+CurrentMonitorScreenShot=none
+FullScreenScreenShot=Shift+Print\tMeta+S
+OpenWithoutScreenshot=Print\tCtrl+$\tCtrl+%
+RecordRegion=Meta+Alt+Shift+S
+RecordScreen=Meta+Alt+S
+RecordWindow=Meta+Ctrl+Alt+S
+RectangularRegionScreenShot=Meta+Shift+S\tMeta+Shift+Print
+WindowUnderCursorScreenShot=Meta+Ctrl+S\tMeta+Ctrl+Print
+_launch=none
 
 [services][org.kde.touchpadshortcuts.desktop]
 ToggleTouchpad=Touchpad Toggle

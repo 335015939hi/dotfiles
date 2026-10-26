@@ -4,13 +4,13 @@ formfactor=0
 immutability=1
 lastScreen=-1
 location=0
-plugin=com.tony.deskdash
+plugin=tony.org.kde.plasma.systemmonitor
 wallpaperplugin=
 
 [Applets][4][Configuration]
 activityId=
 formfactor=0
-geometry=0,0,954,1192
+geometry=0,0,945,1180
 immutability=1
 lastScreen=-1
 location=0
