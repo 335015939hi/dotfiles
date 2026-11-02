@@ -24,6 +24,10 @@ fi
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
+# simple funciton to start app in background
+forkoff() {
+    "$@" & disown
+}
 
 
 ##### Completion engine #####
