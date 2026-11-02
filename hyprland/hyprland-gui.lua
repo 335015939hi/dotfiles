@@ -18,6 +18,9 @@ hl.config({
     },
     dwindle = {
         preserve_split = true,
+        smart_split = true,
+        special_scale_factor = 1.0,
+        use_active_for_splits = false,
     },
     general = {
         border_size = 2,
@@ -26,6 +29,19 @@ hl.config({
         },
         gaps_in = 4,
         gaps_out = 8,
+    },
+    gestures = {
+        workspace_swipe_use_r = false,
+    },
+    input = {
+        natural_scroll = false,
+        touchpad = {
+            natural_scroll = true,
+        },
+    },
+    misc = {
+        animate_manual_resizes = true,
+        animate_mouse_windowdragging = true,
     },
 })
 
@@ -47,7 +63,7 @@ hl.workspace_rule({
 
 -- Keybinds
 hl.unbind("SUPER + space")
-hl.bind("SUPER + space", hl.dsp.exec_cmd("alacritty"))
+hl.bind("SUPER + space", hl.dsp.exec_cmd("x-terminal-emulator"))
 hl.unbind("SUPER + X")
 hl.bind("SUPER + X", hl.dsp.window.close())
 hl.unbind("SUPER + Tab")
@@ -60,10 +76,20 @@ hl.unbind("SUPER + E")
 hl.bind("SUPER + E", hl.dsp.exec_cmd("dolphin"))
 hl.unbind("SUPER + CTRL + ESCAPE")
 hl.bind("SUPER + CTRL + ESCAPE", hl.dsp.exit())
-hl.unbind("SUPER + backslash")
-hl.bind("SUPER + backslash", hl.dsp.window.float({ action = "toggle" }))
-hl.unbind("SUPER + V")
-hl.bind("SUPER + V", hl.dsp.window.fullscreen())
+hl.unbind("SUPER + F")
+hl.bind("SUPER + F", hl.dsp.window.float({ action = "toggle" }))
+hl.unbind("SUPER + C")
+hl.bind("SUPER + C", hl.dsp.window.fullscreen())
+hl.unbind("SUPER + SUPER_L")
+hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("qdbus6 org.kde.kglobalaccel /component/kwin  org.kde.kglobalaccel.Component.invokeShortcut 'Show Desktop'"))
+hl.unbind("SUPER + H")
+hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
+hl.unbind("SUPER + J")
+hl.bind("SUPER + J", hl.dsp.focus({ direction = "down" }))
+hl.unbind("SUPER + K")
+hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }))
+hl.unbind("SUPER + L")
+hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
 hl.unbind("SUPER + mouse:272")
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {
     mouse = true,
@@ -112,19 +138,8 @@ hl.unbind("XF86AudioPrev")
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
     locked = true,
 })
-hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("walker"))
-hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
-hl.bind("SUPER + J", hl.dsp.focus({ direction = "down" }))
-hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }))
-hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
-
--- Window rules
-hl.window_rule({
-    match = {
-        class = "^(dev\\.benz\\.walker)$",
-    },
-    stay_focused = true,
-})
+hl.unbind("SUPER + Q")
+hl.bind("SUPER + V", hl.dsp.layout("togglesplit"))
 
 -- Layer rules
 hl.layer_rule({
@@ -141,7 +156,4 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("/usr/share/libpam-kwallet-common/pam_kwallet_init")
     hl.exec_cmd("busctl --user call org.kde.kwalletd6 /modules/kwalletd6 org.kde.KWallet open sxs kdewallet 0 ''")
-    hl.exec_cmd("exec noctalia")
-    hl.exec_cmd("exec elephant")
-    hl.exec_cmd("exec walker --gapplication-service")
 end)

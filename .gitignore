@@ -4,4 +4,5 @@
 /kitty/matugen.conf
 /kitty/kitty.conf.bak
 
-/hyprland/noctalia.lua
+/hyprland/hyprplasma.lua
+/hyprland/libhyprplasma.so

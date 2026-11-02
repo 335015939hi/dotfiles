@@ -146,8 +146,6 @@ fi
 
 # Hyprland
 . "$DIR/hyprland.sh"
-# Noctalia
-. "$DIR/noctalia.sh"
 
 # fonts
 requirecmd fc-cache

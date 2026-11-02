@@ -14,21 +14,6 @@ hl.bind("SUPER + Z", function()
 		hl.dispatch(hl.dsp.window.move({ workspace = "special", follow = false }))
 	end
 end)
-hl.bind("SUPER + Q", hl.dsp.layout("togglesplit"))
 
-hl.window_rule({
-	match = {
-		class = "^(dev\\.benz\\.walker)$",
-		initial_title = "^(Walker)$",
-	},
-	float = true,
-	move = {
-		"(cursor_x-(window_w*0.5))",
-		"(cursor_y-(window_h*0.5))",
-	},
-})
-
+require("hyprplasma")
 require("hyprland-gui")
-
--- For Noctalia Color templates
-require("noctalia").apply_theme()
