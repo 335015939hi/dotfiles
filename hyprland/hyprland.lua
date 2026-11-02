@@ -15,5 +15,14 @@ hl.bind("SUPER + Z", function()
 	end
 end)
 
+hl.env("HYPRLAND_TRACE", "1")
+hl.config({
+	debug = {
+		disable_logs = false,
+		colored_stdout_logs = true,
+		enable_stdout_logs = true,
+	},
+})
+
 require("hyprplasma")
 require("hyprland-gui")
