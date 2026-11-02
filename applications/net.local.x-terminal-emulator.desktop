@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=x-terminal-emulator
+Exec=kitty -1
 Name=Terminal
 NoDisplay=true
 StartupNotify=false

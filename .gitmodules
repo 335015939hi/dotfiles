@@ -29,3 +29,13 @@
 [submodule "plasma/kwin-effects-better-blur-dx"]
 	path = plasma/kwin-effects-better-blur-dx
 	url = https://github.com/335015939hi/kwin-effects-better-blur-dx.git
+
+[submodule "hyprmod"]
+	path = hyprmod
+	url = https://github.com/BlueManCZ/hyprmod.git
+[submodule "walker"]
+	path = walker
+	url = https://github.com/abenz1267/walker.git
+[submodule "elephant"]
+	path = elephant
+	url = https://github.com/abenz1267/elephant

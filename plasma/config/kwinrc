@@ -7,6 +7,7 @@ Number=4
 Rows=1
 
 [Effect-better-blur-dx]
+BlurCacheIgnore=true
 BlurCacheRateLimit=50
 BlurDecorations=true
 BlurDocks=true
@@ -18,6 +19,35 @@ NoiseStrength=0
 Saturation=100
 WindowClasses=
 
+[Effect-better_wobblywindows]
+AdvancedMode=false
+Drag=90
+EmbeddedDXBlur=false
+EmbeddedDXBlurApiOnly=false
+EmbeddedDXBlurBrightness=100
+EmbeddedDXBlurClearIntermediateTargets=true
+EmbeddedDXBlurColorMode=0
+EmbeddedDXBlurContrast=100
+EmbeddedDXBlurCornerRadius=0
+EmbeddedDXBlurEdgeSoftnessPixels=0
+EmbeddedDXBlurFallbackFrames=8
+EmbeddedDXBlurHandoffFrames=8
+EmbeddedDXBlurNoiseMode=0
+EmbeddedDXBlurNoiseStrength=0
+EmbeddedDXBlurSaturation=100
+EmbeddedDXBlurSourceYFlip=true
+EmbeddedDXBlurStrength=7
+EmbeddedDXBlurUseBetterBlurDXSettings=true
+MaxPhysicsStepsPerFrame=6
+MoveFactor=10
+MoveWobble=true
+ResizeWobble=true
+Settings=Auto
+Stiffness=6
+VisualOppositePointFollowOnResize=false
+VisualOppositePointFollowStrengthPercent=8
+WobblynessLevel=2
+
 [Effect-shakecursor]
 Magnification=10
 
@@ -28,20 +58,49 @@ VerticalGap=0
 [Effect-translucency]
 MoveResize=63
 
+[Effect-wobblywindows]
+AdvancedMode=true
+Drag=64
+MoveFactor=25
+Stiffness=1
+WobblynessLevel=4
+
 [Plugins]
 better_blur_dxEnabled=true
 blendeffectEnabled=true
 blurEnabled=false
 cubeEnabled=false
+frozenappEnabled=false
+hyprkwinEnabled=true
+hyprkwinanimationsEnabled=true
 kinetic_maximizeEnabled=false
 kinetic_squashEnabled=true
 krohnkiteEnabled=false
-kwin4_effect_geometry_changeEnabled=true
+kwin4_effect_shapecornersEnabled=false
 org.kde.kwin.direktorEnabled=false
-poloniumEnabled=true
 restore-minimized-to-current-desktopEnabled=true
 squashEnabled=false
 tesseraEnabled=false
+
+[Round-Corners]
+AnimationDuration=0
+InactiveCornerRadius=16
+InactiveOutlineThickness=0
+InactiveSecondOutlineThickness=0
+OutlineThickness=0
+SecondOutlineThickness=0
+Size=16
+UseSquircleShape=false
+
+[Script-hyprkwin]
+AutoCreateDesktops=false
+BorderOnUndecorated=false
+FocusIndicator=0
+FocusOnActivate=false
+ForceSplit=0
+InactiveBorderSource=1
+PerOutputWorkspaces=false
+SpecialDim=30
 
 [Script-polonium]
 BTreeInsertInActive=true
@@ -51,7 +110,7 @@ TileResizeAmount=30
 
 [Tiling][1efc81e9-cb7d-431c-bb97-73a8f1de6639][e5ea8c90-d804-4f4f-a07b-8dea7add7eba]
 padding=10
-tiles={"layoutDirection":"horizontal","tiles":[]}
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.5},{"width":0.5}]}
 
 [Tiling][1efc81e9-cb7d-431c-bb97-73a8f1de6639][e6c18235-9bc6-441c-9d76-fc785771af9c]
 padding=10
@@ -59,7 +118,7 @@ tiles={"layoutDirection":"horizontal","tiles":[]}
 
 [Tiling][a2c14b3b-0325-4674-a6fa-235916a501f0][e5ea8c90-d804-4f4f-a07b-8dea7add7eba]
 padding=10
-tiles={"layoutDirection":"horizontal","tiles":[]}
+tiles={"layoutDirection":"floating","tiles":[]}
 
 [Tiling][a2c14b3b-0325-4674-a6fa-235916a501f0][e6c18235-9bc6-441c-9d76-fc785771af9c]
 padding=10
@@ -67,7 +126,7 @@ tiles={"layoutDirection":"horizontal","tiles":[]}
 
 [Tiling][a9e353f2-b0e2-4a62-af2a-5644e0be53fe][e5ea8c90-d804-4f4f-a07b-8dea7add7eba]
 padding=10
-tiles={"layoutDirection":"horizontal","tiles":[]}
+tiles={"layoutDirection":"floating","tiles":[]}
 
 [Tiling][a9e353f2-b0e2-4a62-af2a-5644e0be53fe][e6c18235-9bc6-441c-9d76-fc785771af9c]
 padding=10
@@ -75,7 +134,7 @@ tiles={"layoutDirection":"horizontal","tiles":[]}
 
 [Tiling][fa560970-3ead-464c-aafe-db8305cb9f4b][e5ea8c90-d804-4f4f-a07b-8dea7add7eba]
 padding=10
-tiles={"layoutDirection":"horizontal","tiles":[]}
+tiles={"layoutDirection":"floating","tiles":[]}
 
 [Tiling][fa560970-3ead-464c-aafe-db8305cb9f4b][e6c18235-9bc6-441c-9d76-fc785771af9c]
 padding=10
