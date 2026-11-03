@@ -14,6 +14,9 @@ hl.bind("SUPER + Z", function()
 		hl.dispatch(hl.dsp.window.move({ workspace = "special", follow = false }))
 	end
 end)
+hl.bind("SUPER + SUPER_L", function()
+	hl.plugin.hyprplasma.toggle_show_desktop()
+end)
 
 hl.env("HYPRLAND_TRACE", "1")
 hl.config({
@@ -26,3 +29,4 @@ hl.config({
 
 require("hyprplasma")
 require("hyprland-gui")
+require("matugen")

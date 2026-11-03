@@ -91,6 +91,12 @@ compare_to = "{{ colors.primary.default.hex }}"
 post_hook = 'papirus-folders -C {{ closest_color }} -u > /dev/null 2>&1 &'
 index = 1
 
+# Hyprland
+[templates.hyprland]
+input_path='~/.config/matugen/templates/hyprland.lua'
+output_path='~/.config/hypr/matugen.lua'
+post_hook='hyprctl reload'
+
 
 # KDE stuff
 
