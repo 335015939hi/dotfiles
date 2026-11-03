@@ -19,7 +19,7 @@ hl.config({
 			size = 2,
 			special = false,
 			vibrancy = 0.0,
-			xray = true,
+			xray = false,
 		},
 		dim_special = 0.6,
 		rounding = 16,
@@ -37,12 +37,14 @@ hl.config({
 		no_donation_nag = true,
 	},
 	general = {
-		border_size = 2,
+		border_size = 3,
 		col = {
-			active_border = "0xfffff9f5",
+			active_border = {
+				colors = { "rgba(9141acff)", "rgba(ed333bff)" },
+			},
 		},
-		gaps_in = 4,
-		gaps_out = 8,
+		gaps_in = 6,
+		gaps_out = 6,
 	},
 	gestures = {
 		workspace_swipe_use_r = false,
@@ -59,6 +61,21 @@ hl.config({
 		disable_hyprland_logo = true,
 		disable_splash_rendering = true,
 	},
+})
+
+-- Animations
+hl.animation({
+	leaf = "global",
+	enabled = true,
+	speed = 4.0,
+	bezier = "default",
+})
+hl.animation({
+	leaf = "windows",
+	enabled = true,
+	speed = 4.0,
+	bezier = "default",
+	style = "slide",
 })
 
 -- Monitors
@@ -96,8 +113,6 @@ hl.unbind("SUPER + F")
 hl.bind("SUPER + F", hl.dsp.window.float({ action = "toggle" }))
 hl.unbind("SUPER + C")
 hl.bind("SUPER + C", hl.dsp.window.fullscreen())
-hl.unbind("SUPER + SUPER_L")
-hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("hyprplasma toggle-show-desktop"))
 hl.unbind("SUPER + H")
 hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
 hl.unbind("SUPER + J")
@@ -108,6 +123,8 @@ hl.unbind("SUPER + L")
 hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
 hl.unbind("SUPER + V")
 hl.bind("SUPER + V", hl.dsp.layout("togglesplit"))
+hl.unbind("SUPER + ESCAPE")
+hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("hyprlock"))
 hl.unbind("SUPER + mouse:272")
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {
 	mouse = true,
