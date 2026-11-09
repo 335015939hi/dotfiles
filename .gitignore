@@ -5,4 +5,5 @@
 /kitty/kitty.conf.bak
 
 /hyprland/hyprplasma.lua
-/hyprland/libhyprplasma.so
+/hyprland/libhyprplasma-plugin.so
+/hyprland/matugen.lua

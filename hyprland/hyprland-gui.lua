@@ -6,97 +6,98 @@ hl.env("XCURSOR_SIZE", "32")
 
 -- Settings
 hl.config({
-	cursor = {
-		enable_hyprcursor = false,
-		persistent_warps = true,
-	},
-	decoration = {
-		blur = {
-			contrast = 1.0,
-			noise = 0.0,
-			passes = 4,
-			popups = true,
-			size = 2,
-			special = false,
-			vibrancy = 0.0,
-			xray = false,
-		},
-		dim_special = 0.6,
-		rounding = 16,
-		shadow = {
-			enabled = false,
-		},
-	},
-	dwindle = {
-		preserve_split = true,
-		smart_split = true,
-		special_scale_factor = 1.0,
-		use_active_for_splits = false,
-	},
-	ecosystem = {
-		no_donation_nag = true,
-	},
-	general = {
-		border_size = 3,
-		col = {
-			active_border = {
-				colors = { "rgba(9141acff)", "rgba(ed333bff)" },
-			},
-		},
-		gaps_in = 6,
-		gaps_out = 6,
-	},
-	gestures = {
-		workspace_swipe_use_r = false,
-	},
-	input = {
-		natural_scroll = false,
-		touchpad = {
-			natural_scroll = true,
-		},
-	},
-	misc = {
-		animate_manual_resizes = true,
-		animate_mouse_windowdragging = true,
-		disable_hyprland_logo = true,
-		disable_splash_rendering = true,
-	},
+    cursor = {
+        enable_hyprcursor = false,
+        persistent_warps = true,
+    },
+    decoration = {
+        blur = {
+            contrast = 1.0,
+            noise = 0.0,
+            passes = 3,
+            popups = true,
+            size = 5,
+            special = false,
+            vibrancy = 0.0,
+            xray = false,
+        },
+        dim_special = 0.6,
+        rounding = 16,
+        shadow = {
+            enabled = false,
+        },
+    },
+    dwindle = {
+        preserve_split = true,
+        smart_resizing = false,
+        smart_split = false,
+        special_scale_factor = 1.0,
+        use_active_for_splits = false,
+    },
+    ecosystem = {
+        no_donation_nag = true,
+    },
+    general = {
+        border_size = 3,
+        col = {
+            active_border = {
+                colors = {"rgba(74d1ffff)", "rgba(c8c2eaff)"},
+            },
+        },
+        gaps_in = 3,
+        gaps_out = 6,
+    },
+    gestures = {
+        workspace_swipe_use_r = false,
+    },
+    input = {
+        natural_scroll = false,
+        touchpad = {
+            natural_scroll = true,
+        },
+    },
+    misc = {
+        animate_manual_resizes = true,
+        animate_mouse_windowdragging = true,
+        disable_hyprland_logo = true,
+        disable_splash_rendering = true,
+    },
 })
 
 -- Animations
 hl.animation({
-	leaf = "global",
-	enabled = true,
-	speed = 4.0,
-	bezier = "default",
+    leaf = "global",
+    enabled = true,
+    speed = 4.0,
+    bezier = "default",
 })
 hl.animation({
-	leaf = "windows",
-	enabled = true,
-	speed = 4.0,
-	bezier = "default",
-	style = "slide",
+    leaf = "windows",
+    enabled = true,
+    speed = 4.0,
+    bezier = "default",
+    style = "slide",
 })
 
 -- Monitors
 hl.monitor({
-	output = "eDP-1",
-	disabled = false,
-	mode = "1920x1200@60.00Hz",
-	position = "0x0",
-	scale = 1,
-	cm = "srgb",
+    output = "eDP-1",
+    disabled = false,
+    mode = "1920x1200@60.00Hz",
+    position = "0x0",
+    scale = 1,
+    cm = "srgb",
 })
 
 -- Workspaces
 hl.workspace_rule({
-	workspace = "1",
-	persistent = true,
+    workspace = "1",
+    persistent = true,
 })
 
 -- Keybinds
 hl.unbind("SUPER + space")
-hl.bind("SUPER + space", hl.dsp.exec_cmd("x-terminal-emulator"))
+hl.bind("SUPER + space", hl.dsp.exec_cmd("exec x-terminal-emulator"))
 hl.unbind("SUPER + X")
 hl.bind("SUPER + X", hl.dsp.window.close())
 hl.unbind("SUPER + Tab")
@@ -106,7 +107,7 @@ hl.bind("SUPER + SHIFT + Tab", hl.dsp.focus({ workspace = -1 }))
 hl.unbind("SUPER + SHIFT + Z")
 hl.bind("SUPER + SHIFT + Z", hl.dsp.workspace.toggle_special(""))
 hl.unbind("SUPER + E")
-hl.bind("SUPER + E", hl.dsp.exec_cmd("dolphin"))
+hl.bind("SUPER + E", hl.dsp.exec_cmd("exec dolphin"))
 hl.unbind("SUPER + CTRL + ESCAPE")
 hl.bind("SUPER + CTRL + ESCAPE", hl.dsp.exit())
 hl.unbind("SUPER + F")
@@ -125,69 +126,74 @@ hl.unbind("SUPER + V")
 hl.bind("SUPER + V", hl.dsp.layout("togglesplit"))
 hl.unbind("SUPER + ESCAPE")
 hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("hyprlock"))
+hl.unbind("SUPER + CTRL + H")
+hl.bind("SUPER + CTRL + H", hl.dsp.window.swap({ direction = "left" }))
+hl.unbind("SUPER + CTRL + J")
+hl.bind("SUPER + CTRL + J", hl.dsp.window.swap({ direction = "down" }))
+hl.unbind("SUPER + CTRL + K")
+hl.bind("SUPER + CTRL + K", hl.dsp.window.swap({ direction = "up" }))
+hl.unbind("SUPER + CTRL + L")
+hl.bind("SUPER + CTRL + L", hl.dsp.window.swap({ direction = "right" }))
 hl.unbind("SUPER + mouse:272")
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {
-	mouse = true,
+    mouse = true,
 })
 hl.unbind("SUPER + mouse:273")
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {
-	mouse = true,
+    mouse = true,
 })
 hl.unbind("XF86AudioRaiseVolume")
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), {
-	repeating = true,
+    repeating = true,
 })
 hl.unbind("XF86AudioLowerVolume")
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), {
-	repeating = true,
+    repeating = true,
 })
 hl.unbind("XF86AudioMute")
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), {
-	repeating = true,
+    repeating = true,
 })
 hl.unbind("XF86AudioMicMute")
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), {
-	repeating = true,
+    repeating = true,
 })
 hl.unbind("XF86MonBrightnessUp")
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), {
-	repeating = true,
+    repeating = true,
 })
 hl.unbind("XF86MonBrightnessDown")
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), {
-	repeating = true,
+    repeating = true,
 })
 hl.unbind("XF86AudioNext")
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), {
-	locked = true,
+    locked = true,
 })
 hl.unbind("XF86AudioPause")
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), {
-	locked = true,
+    locked = true,
 })
 hl.unbind("XF86AudioPlay")
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), {
-	locked = true,
+    locked = true,
 })
 hl.unbind("XF86AudioPrev")
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
-	locked = true,
+    locked = true,
 })
 
 -- Layer rules
 hl.layer_rule({
-	name = "ignore alpha",
-	match = {
-		namespace = ".*",
-	},
-	ignore_alpha = 0,
+    name = "ignore alpha",
+    match = {
+        namespace = ".*",
+    },
+    ignore_alpha = 0,
 })
 
 -- Autostart
 hl.on("hyprland.start", function()
-	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland")
-	hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("/usr/share/libpam-kwallet-common/pam_kwallet_init")
-	hl.exec_cmd("busctl --user call org.kde.kwalletd6 /modules/kwalletd6 org.kde.KWallet open sxs kdewallet 0 ''")
-	hl.exec_cmd("hyprctl plugin load ~/.config/hypr/libhyprplasma-plugin.so && exec plasmashell")
+    hl.exec_cmd("hyprctl plugin load ~/.config/hypr/libhyprplasma-plugin.so")
+    hl.exec_cmd("exec fcitx5")
 end)
