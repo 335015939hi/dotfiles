@@ -118,23 +118,6 @@ link matugen .config/matugen
 #google chrome
 linkcmd chrome-wallpaper.sh
 
-# KDE Plasma stuff
-# Plasma configs
-link_contents_to plasma/config .config
-# normal plasmoids: just symlink
-link_contents_to plasma/plasmoids .local/share/plasma/plasmoids
-link_contents_to plasma/desktoptheme .local/share/plasma/desktoptheme
-link_contents_to plasma/icons .local/share/icons
-link_contents_to plasma/kwin-effects .local/share/kwin/effects
-link_contents_to plasma/kwin-scripts .local/share/kwin/scripts
-# cursor sets
-link_contents_to cursors .icons
-# build&install special plasmoids
-source "$DIR/plasma/special-plasmoids.sh"
-# my scripts
-linkcmd plasma/plasma-matugen-wallpaper.py
-link plasma/plasma-profile.sh .config/plasma-workspace/env/plasma-profile.sh
-
 # desktop entries
 link_contents_to applications .local/share/applications
 
