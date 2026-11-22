@@ -1,0 +1,20 @@
+[6ebabf48-f621-4f35-a230-e56ed89b8d9d]
+Description=no minimum size
+minsizerule=2
+wmclass=.*
+
+[94514d5a-e473-40be-b7ac-41f2c745bb40]
+Description=start at mouse
+placement=7
+placementrule=2
+types=1
+
+[General]
+count=3
+rules=6ebabf48-f621-4f35-a230-e56ed89b8d9d,d47c9f65-a27b-4562-84d7-2a628007ee0f,94514d5a-e473-40be-b7ac-41f2c745bb40
+
+[d47c9f65-a27b-4562-84d7-2a628007ee0f]
+Description=no title bar
+noborderrule=3
+types=66489
+wmclass=.*
