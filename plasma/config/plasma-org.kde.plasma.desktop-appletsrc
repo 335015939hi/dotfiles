@@ -127,13 +127,17 @@ plugin=org.kde.plasma.bluetooth
 immutability=1
 plugin=org.kde.plasma.mediacontroller
 
+[Containments][174][Applets][267][Applets][295]
+immutability=1
+plugin=org.kde.plasma.cameraindicator
+
 [Containments][174][Applets][267][ConfigDialog]
-DialogHeight=585
-DialogWidth=1902
+DialogHeight=1182
+DialogWidth=945
 
 [Containments][174][Applets][267][General]
-extraItems=org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.kscreen,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.plasma.printmanager,org.kde.kupapplet,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.weather,org.kde.plasma.devicenotifier,org.kde.plasma.brightness,org.kde.plasma.notifications
-hiddenItems=org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.kscreen,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.kupapplet,org.kde.plasma.clipboard,com.github.boraerciyas.controlcentre,Fcitx,org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.weather,org.kde.plasma.devicenotifier,org.kde.plasma.brightness,org.kde.plasma.notifications,qBittorrent
+extraItems=org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.kscreen,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.plasma.printmanager,org.kde.kupapplet,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.weather,org.kde.plasma.devicenotifier,org.kde.plasma.brightness,org.kde.plasma.notifications,org.kde.plasma.cameraindicator,org.kde.plasma.keyboardindicator
+hiddenItems=org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.kscreen,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.kupapplet,org.kde.plasma.clipboard,com.github.boraerciyas.controlcentre,Fcitx,org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.weather,org.kde.plasma.devicenotifier,org.kde.plasma.brightness,org.kde.plasma.notifications,qBittorrent,org.kde.plasma.cameraindicator,plasmashell_microphone,Magnitude_status_icon_2
 iconSpacing=1
 knownItems=org.kde.kupapplet,org.kde.plasma.vault,org.kde.plasma.bluetooth,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.weather,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.keyboardlayout,org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness
 reverseIconOrder=true
@@ -147,9 +151,9 @@ AppletOrder=176;267;175
 ItemGeometries-1206x1180=Applet-205:0,0,272,160,0;Applet-287:0,160,272,64,0;Applet-206:0,224,272,112,0;Applet-288:0,336,272,160,0;Applet-207:0,496,272,192,0;Applet-208:0,688,272,192,0;Applet-286:0,912,400,160,0;Applet-194:0,1072,1200,80,0;Applet-191:560,0,640,320,0;Applet-209:608,816,592,80,0;Applet-196:912,976,112,96,0;Applet-197:1104,896,96,96,0;
 ItemGeometries-1280x800=Applet-205:0,0,272,160,0;Applet-287:0,160,272,64,0;Applet-206:0,224,272,112,0;Applet-288:0,336,272,160,0;Applet-207:0,496,272,192,0;Applet-208:0,688,272,192,0;Applet-286:0,692.48,400,80,0;Applet-194:0,1088,1920,80,0;Applet-191:652.8,0,640,320,0;Applet-197:1196.8,692.16,96,80,0;Applet-196:912,694.08,112,80,0;Applet-209:700.8,615.68,592,80,0;
 ItemGeometries-1920x1080=Applet-191:0,0,176,80,0;Applet-194:0,80,96,96,0;Applet-196:0,176,96,96,0;Applet-205:0,272,272,144,0;Applet-207:48,416,192,160,0;Applet-197:176,0,96,96,0;Applet-209:0,576,160,96,0;Applet-287:0,672,224,96,0;Applet-206:272,0,160,112,0;Applet-208:96,112,192,160,0;Applet-286:592,0,96,112,0;Applet-288:688,0,224,160,0;
-ItemGeometries-1920x1200=Applet-205:0,0,272,160,0;Applet-287:0,160,272,64,0;Applet-206:0,224,272,112,0;Applet-288:0,336,272,160,0;Applet-207:0,496,272,192,0;Applet-208:0,688,272,192,0;Applet-286:0,912,400,160,0;Applet-194:0,1088,1920,80,0;Applet-191:1280,0,640,320,0;Applet-291:560,832,96,96,0;Applet-197:1824,896,96,96,0;Applet-196:912,992,112,96,0;Applet-209:1328,992,592,80,0;
+ItemGeometries-1920x1200=Applet-205:0,0,272,160,0;Applet-287:0,160,272,64,0;Applet-206:0,224,272,112,0;Applet-288:0,336,272,160,0;Applet-207:0,496,272,192,0;Applet-208:0,688,272,192,0;Applet-286:0,912,400,160,0;Applet-194:0,1088,1920,80,0;Applet-306:480,288,96,96,0;Applet-304:592,304,96,96,0;Applet-301:688,304,96,96,0;Applet-296:432,416,96,96,0;Applet-297:528,432,96,96,0;Applet-298:464,624,96,96,0;Applet-300:512,528,96,96,0;Applet-292:560,640,96,80,0;Applet-294:624,400,96,96,0;Applet-303:608,544,96,96,0;Applet-291:544,720,96,96,0;Applet-293:704,576,96,96,0;Applet-299:768,448,96,96,0;Applet-302:656,672,96,96,0;Applet-191:1280,0,640,320,0;Applet-196:912,992,112,96,0;Applet-197:1568,736,128,144,0;Applet-209:1328,992,592,80,0;
 ItemGeometries-945x1180=Applet-191:0,0,176,80,0;Applet-194:0,80,96,96,0;Applet-196:0,176,96,96,0;Applet-205:0,272,272,144,0;Applet-207:48,416,192,160,0;Applet-197:176,0,96,96,0;Applet-209:0,576,96,96,0;Applet-287:0,672,224,96,0;Applet-206:272,0,160,112,0;Applet-208:96,112,192,160,0;Applet-286:592,0,96,112,0;Applet-288:688,0,224,160,0;
-ItemGeometriesHorizontal=Applet-205:0,0,272,160,0;Applet-287:0,160,272,64,0;Applet-206:0,224,272,112,0;Applet-288:0,336,272,160,0;Applet-207:0,496,272,192,0;Applet-208:0,688,272,192,0;Applet-286:0,912,400,160,0;Applet-194:0,1088,1920,80,0;Applet-191:1280,0,640,320,0;Applet-291:560,832,96,96,0;Applet-197:1824,896,96,96,0;Applet-196:912,992,112,96,0;Applet-209:1328,992,592,80,0;
+ItemGeometriesHorizontal=Applet-205:0,0,272,160,0;Applet-287:0,160,272,64,0;Applet-206:0,224,272,112,0;Applet-288:0,336,272,160,0;Applet-207:0,496,272,192,0;Applet-208:0,688,272,192,0;Applet-286:0,912,400,160,0;Applet-194:0,1088,1920,80,0;Applet-306:480,288,96,96,0;Applet-304:592,304,96,96,0;Applet-301:688,304,96,96,0;Applet-296:432,416,96,96,0;Applet-297:528,432,96,96,0;Applet-298:464,624,96,96,0;Applet-300:512,528,96,96,0;Applet-292:560,640,96,80,0;Applet-294:624,400,96,96,0;Applet-303:608,544,96,96,0;Applet-291:544,720,96,96,0;Applet-293:704,576,96,96,0;Applet-299:768,448,96,96,0;Applet-302:656,672,96,96,0;Applet-191:1280,0,640,320,0;Applet-196:912,992,112,96,0;Applet-197:1568,736,128,144,0;Applet-209:1328,992,592,80,0;
 ItemGeometriesVertical=Applet-191:0,0,176,80,0;Applet-194:0,80,96,96,0;Applet-196:0,176,96,96,0;Applet-205:0,272,272,144,0;Applet-207:48,416,192,160,0;Applet-197:176,0,96,96,0;Applet-209:0,576,96,96,0;Applet-287:0,672,224,96,0;Applet-206:272,0,160,112,0;Applet-208:96,112,192,160,0;Applet-286:592,0,96,112,0;Applet-288:688,0,224,160,0;
 activityId=5a5d922d-eeaa-4dea-99f8-8498ca086c02
 formfactor=0
@@ -218,11 +222,12 @@ popupHeight=494
 popupWidth=665
 
 [Containments][290][Applets][196][Configuration][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
+DialogHeight=1182
+DialogWidth=1902
 
 [Containments][290][Applets][196][Configuration][General]
 favoritesPortedToKAstats=true
+highlightNewlyInstalledApps=false
 icon=debian-logo
 systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
 
@@ -231,8 +236,8 @@ immutability=1
 plugin=com.github.aurus28
 
 [Containments][290][Applets][197][Configuration]
-popupHeight=653
-popupWidth=987
+popupHeight=651
+popupWidth=935
 
 [Containments][290][Applets][197][Configuration][ConfigDialog]
 DialogHeight=806
@@ -521,20 +526,124 @@ plugin=org.kde.plasma.icon
 localPath=/home/tony/.local/share/plasma_icons/io.github.bluemancz.hyprmod (1).desktop
 url=file:///home/tony/.local/share/applications/io.github.bluemancz.hyprmod.desktop
 
+[Containments][290][Applets][292]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][292][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/Waydroid (1).desktop
+url=file:///usr/share/applications/Waydroid.desktop
+
+[Containments][290][Applets][293]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][293][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/google-chrome (1).desktop
+url=file:///usr/share/applications/google-chrome.desktop
+
+[Containments][290][Applets][294]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][294][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/org.kde.dolphin (1).desktop
+url=file:///usr/share/applications/org.kde.dolphin.desktop
+
+[Containments][290][Applets][296]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][296][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/org.kde.kinfocenter (1).desktop
+url=file:///usr/share/applications/org.kde.kinfocenter.desktop
+
+[Containments][290][Applets][297]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][297][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/com.obsproject.Studio (1).desktop
+url=file:///usr/share/applications/com.obsproject.Studio.desktop
+
+[Containments][290][Applets][298]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][298][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/calibre-gui (1).desktop
+url=file:///usr/share/applications/calibre-gui.desktop
+
+[Containments][290][Applets][299]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][299][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/systemsettings (1).desktop
+url=file:///usr/share/applications/systemsettings.desktop
+
+[Containments][290][Applets][300]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][300][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/synaptic (1).desktop
+url=file:///usr/share/applications/synaptic.desktop
+
+[Containments][290][Applets][301]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][301][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/org.kde.kmenuedit (1).desktop
+url=file:///usr/share/applications/org.kde.kmenuedit.desktop
+
+[Containments][290][Applets][302]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][302][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/org.kde.plasma.emojier (1).desktop
+url=file:///usr/share/applications/org.kde.plasma.emojier.desktop
+
+[Containments][290][Applets][303]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][303][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/org.kde.kcalc (1).desktop
+url=file:///usr/share/applications/org.kde.kcalc.desktop
+
+[Containments][290][Applets][304]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][304][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/io.github.centuryofimage.nicegal (1).desktop
+url=file:///home/tony/.local/share/flatpak/exports/share/applications/io.github.centuryofimage.nicegal.desktop
+
+[Containments][290][Applets][306]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][290][Applets][306][Configuration]
+localPath=/home/tony/.local/share/plasma_icons/kitty (1).desktop
+url=file:///home/tony/.local/share/applications/kitty.desktop
+
 [Containments][290][ConfigDialog]
 DialogHeight=630
 DialogWidth=810
 
 [Containments][290][General]
-changedPositions={"desktop:/Alacritty.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","4","5"],"desktop:/ai.lmstudio.lm-studio.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","4","5"],"desktop:/chrome-mjoklplbddabcmpepnokjaffbmgbkkgg-Default.desktop":["1920x1200","0","0"],"desktop:/chromium.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","3","7"],"desktop:/com.obsproject.Studio.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","3","4"],"desktop:/google-chrome.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","5","6"],"desktop:/io.github.centuryofimage.nicegal.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","6","5"],"desktop:/kitty.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","6","6"],"desktop:/org.kde.dolphin.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","3","6"],"desktop:/org.kde.kinfocenter.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","4","4"],"desktop:/org.kde.plasma-systemmonitor.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","4","6"],"desktop:/org.kde.plasma.emojier.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","3","5"],"desktop:/org.kde.spectacle.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","5","5"],"desktop:/synaptic.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","6","4"],"desktop:/systemsettings.desktop":["1920x1200,1206x1180,1920x1080,1280x800,945x1180,960x600","5","4"]}
+changedPositions={"desktop:/Alacritty.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","4","5"],"desktop:/Google Chrome":["1920x1200","5","6"],"desktop:/ai.lmstudio.lm-studio.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","4","5"],"desktop:/chrome-mjoklplbddabcmpepnokjaffbmgbkkgg-Default.desktop":["1920x1200","0","0"],"desktop:/chromium.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","3","7"],"desktop:/com.obsproject.Studio.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","3","4"],"desktop:/io.github.centuryofimage.nicegal.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","6","5"],"desktop:/kitty.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","6","6"],"desktop:/org.kde.dolphin.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","3","6"],"desktop:/org.kde.kinfocenter.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","4","4"],"desktop:/org.kde.plasma-systemmonitor.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","4","6"],"desktop:/org.kde.plasma.emojier.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","3","5"],"desktop:/org.kde.spectacle.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","5","5"],"desktop:/synaptic.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","6","4"],"desktop:/systemsettings.desktop":["960x600,1920x1200,1206x1180,945x1180,1920x1080,1280x800","5","4"]}
 lastResolution=1920x1200
-positions={"1206x1180":["7","11","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/org.kde.dolphin.desktop","3","6","desktop:/kitty.desktop","6","6","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/systemsettings.desktop","5","4","desktop:/chromium.desktop","3","7","desktop:/org.kde.spectacle.desktop","5","5","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/Alacritty.desktop","4","5","desktop:/org.kde.plasma-systemmonitor.desktop","4","6","desktop:/google-chrome.desktop","5","6","desktop:/synaptic.desktop","6","4"],"1280x800":["5","11","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/synaptic.desktop","6","4","desktop:/systemsettings.desktop","5","4","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/chromium.desktop","3","7","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/google-chrome.desktop","5","6","desktop:/org.kde.dolphin.desktop","3","6","desktop:/kitty.desktop","6","6","desktop:/org.kde.spectacle.desktop","5","5","desktop:/Alacritty.desktop","4","5","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/org.kde.plasma-systemmonitor.desktop","4","6"],"1920x1080":["1","17","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/synaptic.desktop","6","4","desktop:/google-chrome.desktop","5","6","desktop:/org.kde.plasma-systemmonitor.desktop","4","6","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/chromium.desktop","3","7","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/Alacritty.desktop","4","5","desktop:/kitty.desktop","6","6","desktop:/org.kde.dolphin.desktop","3","6","desktop:/org.kde.spectacle.desktop","5","5","desktop:/systemsettings.desktop","5","4","desktop:/org.kde.plasma.emojier.desktop","3","5"],"1920x1200":["7","17","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/Alacritty.desktop","4","5","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/chromium.desktop","3","7","desktop:/synaptic.desktop","6","4","desktop:/chrome-mjoklplbddabcmpepnokjaffbmgbkkgg-Default.desktop","0","0","desktop:/org.kde.dolphin.desktop","3","6","desktop:/systemsettings.desktop","5","4","desktop:/google-chrome.desktop","5","6","desktop:/kitty.desktop","6","6","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/org.kde.spectacle.desktop","5","5","desktop:/org.kde.plasma-systemmonitor.desktop","4","6","desktop:/org.kde.kinfocenter.desktop","4","4"],"945x1180":["7","8","desktop:/org.kde.dolphin.desktop","3","6","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/chromium.desktop","3","7","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/synaptic.desktop","6","4","desktop:/kitty.desktop","6","6","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/org.kde.plasma-systemmonitor.desktop","4","6","desktop:/systemsettings.desktop","5","4","desktop:/org.kde.spectacle.desktop","5","5","desktop:/google-chrome.desktop","5","6","desktop:/Alacritty.desktop","4","5"],"960x600":["14","8","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/synaptic.desktop","6","4","desktop:/systemsettings.desktop","5","4","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/chromium.desktop","3","7","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/google-chrome.desktop","5","6","desktop:/org.kde.dolphin.desktop","3","6","desktop:/kitty.desktop","6","6","desktop:/org.kde.spectacle.desktop","5","5","desktop:/Alacritty.desktop","4","5","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/org.kde.plasma-systemmonitor.desktop","4","6"]}
+positions={"1206x1180":["7","11","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/org.kde.dolphin.desktop","3","6","desktop:/kitty.desktop","6","6","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/systemsettings.desktop","5","4","desktop:/chromium.desktop","3","7","desktop:/org.kde.spectacle.desktop","5","5","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/Alacritty.desktop","4","5","desktop:/org.kde.plasma-systemmonitor.desktop","4","6","desktop:/google-chrome.desktop","5","6","desktop:/synaptic.desktop","6","4"],"1280x800":["5","11","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/synaptic.desktop","6","4","desktop:/systemsettings.desktop","5","4","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/chromium.desktop","3","7","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/google-chrome.desktop","5","6","desktop:/org.kde.dolphin.desktop","3","6","desktop:/kitty.desktop","6","6","desktop:/org.kde.spectacle.desktop","5","5","desktop:/Alacritty.desktop","4","5","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/org.kde.plasma-systemmonitor.desktop","4","6"],"1920x1080":["1","17","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/synaptic.desktop","6","4","desktop:/google-chrome.desktop","5","6","desktop:/org.kde.plasma-systemmonitor.desktop","4","6","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/chromium.desktop","3","7","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/Alacritty.desktop","4","5","desktop:/kitty.desktop","6","6","desktop:/org.kde.dolphin.desktop","3","6","desktop:/org.kde.spectacle.desktop","5","5","desktop:/systemsettings.desktop","5","4","desktop:/org.kde.plasma.emojier.desktop","3","5"],"1920x1200":["1","17","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/org.kde.plasma-systemmonitor.desktop","4","6","desktop:/synaptic.desktop","6","4","desktop:/systemsettings.desktop","5","4","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/Alacritty.desktop","4","5","desktop:/Google Chrome","5","6","desktop:/chrome-mjoklplbddabcmpepnokjaffbmgbkkgg-Default.desktop","0","0","desktop:/org.kde.spectacle.desktop","5","5","desktop:/chromium.desktop","3","7","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/kitty.desktop","6","6","desktop:/google-chrome.desktop","0","0","desktop:/org.kde.dolphin.desktop","3","6"],"945x1180":["7","8","desktop:/org.kde.dolphin.desktop","3","6","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/chromium.desktop","3","7","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/synaptic.desktop","6","4","desktop:/kitty.desktop","6","6","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/org.kde.plasma-systemmonitor.desktop","4","6","desktop:/systemsettings.desktop","5","4","desktop:/org.kde.spectacle.desktop","5","5","desktop:/google-chrome.desktop","5","6","desktop:/Alacritty.desktop","4","5"],"960x600":["14","8","desktop:/io.github.centuryofimage.nicegal.desktop","6","5","desktop:/synaptic.desktop","6","4","desktop:/systemsettings.desktop","5","4","desktop:/com.obsproject.Studio.desktop","3","4","desktop:/org.kde.plasma.emojier.desktop","3","5","desktop:/chromium.desktop","3","7","desktop:/ai.lmstudio.lm-studio.desktop","4","5","desktop:/google-chrome.desktop","5","6","desktop:/org.kde.dolphin.desktop","3","6","desktop:/kitty.desktop","6","6","desktop:/org.kde.spectacle.desktop","5","5","desktop:/Alacritty.desktop","4","5","desktop:/org.kde.kinfocenter.desktop","4","4","desktop:/org.kde.plasma-systemmonitor.desktop","4","6"]}
 sortMode=-1
 
 [Containments][290][Wallpaper][org.kde.image][General]
-Image=file:///home/tony/Projects/dotfiles/wallpapers/resized/IMG_1366-from-signal-mountain.jpg
+Image=file:///home/tony/Projects/dotfiles/wallpapers/resized/IMG_3406-valley.jpg
 SlidePaths=/usr/share/wallpapers/
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/org.kde.plasma-systemmonitor.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/org.kde.dolphin.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/io.github.centuryofimage.nicegal.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/systemsettings.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/synaptic.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/com.obsproject.Studio.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/org.kde.spectacle.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/google-chrome.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/org.kde.kinfocenter.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/kitty.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/org.kde.plasma.emojier.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02,desktop:/ai.lmstudio.lm-studio.desktop,0,5a5d922d-eeaa-4dea-99f8-8498ca086c02
+screenMapping=

@@ -1,3 +1,6 @@
+[$Version]
+update_info=filepicker.upd:filepicker-remove-old-previews-entry
+
 [ColorEffects:Disabled]
 ChangeSelectionColor=
 Color=#131313
@@ -21,121 +24,121 @@ IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=#415460
-BackgroundNormal=#005976
-DecorationFocus=#74d1ff
-DecorationHover=#74d1ff
-ForegroundActive=#74d1ff
+BackgroundAlternate=#4f543a
+BackgroundNormal=#475800
+DecorationFocus=#b8d166
+DecorationHover=#b8d166
+ForegroundActive=#b8d166
 ForegroundInactive=#c6c6c6
-ForegroundLink=#b5c9d7
+ForegroundLink=#c4caa9
 ForegroundNegative=#ffb4ab
-ForegroundNeutral=#c8c2ea
+ForegroundNeutral=#a1d0c5
 ForegroundNormal=#ffffff
-ForegroundPositive=#e5deff
+ForegroundPositive=#bcece1
 ForegroundVisited=#ffffff
 
 [Colors:Complementary]
 BackgroundAlternate=#7f1c1c1c
 BackgroundNormal=#7f131313
-DecorationFocus=#74d1ff
-DecorationHover=#74d1ff
-ForegroundActive=#74d1ff
+DecorationFocus=#b8d166
+DecorationHover=#b8d166
+ForegroundActive=#b8d166
 ForegroundInactive=#c6c6c6
-ForegroundLink=#b5c9d7
+ForegroundLink=#c4caa9
 ForegroundNegative=#ffb4ab
-ForegroundNeutral=#c8c2ea
+ForegroundNeutral=#a1d0c5
 ForegroundNormal=#ffffff
-ForegroundPositive=#e5deff
+ForegroundPositive=#bcece1
 ForegroundVisited=#ffffff
 
 [Colors:Header]
 BackgroundAlternate=#7f131313
 BackgroundNormal=#7f212121
-DecorationFocus=#74d1ff
-DecorationHover=#74d1ff
-ForegroundActive=#74d1ff
+DecorationFocus=#b8d166
+DecorationHover=#b8d166
+ForegroundActive=#b8d166
 ForegroundInactive=#c6c6c6
-ForegroundLink=#b5c9d7
+ForegroundLink=#c4caa9
 ForegroundNegative=#ffb4ab
-ForegroundNeutral=#c8c2ea
+ForegroundNeutral=#a1d0c5
 ForegroundNormal=#e2e2e2
-ForegroundPositive=#e5deff
+ForegroundPositive=#bcece1
 ForegroundVisited=#ffffff
 
 [Colors:Header][Inactive]
-BackgroundAlternate=#7f005976
+BackgroundAlternate=#7f475800
 BackgroundNormal=#7f131313
-DecorationFocus=#74d1ff
-DecorationHover=#74d1ff
-ForegroundActive=#74d1ff
+DecorationFocus=#b8d166
+DecorationHover=#b8d166
+ForegroundActive=#b8d166
 ForegroundInactive=#c6c6c6
-ForegroundLink=#b5c9d7
+ForegroundLink=#c4caa9
 ForegroundNegative=#ffb4ab
-ForegroundNeutral=#c8c2ea
+ForegroundNeutral=#a1d0c5
 ForegroundNormal=#e2e2e2
-ForegroundPositive=#e5deff
+ForegroundPositive=#bcece1
 ForegroundVisited=#ffffff
 
 [Colors:Selection]
 BackgroundAlternate=#1c1c1c
-BackgroundNormal=#74d1ff
-DecorationFocus=#74d1ff
-DecorationHover=#74d1ff
-ForegroundActive=#003346
+BackgroundNormal=#b8d166
+DecorationFocus=#b8d166
+DecorationHover=#b8d166
+ForegroundActive=#283300
 ForegroundInactive=#c6c6c6
-ForegroundLink=#d1e6f3
+ForegroundLink=#e0e6c4
 ForegroundNegative=#a7060f
-ForegroundNeutral=#c8c2ea
-ForegroundNormal=#003346
-ForegroundPositive=#524e70
+ForegroundNeutral=#a1d0c5
+ForegroundNormal=#283300
+ForegroundPositive=#2d5a51
 ForegroundVisited=#ffffff
 
 [Colors:Tooltip]
 BackgroundAlternate=#7f131313
 BackgroundNormal=#7f212121
-DecorationFocus=#74d1ff
-DecorationHover=#74d1ff
-ForegroundActive=#74d1ff
+DecorationFocus=#b8d166
+DecorationHover=#b8d166
+ForegroundActive=#b8d166
 ForegroundInactive=#c6c6c6
-ForegroundLink=#b5c9d7
+ForegroundLink=#c4caa9
 ForegroundNegative=#ffb4ab
-ForegroundNeutral=#c8c2ea
+ForegroundNeutral=#a1d0c5
 ForegroundNormal=#e2e2e2
-ForegroundPositive=#e5deff
+ForegroundPositive=#bcece1
 ForegroundVisited=#ffffff
 
 [Colors:View]
 BackgroundAlternate=#14ffffff
 BackgroundNormal=#7f131313
-DecorationFocus=#005976
-DecorationHover=#003346
-ForegroundActive=#74d1ff
+DecorationFocus=#475800
+DecorationHover=#283300
+ForegroundActive=#b8d166
 ForegroundInactive=#c6c6c6
-ForegroundLink=#b5c9d7
+ForegroundLink=#c4caa9
 ForegroundNegative=#ffb4ab
-ForegroundNeutral=#c8c2ea
+ForegroundNeutral=#a1d0c5
 ForegroundNormal=#e2e2e2
-ForegroundPositive=#e5deff
+ForegroundPositive=#bcece1
 ForegroundVisited=#ffffff
 
 [Colors:Window]
-BackgroundAlternate=#7f005976
+BackgroundAlternate=#7f475800
 BackgroundNormal=#7f131313
-DecorationFocus=#74d1ff
-DecorationHover=#74d1ff
-ForegroundActive=#74d1ff
+DecorationFocus=#b8d166
+DecorationHover=#b8d166
+ForegroundActive=#b8d166
 ForegroundInactive=#c6c6c6
-ForegroundLink=#b5c9d7
+ForegroundLink=#c4caa9
 ForegroundNegative=#ffb4ab
-ForegroundNeutral=#c8c2ea
+ForegroundNeutral=#a1d0c5
 ForegroundNormal=#e2e2e2
-ForegroundPositive=#e5deff
+ForegroundPositive=#bcece1
 ForegroundVisited=#ffffff
 
 [General]
 BrowserApplication=google-chrome.desktop
-ColorScheme=matugen1
-ColorSchemeHash=aa0969ecdbddc32dac966f00e829c76da66c228d
+ColorScheme=matugen2
+ColorSchemeHash=ff846a72c21014d1819ef0c76f9d2cde5ec89588
 TerminalApplication=kitty
 TerminalService=kitty.desktop
 UseSystemBell=true
@@ -158,7 +161,7 @@ widgetStyle=Darkly
 [KFileDialog Settings]
 Allow Expansion=false
 Automatically select filename extension=true
-Breadcrumb Navigation=false
+Breadcrumb Navigation=true
 Decoration position=2
 Show Full Path=false
 Show Inline Previews=true
@@ -180,7 +183,7 @@ EnableRemoteFolderThumbnail=false
 MaximumRemoteSize=0
 
 [WM]
-activeBackground=0,89,118,127
+activeBackground=71,88,0,127
 activeBlend=255,255,255
 activeFont=Cormorant Garamond Medium,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Regular
 activeForeground=255,255,255

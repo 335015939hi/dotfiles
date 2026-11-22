@@ -429,6 +429,9 @@ toggle do not disturb=none,none,Toggle do not disturb
 [services][Alacritty.desktop]
 New=none
 
+[services][kitty.desktop]
+_launch=Ctrl+Alt+T\tMeta+Space
+
 [services][net.local.alacritty.desktop]
 _launch=Ctrl+Alt+T
 

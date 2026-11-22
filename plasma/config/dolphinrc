@@ -6,6 +6,9 @@ LeftPadding=0
 PreviewSize=22
 RightPadding=0
 
+[ExtractDialog]
+1920x1200 screen: Window-Maximized=true
+
 [General]
 AutoExpandFolders=true
 BrowseThroughArchives=true
